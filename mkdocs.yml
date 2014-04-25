@@ -1,0 +1,16 @@
+site_name: CryptoCoinJS
+site_url: http://cryptocoinjs.com
+site_description: CryptoCoinJS Bitcoin and Crypto Currency JavaScript Library
+
+repo_url: https://github.com/cryptocoinjs/
+
+pages:
+- ['index.md', 'Home']
+- ['modules/coinkey.md', 'Modules', 'CoinKey - Private Keys / Addresses']
+- ['faq.md', 'FAQ']
+- ['team.md', 'Team']
+
+theme: flatly
+
+docs_dir: 'markdown'
+site_dir: './'
