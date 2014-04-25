@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/coinkey/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <title>CoinKey - Private Keys / Addresses - CryptoCoinJS</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">CryptoCoinJS</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href="./">CoinKey - Private Keys / Addresses</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a rel="prev" >
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/cryptocoinjs/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#coinkey">coinkey</a></li>
+        
+            <li><a href="#why">Why?</a></li>
+        
+            <li><a href="#installation">Installation</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#browser-support">Browser Support</a></li>
+        
+            <li><a href="#references">References</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="coinkey">coinkey</h1>
+<p>JavaScript component for private keys, public keys, and addresess for crypto currencies such as Bitcoin, Litecoin, and Dogecoin.</p>
+<h2 id="why">Why?</h2>
+<p>This module provides a convenient way to compute all of the relevant crypto currency details of private keys, public keys, and addresses. It inherits from <a href="https://github.com/cryptocoinjs/eckey">ECKey</a> and adds the utility of <a href="https://github.com/cryptocoinjs/coinstring">coinstring</a>. </p>
+<h2 id="installation">Installation</h2>
+<pre class="prettyprint well"><code>npm install --save coinkey
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="common-use-cases">Common Use Cases</h3>
+<h3 id="generate-a-bunch-of-bitcoin-keysaddresses">Generate a Bunch of Bitcoin Keys/Addresses</h3>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+
+var bitcoinAddresses = [];
+
+for (var i = 0; i &lt; 10; ++i) {
+  bitcoinAddresses.push(new CoinKey()); //Bitcoin supported by default
+}
+</code></pre>
+
+<h4 id="generate-a-bunch-of-namecoin-keysaddresses">Generate a Bunch of Namecoin Keys/Addresses</h4>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+var ci = require('coininfo');
+
+var namecoins = [];
+for (var i = 0; i &lt; 10; ++i) {
+  namecoins.push(new CoinKey(ci('NMC').versions));
+}
+</code></pre>
+
+<h4 id="parse-a-wallet-import-key-and-determine-crypto-currency">Parse a Wallet Import Key and Determine Crypto Currency</h4>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+var ci = require('coininfo');
+
+var ck = CoinKey.fromWif('QVD3x1RPiWPvyxbTsfxVwaYLyeBZrQvjhZ2aZJUsbuRgsEAGpNQ2');
+
+console.log(ck.privateKey.toString('hex')) // =&gt; c4bbcb1fbec99d65bf59d85c8cb62ee2db963f0fe106f483d9afa73bd4e39a8a
+console.log(ck.publicAddress) // =&gt; DGG6AicS4Qg8Y3UFtcuwJqbuRZ3Q7WtYXv
+console.log(ck.compressed) // =&gt; true
+console.log(ck.versions.public === ci('DOGE').versions.public) // =&gt; true
+</code></pre>
+
+<h4 id="change-to-testnet-later">Change to Testnet Later</h4>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+var ci = require('coininfo');
+
+var ck = new CoinKey(new Buffer('1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd', 'hex'));
+console.log(ck.publicAddress); // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
+
+//change to Testnet
+ck.versions = ci('TEST');
+
+console.log(ck.publicAddress); // =&gt; mkzgubTA5Ahi6BPSkE6MN9pEafRutznkMe
+</code></pre>
+
+<h3 id="api">API</h3>
+<h4 id="coinkeybytes-compressed-versions">CoinKey([bytes], [compressed], [versions])</h4>
+<p>Constructor function.</p>
+<ul>
+<li><strong>bytes</strong>: The private key bytes. Must be 32 bytes in length. Should be an <code>Array</code>, <code>Uint8Array</code>, or a <code>Buffer</code>. If not passed, one will be randomlyl generated.</li>
+<li><strong>compressed</strong>: Specify whether the key should be compressed or not.</li>
+<li><strong>versions</strong>: An object that specifies the public and private key versions for addresses and wifs. Defaults to Bitcoin <code>mainnet</code>.</li>
+</ul>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+var secureRandom = require('secure-random'); 
+
+var bytes = secureRandom(32); //https://github.com/jprichardson/secure-random
+var key1 = new ECKey(bytes);
+var key2 = CoinKey(bytes); //&lt;--- can also use without &quot;new&quot;
+var compressedKey = new CoinKey(bytes, true);
+</code></pre>
+
+<h3 id="properties">Properties</h3>
+<h4 id="compressed">compressed</h4>
+<p>Inherited from <a href="https://github.com/cryptocoinjs/eckey">ECKey</a>. <a href="https://github.com/cryptocoinjs/eckey#compressed">eckey.compressed</a></p>
+<h4 id="privatekey">privateKey</h4>
+<p>Inherited from <a href="https://github.com/cryptocoinjs/eckey">ECKey</a>. <a href="https://github.com/cryptocoinjs/eckey#privatekey">eckey.privateKey</a></p>
+<h4 id="privateexportkey">privateExportKey</h4>
+<p>Inherited from <a href="https://github.com/cryptocoinjs/eckey">ECKey</a>. <a href="https://github.com/cryptocoinjs/eckey#privateexportkey">eckey.privateExportKey</a></p>
+<h4 id="privatewif">privateWif</h4>
+<p>Get the private WIF (Wallet Import Format).</p>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+var conv = require('binstring');
+
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+
+//Bitcoin WIF
+var key = new CoinKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false);
+console.log(key.privateWif) // =&gt; 5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD
+
+//Litecoin WIF
+var key = new CoinKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false, {private: 0xB0, public: 0x30});
+console.log(key.privateWif) // =&gt; 6uFjYQnot5Gtg3HpP87bp4JUpg4FH1gkkV3RyS7LHBbD9Hpt1na
+</code></pre>
+
+<h4 id="publickey">publicKey</h4>
+<p>Inherited from <a href="https://github.com/cryptocoinjs/eckey">ECKey</a>. <a href="https://github.com/cryptocoinjs/eckey#publickey">eckey.publicKey</a></p>
+<h4 id="publicaddress">publicAddress</h4>
+<p>Get the public address.</p>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+var conv = require('binstring');
+
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+
+//Bitcoin Address
+var key = new CoinKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false);
+console.log(key.publicAddress) // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
+
+//Litecoin Address
+var key = new CoinKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false, {private: 0xB0, public: 0x30});
+console.log(key.publicAddress) // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
+</code></pre>
+
+<h4 id="publichash">publicHash</h4>
+<p>Alias: <code>pubKeyHash</code></p>
+<p>Get the public hash i.e. the ripemd160(sha256(publicKey))</p>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');
+var conv = require('binstring');
+
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+
+var key = new CoinKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false);
+console.log(key.publicHash.toString('hex')) // =&gt; 3c176e659bea0f29a3e9bf7880c112b1b31b4dc8
+console.log(key.publKeyHash.toString('hex')) // =&gt; 3c176e659bea0f29a3e9bf7880c112b1b31b4dc8
+
+var keyCompressed = CoinKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), true);
+console.log(key.publicHash.toString('hex')) // =&gt; a1c2f92a9dacbd2991c3897724a93f338e44bdc1
+console.log(key.publKeyHash.toString('hex')) // =&gt; a1c2f92a9dacbd2991c3897724a93f338e44bdc1
+</code></pre>
+
+<h4 id="publicpoint">publicPoint</h4>
+<p>Inherited from <a href="https://github.com/cryptocoinjs/eckey">ECKey</a>. <a href="https://github.com/cryptocoinjs/eckey#publicpoint">eckey.publicPoint</a></p>
+<h4 id="tostring">toString()</h4>
+<p>Returns the string representation of the private key.</p>
+<h3 id="methods">Methods</h3>
+<h4 id="fromwifwif-versions">fromWif(wif, [versions])</h4>
+<p>Class method to create a <code>CoinKey</code> from a wif.</p>
+<pre class="prettyprint well"><code class="js">var ck = CoinKey.fromWif('KwomKti1X3tYJUUMb1TGSM2mrZk1wb1aHisUNHCQXTZq5auC2qc3');
+console.log(ck.compressed); // =&gt; true
+console.log(ck.privateKey.toString('hex')) // =&gt; 1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
+console.log(ck.publicAddress); // =&gt; 1FkKMsKNJqWSDvTvETqcCeHcUQQ64kSC6s
+</code></pre>
+
+<h2 id="browser-support">Browser Support</h2>
+<p>Clone the repo:</p>
+<pre class="prettyprint well"><code>git clone https://github.com/cryptocoinjs/coinkey
+</code></pre>
+<p>Install Browserify</p>
+<pre class="prettyprint well"><code>npm install -g browserify
+</code></pre>
+<p>Nav to repo:</p>
+<pre class="prettyprint well"><code>cd coinkey
+</code></pre>
+<p>Install dependencies:</p>
+<pre class="prettyprint well"><code>npm install
+</code></pre>
+<p>Run browserify:</p>
+<pre class="prettyprint well"><code>browserify --standalone coinkey &lt; lib/coinkey.js &gt; lib/coinkey.bundle.js
+</code></pre>
+<p>You can now drop <code>coinkey.bundle.js</code> in a <code>&lt;script&gt;</code> tag.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</li>
+<li>https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/eckey.js</li>
+<li>https://github.com/vbuterin/bitcoinjs-lib/blob/master/src/eckey.js</li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>
