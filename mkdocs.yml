@@ -9,8 +9,9 @@ pages:
 - ['modules/coininfo.md', 'Modules', 'coininfo - Crypto Currency Specific Information']
 - ['modules/coinkey.md', 'Modules', 'CoinKey - Private Keys / Addresses']
 - ['modules/coinstring.md', 'Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
-- ['modules/eckey.md', 'Modules', 'ECKey - Private Keys / Elliptic Curve']
 - ['modules/ecdsa.md', 'Modules', 'ECDSA - Elliptic Curve Signing / Verification']
+- ['modules/eckey.md', 'Modules', 'ECKey - Private Keys / Elliptic Curve']
+- ['modules/ecurve.md', 'Modules', 'ecurve - Elliptic Curve Cryptography']
 - ['faq.md', 'FAQ']
 - ['team.md', 'Team']
 
