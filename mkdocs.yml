@@ -7,16 +7,16 @@ repo_url: https://github.com/cryptocoinjs/
 pages:
 - ['index.md', 'Home']
 
-# Currency Modules
+# Currency Modules (please alphabetize)
 - ['modules/coininfo.md', 'Currency Modules', 'coininfo - Crypto Currency Specific Information']
 - ['modules/coinkey.md', 'Currency Modules', 'CoinKey - Private Keys / Addresses']
 - ['modules/coinstring.md', 'Currency Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
-- ['modules/ecdsa.md', 'Currency Modules', 'ECDSA - Elliptic Curve Signing / Verification']
 - ['modules/eckey.md', 'Currency Modules', 'ECKey - Private Keys / Elliptic Curve']
-- ['modules/ecurve.md', 'Currency Modules', 'ecurve - Elliptic Curve Cryptography']
 
-# Crypto Modules
+# Crypto Modules (please alphabetize)
 - ['modules/aes.md', 'Crypto Modules', 'AES - Advanced Encryption Standard']
+- ['modules/ecdsa.md', 'Crypto Modules', 'ECDSA - Elliptic Curve Signing / Verification']
+- ['modules/ecurve.md', 'Crypto Modules', 'ecurve - Elliptic Curve Cryptography']
 
 # Misc
 - ['faq.md', 'FAQ']
