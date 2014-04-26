@@ -28,6 +28,7 @@ pages:
 # Misc Modules (please alphabetize)
 - ['modules/misc/binstring.md', 'Misc Modules', 'bigi - Big Integers']
 - ['modules/misc/binstring.md', 'Misc Modules', 'binstring - Convert data types']
+- ['modules/misc/bs58.md', 'Misc Modules', 'bs58 - BASE58 encoding / decoding']
 - ['modules/misc/qr-encode.md', 'Misc Modules', 'qr-encode - Encode data into QR']
 
 theme: flatly
