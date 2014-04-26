@@ -1,5 +1,71 @@
 CryptoCoinJS
 ============
 
-CryptoCoinJS is a JavaScript project that helps you to interface and program with various crypto currencies such as Bitcoin, Litecoin, Dogecoin, etc. Most of the modules are fully compatible with the browser and Node.js. Naturally, the modules that are interface directly with peer nodes won't run in the browser.
+CryptoCoinJS is a JavaScript project that helps you to interface with many of the crypto currencies such as Bitcoin, Litecoin, Dogecoin, and more. Most of the modules are fully compatible with the browser and Node.js. Naturally, the modules that nterface directly with peer nodes won't run in the browser.
+
+
+Principles
+----------
+
+We believe in the UNIX philosophy. The idea of building small components that do one thing and do it well. Writing software in this manner allows individuals to use and contribute much more effectively than writing one monolithic library.
+
+We believe that people are more important than code and therefore it's critical to write code that is easy to read, document each module with the API and examples, and that code is the enemy [1](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/) [2](http://blog.codinghorror.com/size-is-the-enemy/).
+
+We believe that writing tests is one of the best ways to communicate expectations between developers. If documentation is a way to commuincate for a consumer of your module, then tests are a way to communicate between devleopers.
+
+We have our work cut out for us.
+
+
+
+Modules
+-------
+
+### Active
+
+#### Crypto Currency
+
+
+
+#### Cryptography
+
+* ripemd160
+* scryptsy
+* pbkdf2-sha256
+* aes
+
+
+#### Misc
+
+* binstring
+* qr-encode 
+
+
+
+### Deprecated
+
+* [ecurve-names] - Moving curves to ecurve
+* [sha256] - Outsourced to [crypto-browserify][crypto-browserify]
+
+
+
+Use In Production
+-----------------
+
+* [Coinbolt](https://www.coinbolt.com) - Simple & Secure Wallet
+* [Helloblock](https://helloblock.io) - Block Explorer with Mainnet and Testnet API
+* [Bitrated](https://www.bitrated.com) - Arbitration Marketplace
+
+Do you use any of CryptoCoinJS? If so, let us know by emailing us or opening a pull request.
+
+
+
+Want to Contribute?
+-------------------
+
+Please read: https://github.com/cryptocoinjs/cryptocoin/wiki/Contributor-Guidelines
+
+
+
+[crypto-browserify]: https://github.com/dominictarr/crypto-browserify
+
 
