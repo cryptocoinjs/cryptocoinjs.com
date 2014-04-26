@@ -81,12 +81,17 @@ Install dependencies:
 
 Run browserify:
 
-    browserify --standalone coinkey < lib/coinkey.js > coinkey.bundle.js
+    browserify --standalone CoinKey < lib/coinkey.js > coinkey.bundle.js
 
 Include in a script in your HTML:
 
 ```html
 <script src="coinkey.bundle.js"></script>
+<script>
+//since we passesd the --standalone flag to Browserify, "coinkey" will be global i.e. attached to `window`
+
+var ck = new CoinKey();
+</script>
 ```
 
 **Note:** If you use more than one CryptoCoinJS module, you don't need to do this for each one. Assuming that you're using Browserify for your browser app, you'll only need to build with Browserify once with your top level `index.js` or `app.js` file.

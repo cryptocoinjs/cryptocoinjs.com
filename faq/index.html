@@ -311,10 +311,15 @@
 <pre class="prettyprint well"><code>npm install
 </code></pre>
 <p>Run browserify:</p>
-<pre class="prettyprint well"><code>browserify --standalone coinkey &lt; lib/coinkey.js &gt; coinkey.bundle.js
+<pre class="prettyprint well"><code>browserify --standalone CoinKey &lt; lib/coinkey.js &gt; coinkey.bundle.js
 </code></pre>
 <p>Include in a script in your HTML:</p>
 <pre class="prettyprint well"><code class="html">&lt;script src=&quot;coinkey.bundle.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+//since we passesd the --standalone flag to Browserify, &quot;coinkey&quot; will be global i.e. attached to `window`
+
+var ck = new CoinKey();
+&lt;/script&gt;
 </code></pre>
 
 <p><strong>Note:</strong> If you use more than one CryptoCoinJS module, you don't need to do this for each one. Assuming that you're using Browserify for your browser app, you'll only need to build with Browserify once with your top level <code>index.js</code> or <code>app.js</code> file.</p>
