@@ -19,6 +19,8 @@ pages:
 - ['modules/currency/p2p-manager.md', 'Currency Modules', 'p2p-manager - Manage a network of peers in a p2p network']
 - ['modules/currency/p2p-node.md', 'Currency Modules', 'p2p-node - Handle p2p traffic on crypto currency networks']
 
+# Curreny Modules that Need Documentation TLC
+- ['modules/currency/btc-address.md', 'Currency Modules', 'btc-address - Bitcoin Address Handling']
 
 # Crypto Modules (please alphabetize)
 - ['modules/crypto/aes.md', 'Crypto Modules', 'aes - Advanced Encryption Standard']

@@ -42,6 +42,11 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 * [p2p-manager](modules/currency/p2p-node) - Manage a network of peers in a p2p network. **(server only)**
 * [p2p-node](modules/currency/p2p-node) - Low-level library to handle p2p traffic on crypto currency networks. **(server only)**
 
+(the following are poorly documented and need some TLC)
+
+* [btc-address](modules/currency/btc-address) - Address handling library for Bitcoin. Possibly irrelevant by [coinkey](modules/currency/coinkey) or [coinstring](modules/currency/coinstring)
+
+
 
 #### Cryptography
 
