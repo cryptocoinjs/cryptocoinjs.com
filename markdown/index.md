@@ -92,7 +92,7 @@ Do you use any of CryptoCoinJS? If so, let us know by emailing us or opening a [
 Want to Contribute?
 -------------------
 
-Please read: https://github.com/cryptocoinjs/cryptocoin/wiki/Contributor-Guidelines
+Please read: [https://github.com/cryptocoinjs/cryptocoin/wiki/Contributor-Guidelines](https://github.com/cryptocoinjs/cryptocoin/wiki/Contributor-Guidelines)
 
 
 Thanks
