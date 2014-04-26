@@ -73,9 +73,18 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 
 ### Deprecated
 
-* ecurve-names - Moving curves to ecurve
-* sha256 - Outsourced to [crypto-browserify][crypto-browserify] through [crypto-hashing](modules/crypto/crypto-hashing)
+* [bs64](https://github.com/cryptocoinjs/bs64) - Outsourced to `buffer`
+* [convert-hex](https://github.com/cryptocoinjs/convert-hex) - Use `buffer` or `binstring`
+* [convert-string](https://github.com/cryptocoinjs/convert-string) - Use 'buffer' or `binstring`
+* [ecurve-names](https://github.com/cryptocoinjs/ecurve-names) - Moving curves to ecurve
+* [sha256](https://github.com/cryptocoinjs/sha256) - Outsourced to [crypto-browserify][crypto-browserify] through [crypto-hashing](modules/crypto/crypto-hashing)
 
+
+### Unknown
+
+The library that bundles everything is located here: [https://github.com/cryptocoinjs/cryptocoin](https://github.com/cryptocoinjs/cryptocoin). The NPM module is [cryptocoin](https://www.npmjs.org/package/cryptocoin).
+
+The state of the entire bundle is unknown. Development moves quickly with each individual module and packaging up a release in the larger module is tedious and error prone. The state the large bundle is unknown.
 
 
 Use In Production
