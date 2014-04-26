@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/currency/eckey/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+        <title>ecKey - Private Keys / Elliptic Curve - CryptoCoinJS</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">CryptoCoinJS</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Currency Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../coininfo/">coininfo - Crypto Currency Specific Information</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../coinkey/">coinkey - Private Keys / Addresses</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">ecKey - Private Keys / Elliptic Curve</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crypto Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../crypto/aes/">aes - Advanced Encryption Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ecdsa/">ecdsa - Elliptic Curve Signing / Verification</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ecurve/">ecurve - Elliptic Curve Cryptography</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../faq/">FAQ</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../team/">Team</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../coinstring/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../crypto/aes/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/cryptocoinjs/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#eckey">eckey</a></li>
+        
+            <li><a href="#why">Why?</a></li>
+        
+            <li><a href="#installation">Installation</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#references">References</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="eckey">eckey</h1>
+<p>JavaScript component for Elliptical curve cryptography for crypto currencies such as Bitcoin, Litecoin, Dogecoin, etc.</p>
+<h2 id="why">Why?</h2>
+<p>This module provides a convenient way to compute relevant crypto currency operations that adhere to elliptical curve cryptography. To
+really understand how private keys, public keys, addresses, and how elliptical curve cryptography works with JavaScript, read this: http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</p>
+<h2 id="installation">Installation</h2>
+<pre class="prettyprint well"><code>npm install --save eckey
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="api">API</h3>
+<h4 id="eckeybytes-compressed">ECKey([bytes], [compressed])</h4>
+<p>Constructor function.</p>
+<ul>
+<li><strong>bytes</strong>: The private key bytes. Must be 32 bytes in length. Should be an <code>Array</code>, <code>Uint8Array</code>, or a <code>Buffer</code>.</li>
+<li><strong>compressed</strong>: Specify whether the key should be compressed or not.</li>
+</ul>
+<pre class="prettyprint well"><code class="js">var ECKey = require('eckey');
+var secureRandom = require('secure-random'); 
+
+var bytes = secureRandom(32); //https://github.com/jprichardson/secure-random
+var key1 = new ECKey(bytes);
+var key2 = ECKey(bytes); //&lt;--- can also use without &quot;new&quot;
+var compressedKey = new ECKey(bytes, true);
+</code></pre>
+
+<p>Note: Previous versions of this module would generate a random array of bytes for you if you didn't pass as input any to the constructor. This behavior has been removed to remove complexity and to ensure that the random generation is done securely. In the past, it wasn't.</p>
+<h4 id="compressed">compressed</h4>
+<p>Get/set whether the point on the curve is compressed. Affects the output of the WIF (wallet import format) and the address.</p>
+<h4 id="privatekey">privateKey</h4>
+<p>Get/set the private key. When setting, the type can be either an <code>Array</code>, <code>Buffer</code>, or <code>Uint8Array</code>. When getting, the type is always <code>Buffer</code>. Setting would be useful if you don't pass a private key to the constructor.</p>
+<pre class="prettyprint well"><code class="js">var ECKey = require('eckey');
+var conv = require('binstring');
+
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+
+var key = new ECKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false);
+console.log(key.privatekey.toString('hex')); // =&gt; 1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
+
+var keyCompressed = ECKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), true);
+
+//nothing changes when compressed
+console.log(key.privatekey.toString('hex')); // =&gt; 1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
+</code></pre>
+
+<h4 id="privateexportkey">privateExportKey</h4>
+<p>Get the private key along with a byte for compression if <code>compressed</code> is true. i.e.</p>
+<pre class="prettyprint well"><code>if compressed
+  privateExportKey = privateKey + 0x01
+else
+  privateExportKey = privateKey
+</code></pre>
+<p>This is useful inconjunction with the package <a href="https://github.com/cryptocoinjs/coinstring">coinstring</a> to generate
+<a href="https://en.bitcoin.it/wiki/Wallet_import_format">Wallet Import Format</a> keys.</p>
+<pre class="prettyprint well"><code class="js">var ECKey = require('eckey');
+var conv = require('binstring');
+
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+
+var key = new ECKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false);
+console.log(key.privateExportKey.toString('hex')); // =&gt; 1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
+
+var keyCompressed = new ECKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), true);
+
+//notice the extra &quot;01&quot; at the end?
+console.log(key.privateExportKey.toString('hex')); // =&gt; 1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd01
+</code></pre>
+
+<h4 id="publickey">publicKey</h4>
+<p>Get the public key. The type is <code>Buffer</code>.</p>
+<pre class="prettyprint well"><code class="js">var ECKey = require('eckey');
+var conv = require('binstring');
+
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+
+var key = new ECKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), false);
+console.log(key.publickey.toString('hex')); 
+// =&gt; 04d0988bfa799f7d7ef9ab3de97ef481cd0f75d2367ad456607647edde665d6f6fbdd594388756a7beaf73b4822bc22d36e9bda7db82df2b8b623673eefc0b7495
+
+var keyCompressed = ECKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), true);
+
+console.log(key.publickey.toString('hex')); 
+// =&gt; 03d0988bfa799f7d7ef9ab3de97ef481cd0f75d2367ad456607647edde665d6f6f
+</code></pre>
+
+<h4 id="publicpoint">publicPoint</h4>
+<p>Get the <a href="https://github.com/cryptocoinjs/ecurve/blob/master/lib/ecurve.js">Public Key Point</a> on the Ellipitical Curve. </p>
+<h4 id="tostring">toString()</h4>
+<p>Returns the string representation of the private key.</p>
+<pre class="prettyprint well"><code class="js">var ECKey = require('eckey');
+var conv = require('binstring');
+
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+var key = new ECKey(conv(privateKeyHex, {in: 'hex', out: 'buffer'}), true);
+
+console.log(key.toString()) // =&gt; 1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
+</code></pre>
+
+<h2 id="references">References</h2>
+<ul>
+<li>http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</li>
+<li>https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/eckey.js</li>
+<li>https://github.com/vbuterin/bitcoinjs-lib/blob/master/src/eckey.js</li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/prettify-1.0.min.js"></script>
+        <script src="../../../js/base.js"></script>
+    </body>
+</html>

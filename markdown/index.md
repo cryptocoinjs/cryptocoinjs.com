@@ -24,14 +24,19 @@ Modules
 
 #### Crypto Currency
 
+* [coininfo](modules/currency/coininfo.md) - Fetch currency specific information such as ports and version numbers
+* [coinkey](modules/currency/coinkey.md) - Create private keys, public keys, and addresses. (Inherits from [eckey](modules/currency/eckey.md))
+* [coinstring](modules/currency/coinstring.md) - Create, parse, or validate addresses a wallet import format strings
+* [eckey](modules/currency/eckey.md) - Super class for [coinkey](modules/currency/coinkey) used for private and public elliptic curve keys
 
 
 #### Cryptography
 
+* [aes](modules/crypto/aes.md) - Implementation of the Advanced Encryption Standard
+* pbkdf2-sha256
 * ripemd160
 * scryptsy
-* pbkdf2-sha256
-* aes
+
 
 
 #### Misc
@@ -43,8 +48,8 @@ Modules
 
 ### Deprecated
 
-* [ecurve-names] - Moving curves to ecurve
-* [sha256] - Outsourced to [crypto-browserify][crypto-browserify]
+* ecurve-names - Moving curves to ecurve
+* sha256 - Outsourced to [crypto-browserify][crypto-browserify]
 
 
 

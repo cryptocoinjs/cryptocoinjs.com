@@ -61,19 +61,19 @@
                     <ul class="dropdown-menu">
                     
                         <li >
-                            <a href="modules/coininfo/">coininfo - Crypto Currency Specific Information</a>
+                            <a href="modules/currency/coininfo/">coininfo - Crypto Currency Specific Information</a>
                         </li>
                     
                         <li >
-                            <a href="modules/coinkey/">CoinKey - Private Keys / Addresses</a>
+                            <a href="modules/currency/coinkey/">coinkey - Private Keys / Addresses</a>
                         </li>
                     
                         <li >
-                            <a href="modules/coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
+                            <a href="modules/currency/coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
                         </li>
                     
                         <li >
-                            <a href="modules/eckey/">ECKey - Private Keys / Elliptic Curve</a>
+                            <a href="modules/currency/eckey/">ecKey - Private Keys / Elliptic Curve</a>
                         </li>
                     
                     </ul>
@@ -86,15 +86,15 @@
                     <ul class="dropdown-menu">
                     
                         <li >
-                            <a href="modules/aes/">AES - Advanced Encryption Standard</a>
+                            <a href="modules/crypto/aes/">aes - Advanced Encryption Standard</a>
                         </li>
                     
                         <li >
-                            <a href="modules/ecdsa/">ECDSA - Elliptic Curve Signing / Verification</a>
+                            <a href="modules/crypto/ecdsa/">ecdsa - Elliptic Curve Signing / Verification</a>
                         </li>
                     
                         <li >
-                            <a href="modules/ecurve/">ecurve - Elliptic Curve Cryptography</a>
+                            <a href="modules/crypto/ecurve/">ecurve - Elliptic Curve Cryptography</a>
                         </li>
                     
                     </ul>
@@ -124,7 +124,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="modules/coininfo/">
+                    <a rel="prev" href="modules/currency/coininfo/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -174,12 +174,18 @@
 <h2 id="modules">Modules</h2>
 <h3 id="active">Active</h3>
 <h4 id="crypto-currency">Crypto Currency</h4>
+<ul>
+<li><a href="modules/currency/coininfo/">coininfo</a> - Fetch currency specific information such as ports and version numbers</li>
+<li><a href="modules/currency/coinkey/">coinkey</a> - Create private keys, public keys, and addresses. (Inherits from <a href="modules/currency/eckey/">eckey</a>)</li>
+<li><a href="modules/currency/coinstring/">coinstring</a> - Create, parse, or validate addresses a wallet import format strings</li>
+<li><a href="modules/currency/eckey/">eckey</a> - Super class for <a href="modules/currency/coinkey">coinkey</a> used for private and public elliptic curve keys</li>
+</ul>
 <h4 id="cryptography">Cryptography</h4>
 <ul>
+<li><a href="modules/crypto/aes/">aes</a> - Implementation of the Advanced Encryption Standard</li>
+<li>pbkdf2-sha256</li>
 <li>ripemd160</li>
 <li>scryptsy</li>
-<li>pbkdf2-sha256</li>
-<li>aes</li>
 </ul>
 <h4 id="misc">Misc</h4>
 <ul>
@@ -188,8 +194,8 @@
 </ul>
 <h3 id="deprecated">Deprecated</h3>
 <ul>
-<li>[ecurve-names] - Moving curves to ecurve</li>
-<li>[sha256] - Outsourced to <a href="https://github.com/dominictarr/crypto-browserify">crypto-browserify</a></li>
+<li>ecurve-names - Moving curves to ecurve</li>
+<li>sha256 - Outsourced to <a href="https://github.com/dominictarr/crypto-browserify">crypto-browserify</a></li>
 </ul>
 <h2 id="use-in-production">Use In Production</h2>
 <ul>
