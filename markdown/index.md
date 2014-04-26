@@ -52,8 +52,8 @@ Modules
 
 #### Misc
 
-* [binstring](modules/misc/binstring.md) - Convert data types. i.e. convert between `Array`, `Buffer`, `UTF8`, `Hex`, etc.
-* qr-encode 
+* [binstring](modules/misc/binstring) - Convert data types. i.e. convert between `Array`, `Buffer`, `UTF8`, `Hex`, etc
+* [qr-encode](modules/misc/qr-encode) - Encode data into QR codes 
 
 
 

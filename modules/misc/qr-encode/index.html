@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/misc/qr-encode/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+        <title>qr-encode - Encode data into QR - CryptoCoinJS</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">CryptoCoinJS</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../..">Main</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../../faq/">FAQ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../../team/">Team</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Currency Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../currency/coininfo/">coininfo - Crypto Currency Specific Information</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../currency/coinkey/">coinkey - Private Keys / Addresses</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../currency/coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../currency/eckey/">eckey - Private Keys / Elliptic Curve</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crypto Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../crypto/aes/">aes - Advanced Encryption Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ecdsa/">ecdsa - Elliptic Curve Signing / Verification</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ecurve/">ecurve - Elliptic Curve Cryptography</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/pbkdf2-sha256/">pbkdf2-sha256 - PBKDF2 using SHA256 HMAC</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ripemd160/">ripemd160 - RIPEMD160 hash</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/scryptsy/">scryptsy - Scrypt Key Derivation</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../binstring/">binstring - Convert data types</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">qr-encode - Encode data into QR</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../binstring/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a rel="prev" >
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/cryptocoinjs/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#qr-encode">qr-encode</a></li>
+        
+            <li><a href="#install">Install</a></li>
+        
+            <li><a href="#qr-codes">QR Codes</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#credits">Credits</a></li>
+        
+            <li><a href="#license">License</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="qr-encode">qr-encode</h1>
+<p><strong>NOTE:</strong> A refactoring is coming up for this. Should probably avoid using for the time being. [JP / 2014-04-26]</p>
+<p>JavaScript component to encode strings into QR codes.</p>
+<p>It's a repackage of http://d-project.googlecode.com/svn/trunk/misc/qrcode/js/qrcode.js with minor modifcations by https://github.com/pointbiz/bitaddress.org/blob/master/src/qrcode.js and myself for package support.</p>
+<h2 id="install">Install</h2>
+<h3 id="nodejsbrowserify">Node.js/Browserify</h3>
+<pre class="prettyprint well"><code>npm install --save qr-encode
+</code></pre>
+<h2 id="qr-codes">QR Codes</h2>
+<p>You should glance at this: http://en.wikipedia.org/wiki/QR_code</p>
+<p><strong>Error Correction:</strong></p>
+<ul>
+<li>Level L (Low) 7% of codewords can be restored.</li>
+<li>Level M (Medium)  15% of codewords can be restored.</li>
+<li>Level Q (Quartile)  25% of codewords can be restored.</li>
+<li>Level H (High)  30% of codewords can be restored.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Assuming that you have the following HTML and JS:</p>
+<pre class="prettyprint well"><code class="js">//from: https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.misc.js
+
+function getTypeNumber(text) {
+  var lengthCalculation = text.length * 8 + 12; // length as calculated by the QRCode
+  if (lengthCalculation &lt; 72) { return 1; }
+  else if (lengthCalculation &lt; 128) { return 2; }
+  else if (lengthCalculation &lt; 208) { return 3; }
+  else if (lengthCalculation &lt; 288) { return 4; }
+  else if (lengthCalculation &lt; 368) { return 5; }
+  else if (lengthCalculation &lt; 480) { return 6; }
+  else if (lengthCalculation &lt; 528) { return 7; }
+  else if (lengthCalculation &lt; 688) { return 8; }
+  else if (lengthCalculation &lt; 800) { return 9; }
+  else if (lengthCalculation &lt; 976) { return 10; }
+  return null;
+}
+</code></pre>
+
+<pre class="prettyprint well"><code class="html">&lt;div id=&quot;qr-element&quot;&gt;
+&lt;!-- QR Code will go here --&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="img-tag">IMG Tag</h3>
+<p>(http://d-project.googlecode.com/svn/trunk/misc/qrcode/js/sample.html)</p>
+<pre class="prettyprint well"><code class="js">function createQRCode(text, typeNumber, errorCorrectLevel) {
+  typeNumber = typeNumber || getTypeNumber(text)
+  var qr = QRCode(typeNumber || 4, errorCorrectLevel || QRCode.ErrorCorrectLevel.H)
+  qr.addData(text)
+  qr.make()
+
+  return qr.createImgTag()
+}
+</code></pre>
+
+<p>then ...</p>
+<pre class="prettyprint well"><code class="js">var qrEl = document.getElementById('qr-element')
+qrEl.innerHTML = createQRCode('testing qr code!')
+</code></pre>
+
+<h3 id="canvas">Canvas</h3>
+<pre class="prettyprint well"><code class="js">//from: https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.misc.js
+
+function createCanvas(text, sizeMultiplier) {
+  sizeMultiplier = (sizeMultiplier == undefined) ? 2 : sizeMultiplier; // default 2
+  // create the qrcode itself
+  var typeNumber = getTypeNumber(text);
+  var qrcode = new QRCode(typeNumber, QRCode.ErrorCorrectLevel.H);
+  qrcode.addData(text);
+  qrcode.make();
+  var width = qrcode.getModuleCount() * sizeMultiplier;
+  var height = qrcode.getModuleCount() * sizeMultiplier;
+  // create canvas element
+  var canvas = document.createElement('canvas');
+  var scale = 10.0;
+  canvas.width = width * scale;
+  canvas.height = height * scale;
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+  var ctx = canvas.getContext('2d');
+  ctx.scale(scale, scale);
+  // compute tileW/tileH based on width/height
+  var tileW = width / qrcode.getModuleCount();
+  var tileH = height / qrcode.getModuleCount();
+  // draw in the canvas
+  for (var row = 0; row &lt; qrcode.getModuleCount(); row++) {
+    for (var col = 0; col &lt; qrcode.getModuleCount(); col++) {
+      ctx.fillStyle = qrcode.isDark(row, col) ? &quot;#000000&quot; : &quot;#ffffff&quot;;
+      ctx.fillRect(col * tileW, row * tileH, tileW, tileH);
+    }
+  }
+  // return just built canvas
+  return canvas;
+}
+</code></pre>
+
+<p>then..</p>
+<pre class="prettyprint well"><code class="js">var qrEl = document.getElementById('qr-element')
+qrEl.innerHTML = ''
+qrEl.appendChild(createCanvas('testing qr code!'))
+</code></pre>
+
+<h3 id="html-table-tag-legacy-browsers">HTML Table Tag (legacy browsers)</h3>
+<pre class="prettyprint well"><code class="css">/*from: https://github.com/pointbiz/bitaddress.org/blob/master/src/main.css*/
+
+.qrcodetable { border-width: 0px; border-style: none; border-color: #0000ff; border-collapse: collapse; }
+.qrcodetddark { border-width: 0px; border-style: none; border-color: #0000ff; border-collapse: collapse; padding: 0; margin: 0; width: 2px; height: 2px; background-color: #000000; }
+.qrcodetdlight { border-width: 0px; border-style: none; border-color: #0000ff; border-collapse: collapse; padding: 0; margin: 0; width: 2px; height: 2px; background-color: #ffffff; }     
+</code></pre>
+
+<pre class="prettyprint well"><code class="js">//from: https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.misc.js
+
+function createTableHtml(text) {
+  var typeNumber = getTypeNumber(text)
+  var qr = new QRCode(typeNumber, QRCode.ErrorCorrectLevel.H);
+  qr.addData(text);
+  qr.make();
+  var tableHtml = &quot;&lt;table class='qrcodetable'&gt;&quot;;
+  for (var r = 0; r &lt; qr.getModuleCount(); r++) {
+    tableHtml += &quot;&lt;tr&gt;&quot;;
+    for (var c = 0; c &lt; qr.getModuleCount(); c++) {
+      if (qr.isDark(r, c)) {
+        tableHtml += &quot;&lt;td class='qrcodetddark'/&gt;&quot;;
+      } else {
+        tableHtml += &quot;&lt;td class='qrcodetdlight'/&gt;&quot;;
+      }
+    }
+    tableHtml += &quot;&lt;/tr&gt;&quot;;
+  }
+  tableHtml += &quot;&lt;/table&gt;&quot;;
+  return tableHtml;
+}
+</code></pre>
+
+<p>then...</p>
+<pre class="prettyprint well"><code class="js">var qrEl = document.getElementById('qr-element')
+qrEl.innerHTML = createTableHtml('testing qr code!')
+</code></pre>
+
+<h2 id="credits">Credits</h2>
+<ul>
+<li>Example code is primarily from: https://github.com/pointbiz/bitaddress.org</li>
+<li>QRCode code is primarily from: http://www.d-project.com/ with most modifications from @pointbiz</li>
+</ul>
+<h2 id="license">License</h2>
+<p>Most of the code: </p>
+<p>Copyright (c) 2009 Kazuhiko Arase</p>
+<p>URL: http://www.d-project.com/</p>
+<p>Licensed under the MIT license:
+http://www.opensource.org/licenses/mit-license.php</p>
+<p>The word 'QR Code' is registered trademark of
+DENSO WAVE INCORPORATED
+http://www.denso-wave.com/qrcode/faqpatent-e.html</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/prettify-1.0.min.js"></script>
+        <script src="../../../js/base.js"></script>
+    </body>
+</html>

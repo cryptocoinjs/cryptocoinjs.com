@@ -24,7 +24,8 @@ pages:
 - ['modules/crypto/scryptsy.md', 'Crypto Modules', 'scryptsy - Scrypt Key Derivation']
 
 # Misc Modules (please alphabetize)
-- ['modules/misc/binstring.md', 'Misc Modules', 'binstring - convert data types']
+- ['modules/misc/binstring.md', 'Misc Modules', 'binstring - Convert data types']
+- ['modules/misc/qr-encode.md', 'Misc Modules', 'qr-encode - Encode data into QR']
 
 theme: flatly
 
