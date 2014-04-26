@@ -244,6 +244,8 @@
         
             <li><a href="#general-questions">General Questions</a></li>
         
+            <li><a href="#technical-questions">Technical Questions</a></li>
+        
     
     </ul>
 </div></div>
@@ -294,6 +296,28 @@
 <li>Innovation isn't happening as fast as BitcoinJS and Bitcore.</li>
 </ul>
 <p>When it comes down to it, you should pick a library that helps you achieve your objective quickly while instilling confidence about its long-term viability. i.e. will the library be maintained in one year? While we can't make any concrete promises about the future, businesses rely upon CryptoCoinJS, so it should be actively developed for the foreseeable future.</p>
+<h2 id="technical-questions">Technical Questions</h2>
+<h3 id="1-how-do-i-use-these-modules-in-the-browser">1. How do I use these modules in the browser?</h3>
+<p>Assuming that you've gone through the <a href="guide/getting-started">Getting Started</a>, you'll need to install <a href="https://github.com/substack/node-browserify">Browserify</a>.</p>
+<pre class="prettyprint well"><code>npm install -g browserify
+</code></pre>
+<p>As an example, let's say that you want to use <a href="modules/coinkey">coinkey</a> in the browser. Clone the repository:</p>
+<pre class="prettyprint well"><code>git clone https://github.com/cryptocoinjs/coinkey
+</code></pre>
+<p>Navigate into it:</p>
+<pre class="prettyprint well"><code>cd coinkey
+</code></pre>
+<p>Install dependencies:</p>
+<pre class="prettyprint well"><code>npm install
+</code></pre>
+<p>Run browserify:</p>
+<pre class="prettyprint well"><code>browserify --standalone coinkey &lt; lib/coinkey.js &gt; coinkey.bundle.js
+</code></pre>
+<p>Include in a script in your HTML:</p>
+<pre class="prettyprint well"><code class="html">&lt;script src=&quot;coinkey.bundle.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p><strong>Note:</strong> If you use more than one CryptoCoinJS module, you don't need to do this for each one. Assuming that you're using Browserify for your browser app, you'll only need to build with Browserify once with your top level <code>index.js</code> or <code>app.js</code> file.</p>
 </div>
         </div>
 

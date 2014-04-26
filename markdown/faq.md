@@ -58,6 +58,40 @@ When it comes down to it, you should pick a library that helps you achieve your 
 
 
 
+Technical Questions
+-------------------
+
+### 1. How do I use these modules in the browser?
+
+Assuming that you've gone through the [Getting Started](guide/getting-started), you'll need to install [Browserify](https://github.com/substack/node-browserify).
+
+    npm install -g browserify
+
+As an example, let's say that you want to use [coinkey](modules/coinkey) in the browser. Clone the repository:
+
+    git clone https://github.com/cryptocoinjs/coinkey
+
+Navigate into it:
+
+    cd coinkey
+
+Install dependencies:
+
+    npm install
+
+Run browserify:
+
+    browserify --standalone coinkey < lib/coinkey.js > coinkey.bundle.js
+
+Include in a script in your HTML:
+
+```html
+<script src="coinkey.bundle.js"></script>
+```
+
+**Note:** If you use more than one CryptoCoinJS module, you don't need to do this for each one. Assuming that you're using Browserify for your browser app, you'll only need to build with Browserify once with your top level `index.js` or `app.js` file.
+
+
 
 
 [bitcoinjs]: https://github.com/bitcoinjs
