@@ -46,6 +46,7 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 
 * [btc-address](modules/currency/btc-address) - Address handling library for Bitcoin. Possibly irrelevant by [coinkey](modules/currency/coinkey) or [coinstring](modules/currency/coinstring)
 * [btc-opcode](modules/currency/btc-opcode) - Bitcoin opcodes
+* [btc-script](modules/currency/btc-script) - Bitcoin Script
 
 
 #### Cryptography

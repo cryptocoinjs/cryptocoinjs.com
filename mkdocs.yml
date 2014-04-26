@@ -22,6 +22,7 @@ pages:
 # Curreny Modules that Need Documentation TLC
 - ['modules/currency/btc-address.md', 'Currency Modules', 'btc-address - Bitcoin Address Handling']
 - ['modules/currency/btc-opcode.md', 'Currency Modules', 'btc-opcode - Bitcoin Opcodes']
+- ['modules/currency/btc-script.md', 'Currency Modules', 'btc-script - Bitcoin Script']
 
 
 # Crypto Modules (please alphabetize)
