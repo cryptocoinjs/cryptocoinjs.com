@@ -27,17 +27,18 @@ CryptoCoinJS is focused on Node.js and the browser using [Browserify](https://gi
 Modules
 -------
 
+Note: If a component won't work on the client (browser), then it'll be marked as server (Node.js) only.
+
 ### Active
 
 #### Crypto Currency
-
-##### Node.js / Browser
 
 * [bip38](modules/currency/bip38) - Password encrypted private keys
 * [coininfo](modules/currency/coininfo.md) - Fetch currency specific information such as ports and version numbers
 * [coinkey](modules/currency/coinkey.md) - Create private keys, public keys, and addresses. (Inherits from [eckey](modules/currency/eckey.md))
 * [coinstring](modules/currency/coinstring.md) - Create, parse, or validate addresses a wallet import format strings
 * [eckey](modules/currency/eckey.md) - Super class for [coinkey](modules/currency/coinkey) used for private and public elliptic curve keys
+* [p2p-node](modules/currency/p2p-node) - Low-level library to handle p2p traffic on crypto currency networks. **server only**
 
 
 #### Cryptography

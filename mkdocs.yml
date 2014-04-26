@@ -15,6 +15,7 @@ pages:
 - ['modules/currency/coinkey.md', 'Currency Modules', 'coinkey - Private Keys / Addresses']
 - ['modules/currency/coinstring.md', 'Currency Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
 - ['modules/currency/eckey.md', 'Currency Modules', 'eckey - Private Keys / Elliptic Curve']
+- ['modules/currency/p2p-node.md', 'Currency Modules', 'p2p-node - Handle p2p traffic on crypto currency networks']
 
 # Crypto Modules (please alphabetize)
 - ['modules/crypto/aes.md', 'Crypto Modules', 'aes - Advanced Encryption Standard']

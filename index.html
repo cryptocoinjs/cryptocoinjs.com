@@ -95,6 +95,10 @@
                             <a href="modules/currency/eckey/">eckey - Private Keys / Elliptic Curve</a>
                         </li>
                     
+                        <li >
+                            <a href="modules/currency/p2p-node/">p2p-node - Handle p2p traffic on crypto currency networks</a>
+                        </li>
+                    
                     </ul>
                 </li>
             
@@ -224,15 +228,16 @@
 <h2 id="platforms">Platforms</h2>
 <p>CryptoCoinJS is focused on Node.js and the browser using <a href="https://github.com/substack/node-browserify">Browserify</a>. We have made an active decision to NOT support legacy browsers. i.e. if your browser does not support <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript 5</a> (2009-2010) and it doesn't support <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.crypto.getRandomValues">window.crypto.getRandomValues()</a> some of the modules may not work.</p>
 <h2 id="modules">Modules</h2>
+<p>Note: If a component won't work on the client (browser), then it'll be marked as server (Node.js) only.</p>
 <h3 id="active">Active</h3>
 <h4 id="crypto-currency">Crypto Currency</h4>
-<h5 id="nodejs-browser">Node.js / Browser</h5>
 <ul>
 <li><a href="modules/currency/bip38">bip38</a> - Password encrypted private keys</li>
 <li><a href="modules/currency/coininfo/">coininfo</a> - Fetch currency specific information such as ports and version numbers</li>
 <li><a href="modules/currency/coinkey/">coinkey</a> - Create private keys, public keys, and addresses. (Inherits from <a href="modules/currency/eckey/">eckey</a>)</li>
 <li><a href="modules/currency/coinstring/">coinstring</a> - Create, parse, or validate addresses a wallet import format strings</li>
 <li><a href="modules/currency/eckey/">eckey</a> - Super class for <a href="modules/currency/coinkey">coinkey</a> used for private and public elliptic curve keys</li>
+<li><a href="modules/currency/p2p-node">p2p-node</a> - Low-level library to handle p2p traffic on crypto currency networks. <strong>server only</strong></li>
 </ul>
 <h4 id="cryptography">Cryptography</h4>
 <ul>
