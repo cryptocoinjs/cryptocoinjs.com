@@ -129,10 +129,34 @@ expected output:
     Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
 
 
+Generating a Dogecoin Address:
+------------------------------
+
+Assuming same setup as previous, install [coininfo](modules/coinfo) (0.1.0 at the time of this writing):
+
+    npm install --save coininfo
+
+```js
+var CoinKey = require('coinkey');   //0.1.0
+var coinInfo = require('coininfo')  //0.1.0
+
+var dogeInfo = coinInfo('DOGE').versions
+
+var ck = new CoinKey(dogeInfo); 
+
+console.log("Private Key (Wallet Import Format): " + ck.privateWif);
+console.log("Private Key (Hex): " + ck.privateKey.toString('hex'));
+console.log("Address: " + ck.publicAddress);
+```
+
+expected output:
+
+    Private Key (Wallet Import Format): QQ7moQvomoC2cmR6sjynhjEGbpwMa2RvhqQ2sheXg7MYGhVLWhbh
+    Private Key (Hex): 2cd4c766681679ca301485e47c5dfbe69df4a28e5b78d5752c09e1e3fca3a2a4
+    Address: DG6g8BnXTEBY3h1dXym7iPEkZPbNi7r4eg
 
 
-
-
+Hopefully this tutorial was helpful in getting you started of programming for your favorite crypto currency and JavaScript!
 
 
 

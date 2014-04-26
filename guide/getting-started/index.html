@@ -252,6 +252,8 @@
         
             <li><a href="#creating-a-coinkey-from-a-private-key">Creating a CoinKey from a Private Key:</a></li>
         
+            <li><a href="#generating-a-dogecoin-address">Generating a Dogecoin Address:</a></li>
+        
     
     </ul>
 </div></div>
@@ -339,6 +341,28 @@ console.log(&quot;Address: &quot; + ck.publicAddress);
 Private Key (Hex): ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75
 Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
 </code></pre>
+<h2 id="generating-a-dogecoin-address">Generating a Dogecoin Address:</h2>
+<p>Assuming same setup as previous, install <a href="modules/coinfo">coininfo</a> (0.1.0 at the time of this writing):</p>
+<pre class="prettyprint well"><code>npm install --save coininfo
+</code></pre>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');   //0.1.0
+var coinInfo = require('coininfo')  //0.1.0
+
+var dogeInfo = coinInfo('DOGE').versions
+
+var ck = new CoinKey(dogeInfo); 
+
+console.log(&quot;Private Key (Wallet Import Format): &quot; + ck.privateWif);
+console.log(&quot;Private Key (Hex): &quot; + ck.privateKey.toString('hex'));
+console.log(&quot;Address: &quot; + ck.publicAddress);
+</code></pre>
+
+<p>expected output:</p>
+<pre class="prettyprint well"><code>Private Key (Wallet Import Format): QQ7moQvomoC2cmR6sjynhjEGbpwMa2RvhqQ2sheXg7MYGhVLWhbh
+Private Key (Hex): 2cd4c766681679ca301485e47c5dfbe69df4a28e5b78d5752c09e1e3fca3a2a4
+Address: DG6g8BnXTEBY3h1dXym7iPEkZPbNi7r4eg
+</code></pre>
+<p>Hopefully this tutorial was helpful in getting you started of programming for your favorite crypto currency and JavaScript!</p>
 </div>
         </div>
 
