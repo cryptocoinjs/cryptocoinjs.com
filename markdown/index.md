@@ -7,7 +7,7 @@ CryptoCoinJS is a JavaScript project that helps you to interface with many of th
 Principles
 ----------
 
-We believe in the UNIX philosophy. The idea of building small components that do one thing and do it well. Writing software in this manner allows individuals to use and contribute much more effectively than writing one monolithic library.
+We believe in the Node.js and UNIX philosophy - the idea of building small components that do one thing and do it well. Writing software in this manner allows individuals to use and contribute much more effectively than writing one monolithic library.
 
 We believe that people are more important than code and therefore it's critical to write code that is easy to read, document each module with the API and examples, and that code is the enemy [1](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/) [2](http://blog.codinghorror.com/size-is-the-enemy/).
 
@@ -64,6 +64,11 @@ Want to Contribute?
 
 Please read: https://github.com/cryptocoinjs/cryptocoin/wiki/Contributor-Guidelines
 
+
+Thanks
+------
+
+This library wouldn't be possible without some of the great work of [Stefan Thomas](https://github.com/justmoon) and [Tom Wu](http://www-cs-students.stanford.edu/~tjw/). We owe them a heartfelt thank you for building the foundation for all of this.
 
 
 [crypto-browserify]: https://github.com/dominictarr/crypto-browserify
