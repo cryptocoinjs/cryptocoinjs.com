@@ -71,7 +71,7 @@ Use In Production
 * [Helloblock](https://helloblock.io) - Block Explorer with Mainnet and Testnet API
 * [Bitrated](https://www.bitrated.com) - Arbitration Marketplace
 
-Do you use any of CryptoCoinJS? If so, let us know by emailing us or opening a pull request.
+Do you use any of CryptoCoinJS? If so, let us know by emailing us or opening a [issue/pull request](https://github.com/cryptocoinjs/cryptocoinjs.com/issues).
 
 
 
