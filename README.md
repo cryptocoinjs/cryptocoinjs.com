@@ -26,3 +26,6 @@ install mkdocs:
 
     pip install mkdocs
 
+(if pip is not installed):
+
+    easy_install pip
