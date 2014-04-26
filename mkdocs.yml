@@ -19,6 +19,7 @@ pages:
 - ['modules/crypto/ecurve.md', 'Crypto Modules', 'ecurve - Elliptic Curve Cryptography']
 
 # Misc Modules (please alphabetize)
+- ['modules/misc/binstring.md', 'Misc Modules', 'binstring - convert data types']
 
 # Misc
 - ['faq.md', 'FAQ']

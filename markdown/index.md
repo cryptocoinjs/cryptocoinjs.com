@@ -17,6 +17,13 @@ We have our work cut out for us.
 
 
 
+Platforms
+---------
+
+CryptoCoinJS is focused on Node.js and the browser using [Browserify](https://github.com/substack/node-browserify). We have made an active decision to NOT support legacy browsers. i.e. if your browser does not support [ECMAScript 5](http://en.wikipedia.org/wiki/ECMAScript) (2009-2010) and it doesn't support [window.crypto.getRandomValues()](https://developer.mozilla.org/en-US/docs/Web/API/window.crypto.getRandomValues) some of the modules may not work.
+
+
+
 Modules
 -------
 

@@ -102,6 +102,19 @@
             
             
             
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="modules/misc/binstring/">binstring - convert data types</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
                 <li >
                     <a href="faq/">FAQ</a>
                 </li>
@@ -151,6 +164,8 @@
         
             <li><a href="#principles">Principles</a></li>
         
+            <li><a href="#platforms">Platforms</a></li>
+        
             <li><a href="#modules">Modules</a></li>
         
             <li><a href="#use-in-production">Use In Production</a></li>
@@ -171,6 +186,8 @@
 <p>We believe that people are more important than code and therefore it's critical to write code that is easy to read, document each module with the API and examples, and that code is the enemy <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">1</a> <a href="http://blog.codinghorror.com/size-is-the-enemy/">2</a>.</p>
 <p>We believe that writing tests is one of the best ways to communicate expectations between developers. If documentation is a way to commuincate for a consumer of your module, then tests are a way to communicate between devleopers.</p>
 <p>We have our work cut out for us.</p>
+<h2 id="platforms">Platforms</h2>
+<p>CryptoCoinJS is focused on Node.js and the browser using <a href="https://github.com/substack/node-browserify">Browserify</a>. We have made an active decision to NOT support legacy browsers. i.e. if your browser does not support <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript 5</a> (2009-2010) and it doesn't support <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.crypto.getRandomValues">window.crypto.getRandomValues()</a> some of the modules may not work.</p>
 <h2 id="modules">Modules</h2>
 <h3 id="active">Active</h3>
 <h4 id="crypto-currency">Crypto Currency</h4>
