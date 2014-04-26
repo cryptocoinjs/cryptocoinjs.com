@@ -149,7 +149,7 @@ console.log("Private Key (Hex): " + ck.privateKey.toString('hex'));
 console.log("Address: " + ck.publicAddress);
 ```
 
-expected output:
+expected output will resembled:
 
     Private Key (Wallet Import Format): QQ7moQvomoC2cmR6sjynhjEGbpwMa2RvhqQ2sheXg7MYGhVLWhbh
     Private Key (Hex): 2cd4c766681679ca301485e47c5dfbe69df4a28e5b78d5752c09e1e3fca3a2a4
