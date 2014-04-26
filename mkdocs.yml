@@ -9,6 +9,9 @@ pages:
 - ['faq.md', 'About', 'FAQ']
 - ['team.md', 'About', 'Team']
 
+# Guide
+- ['guide/getting-started.md', 'Guide', 'Getting Started']
+
 # Currency Modules (please alphabetize)
 - ['modules/currency/bip38.md', 'Currency Modules', 'bip38 - Password encrypted private keys']
 - ['modules/currency/btc-p2p.md', 'Currency Modules', 'btc-p2p - Manage a network of peers in a Bitcoin p2p network']
