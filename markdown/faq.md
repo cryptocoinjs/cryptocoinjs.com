@@ -88,7 +88,7 @@ Include in a script in your HTML:
 ```html
 <script src="coinkey.bundle.js"></script>
 <script>
-//since we passesd the --standalone flag to Browserify, "coinkey" will be global i.e. attached to `window`
+//since we passesd the --standalone flag to Browserify, "CoinKey" will be global i.e. attached to `window`
 
 var ck = new CoinKey();
 </script>
