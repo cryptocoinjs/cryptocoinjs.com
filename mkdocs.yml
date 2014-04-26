@@ -13,7 +13,7 @@ pages:
 - ['modules/currency/coininfo.md', 'Currency Modules', 'coininfo - Crypto Currency Specific Information']
 - ['modules/currency/coinkey.md', 'Currency Modules', 'coinkey - Private Keys / Addresses']
 - ['modules/currency/coinstring.md', 'Currency Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
-- ['modules/currency/eckey.md', 'Currency Modules', 'ecKey - Private Keys / Elliptic Curve']
+- ['modules/currency/eckey.md', 'Currency Modules', 'eckey - Private Keys / Elliptic Curve']
 
 # Crypto Modules (please alphabetize)
 - ['modules/crypto/aes.md', 'Crypto Modules', 'aes - Advanced Encryption Standard']
