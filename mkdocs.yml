@@ -6,12 +6,19 @@ repo_url: https://github.com/cryptocoinjs/
 
 pages:
 - ['index.md', 'Home']
-- ['modules/coininfo.md', 'Modules', 'coininfo - Crypto Currency Specific Information']
-- ['modules/coinkey.md', 'Modules', 'CoinKey - Private Keys / Addresses']
-- ['modules/coinstring.md', 'Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
-- ['modules/ecdsa.md', 'Modules', 'ECDSA - Elliptic Curve Signing / Verification']
-- ['modules/eckey.md', 'Modules', 'ECKey - Private Keys / Elliptic Curve']
-- ['modules/ecurve.md', 'Modules', 'ecurve - Elliptic Curve Cryptography']
+
+# Currency Modules
+- ['modules/coininfo.md', 'Currency Modules', 'coininfo - Crypto Currency Specific Information']
+- ['modules/coinkey.md', 'Currency Modules', 'CoinKey - Private Keys / Addresses']
+- ['modules/coinstring.md', 'Currency Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
+- ['modules/ecdsa.md', 'Currency Modules', 'ECDSA - Elliptic Curve Signing / Verification']
+- ['modules/eckey.md', 'Currency Modules', 'ECKey - Private Keys / Elliptic Curve']
+- ['modules/ecurve.md', 'Currency Modules', 'ecurve - Elliptic Curve Cryptography']
+
+# Crypto Modules
+- ['modules/aes.md', 'Crypto Modules', 'AES - Advanced Encryption Standard']
+
+# Misc
 - ['faq.md', 'FAQ']
 - ['team.md', 'Team']
 
