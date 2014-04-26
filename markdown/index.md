@@ -52,6 +52,7 @@ Modules
 
 #### Misc
 
+* [bigi](modjules/misc/bigi) - BigInteger library (port of Tom Wu's library)
 * [binstring](modules/misc/binstring) - Convert data types. i.e. convert between `Array`, `Buffer`, `UTF8`, `Hex`, etc
 * [qr-encode](modules/misc/qr-encode) - Encode data into QR codes 
 
