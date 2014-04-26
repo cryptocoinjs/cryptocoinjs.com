@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/currency/p2p-manager/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+        <title>p2p-manager - Manage a network of peers in a p2p network - CryptoCoinJS</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">CryptoCoinJS</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../..">Main</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../../faq/">FAQ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../../team/">Team</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Currency Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../bip38/">bip38 - Password encrypted private keys</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../coininfo/">coininfo - Crypto Currency Specific Information</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../coinkey/">coinkey - Private Keys / Addresses</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../eckey/">eckey - Private Keys / Elliptic Curve</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">p2p-manager - Manage a network of peers in a p2p network</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../p2p-node/">p2p-node - Handle p2p traffic on crypto currency networks</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crypto Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../crypto/aes/">aes - Advanced Encryption Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/crypto-hashing/">crypto-hashing - Normalized interface to hash functions</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ecdsa/">ecdsa - Elliptic Curve Signing / Verification</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ecurve/">ecurve - Elliptic Curve Cryptography</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/pbkdf2-sha256/">pbkdf2-sha256 - PBKDF2 using SHA256 HMAC</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/ripemd160/">ripemd160 - RIPEMD160 hash</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../crypto/scryptsy/">scryptsy - Scrypt Key Derivation</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../misc/binstring/">bigi - Big Integers</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../misc/binstring/">binstring - Convert data types</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../misc/bs58/">bs58 - BASE58 encoding / decoding</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../misc/qr-encode/">qr-encode - Encode data into QR</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../eckey/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../p2p-node/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/cryptocoinjs/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#p2p-manager">P2P Manager</a></li>
+        
+            <li><a href="#messages">Messages</a></li>
+        
+            <li><a href="#peermanagersend">PeerManager.send()</a></li>
+        
+            <li><a href="#peers">Peers</a></li>
+        
+            <li><a href="#peer-lists">Peer lists</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="p2p-manager">P2P Manager</h1>
+<p>Manage a network of peers in a peer-to-peer network.</p>
+<h2 id="messages">Messages</h2>
+<h3 id="peerconnect-peerend-peererror"><code>peerConnect</code>, <code>peerEnd</code>, <code>peerError</code></h3>
+<p>Emitted when an active Peer emits a <code>connect</code>, <code>end</code> or <code>error</code> message respectively, and the data payload is the same:</p>
+<pre class="prettyprint well"><code>{
+  peer: Peer
+}
+</code></pre>
+
+<h3 id="peermessage"><code>peerMessage</code></h3>
+<p>Emitted when an active Peer sends a <code>message</code> event.</p>
+<pre class="prettyprint well"><code>{
+  peer: Peer,
+  command: String,
+  data: Raw payload as binary data
+}
+</code></pre>
+
+<h3 id="commandmessage"><code>commandMessage</code></h3>
+<p>An alternate version of the <code>peerMessage</code> event; in these events, the command of the message is used as the event name (i.e. command <code>'foo'</code> would cause a <code>fooMessage</code> event).</p>
+<pre class="prettyprint well"><code>{
+  peer: Peer,
+  data: Raw payload as binary data
+}
+</code></pre>
+
+<h3 id="error"><code>error</code></h3>
+<p>Error message from the PeerManager. The <code>severity</code> attribute is one of 'info', 'notice', 'warning', or 'error' (in increasing severity). </p>
+<pre class="prettyprint well"><code>{
+  severity: String,
+  message: String
+}
+</code></pre>
+
+<h2 id="peermanagersend"><code>PeerManager.send()</code></h2>
+<p>The PeerManager allows sending messages to a collection of Peers at once, based on certain criteria. The most common criteria is the "state" of the Peer. Each Peer object has a <code>state</code> property which is set to <code>'new'</code> when first created, <code>'connecting'</code> when first opened, and <code>'connected'</code> when first <code>connect</code> event is heard (before <code>handleConnect</code> is called, so that can be overwritten, if desired). Any other states are up to your PeerManager instance to implement.</p>
+<ul>
+<li><code>number</code>: How many peers to send to? Once filtered down, should all or a sub-set be messaged? Pass a Number to send to that many Peers (picked at random). Passing a zero or negative number for this argument sends to all matched Peers.</li>
+<li><code>prop</code>: (String) Which property of the Peers should be examined?</li>
+<li><code>value</code>: Value of the property the Peers need to match to be included in the set. Matching is done in a case-insensitive way for strings. Passing an array for this argument requires Peers match any one of the array's values.</li>
+<li><code>cmd</code>: (String) Message name to be sent to the Peers</li>
+<li><code>payload</code>: (Buffer) Binary data to be sent to the Peers</li>
+<li><code>answerCmd</code>: (String) Message name of answering message. If null/false, defaults to all <code>message</code> events.</li>
+<li><code>callback</code>: (function) If provided, is bound to the "<code>answerCmd</code>" event of the Peers contacted, to await their reply</li>
+</ul>
+<pre class="prettyprint well"><code class="js">PeerManager.send('all', 'state', 'connected', 'hi', new Buffer([1,2,3,4,5])); // Send a message to all connected clients
+PeerManager.send(2, 'state', 'lonely', 'matchmaker', new Buffer([1,2,3,4,5])); // Send a message to a random two Peers who have state=='lonely'
+PeerManager.send(5, 'myProp', [1,5,42,false], 'hi', new Buffer([1,2,3,4,5])); // Send a message to a random five Peers who have myProp equal to either 1, 5 ,42, or false
+</code></pre>
+
+<p>The function returns an dictionary of Peers the message was sent to, stored by their UUID.</p>
+<p>If you're expecting a specific answer to your message, there's a few ways you can listen in:</p>
+<h3 id="listen-to-only-answer-messages-from-just-the-filtered-peers">Listen to only answer messages, from just the filtered peers</h3>
+<p>Probably the most common, and the most specific listening type:</p>
+<pre class="prettyprint well"><code class="js">var m = new PeerManager();
+var waitForAnswer = function(d) {
+  console.log(d.peer.getUUID()+': has answered', d.data.toString('hex'));
+  d.peer.removeListener('message', this); // This listener doesn't care about further messages
+  delete peers[d.peer.getUUID()]; // Remove this peer from the list of peers who haven't answered yet
+};
+
+var peers = m.send(2, 'state', 'waiting', 'knock', new Buffer([1,2,3]), 'answer', waitForAnswer);
+
+setTimeout(function() {
+  // Ten seconds have passed; give up on those who haven't answered
+  for (var uuid in peers) {
+    if (peers.hasOwnProperty(uuid)) {
+      console.log(uuid+' never answered...');
+      peers[uuid].removeListener('message', waitForAnswer);
+    }
+  }
+}, 10000);
+</code></pre>
+
+<h3 id="listen-to-all-messages-from-just-the-filtered-peers">Listen to all messages, from just the filtered Peers</h3>
+<p>A good method if you expect the answer you seek to be in the next few messages from those Peers, and the answer might be one of several messages ('answer' or 'error'):</p>
+<pre class="prettyprint well"><code class="js">var m = new PeerManager();
+var waitForAnswer = function(d) {
+  if (d.command !== 'answer') return; // Wait for next message...
+
+  console.log(d.peer.getUUID()+': has answered', d.data.toString('hex'));
+  d.peer.removeListener('message', this); // This listener doesn't care about further messages
+  delete peers[d.peer.getUUID()]; // Remove this peer from the list of peers who haven't answered yet
+};
+
+var peers = m.send(2, 'state', 'waiting', 'knock', new Buffer([1,2,3]), false, waitForAnswer);
+
+setTimeout(function() {
+  // Ten seconds have passed; give up on those who haven't answered
+  for (var uuid in peers) {
+    if (peers.hasOwnProperty(uuid)) {
+      console.log(uuid+' never answered...');
+      peers[uuid].removeListener('message', waitForAnswer);
+    }
+  }
+}, 10000);
+</code></pre>
+
+<h3 id="listen-to-only-answer-messages-from-all-peers">Listen to only answer messages, from all Peers</h3>
+<p>If there are lots of other messages being sent around, but very few of the particular answer messages you're looking for, this works well, or if there's a possibility another peer will answer on behalf of the peer you requested from:</p>
+<pre class="prettyprint well"><code class="js">var m = new PeerManager();
+var waitForAnswer = function(d) {
+  // Look through our list of peers and see if d.peer is one of them
+  if (peers[d.peer.getUUID()] !== d.peer) return;
+
+  console.log(d.peer.getUUID()+': has answered', d.data.toString('hex'));
+  delete peers[d.peer.getUUID()]; // Remove this peer from the list of peers who haven't answered yet
+};
+var peers = m.send(2, 'state', 'waiting', 'knock', new Buffer([1,2,3]));
+m.on('answer', waitForAnswer); // Listen in on all 'answer' messages from all peers
+
+setTimeout(function() {
+  // Ten seconds have passed; give up on those who haven't answered
+  for (var uuid in peers) {
+    if (peers.hasOwnProperty(uuid)) {
+      console.log(uuid+' never answered...');
+    }
+  }
+  m.removeListener('answer', waitForAnswer);
+}, 10000);
+</code></pre>
+
+<h2 id="peers">Peers</h2>
+<p>The PeerManager keeps a list of known Peers to connect to (the "pool"), as well as a list of those currently connected ("active").</p>
+<p>As your implementation discovers new Peers, use the <code>PeerManager.addPool(hosts)</code> method to tell the PeerManager about them. If the number of active Peers is currently below the minimum (<code>options.minPeers</code>), a connection will be attempted immediately. Otherwise, they will just be added to the pool. <code>PeerManager.addActive(hosts)</code> adds a new peer and attempts to connect to it immediately, regardless if the number of active Peers is above the threshhold.</p>
+<h2 id="peer-lists">Peer lists</h2>
+<p>The <code>seedPeers</code> argument of <code>launch()</code>, and the <code>hosts</code> argument of <code>addPool()</code> and <code>addActive()</code> are lists of hosts, expressed one of the following ways:</p>
+<ul>
+<li>If it's a String, it's assumed to be the hostname/ip of one host to use; make sure to include a port number as part of the hostname (colon-delimited).</li>
+<li>If it's an Array, it's looped through and each element inspected.</li>
+<li>
+<ul>
+<li>If it's a String, it's assumed to be a hostname/ip of a host to use.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>If it's an Array, index zero is used as host and index one is used as port.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>If it's an Object, the <code>host</code> property is used as host, and the <code>port</code> property is used as port.</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/prettify-1.0.min.js"></script>
+        <script src="../../../js/base.js"></script>
+    </body>
+</html>
