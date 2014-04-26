@@ -82,7 +82,7 @@ Please read: https://github.com/cryptocoinjs/cryptocoin/wiki/Contributor-Guideli
 Thanks
 ------
 
-This library wouldn't be possible without some of the great work of [Stefan Thomas](https://github.com/justmoon) and [Tom Wu](http://www-cs-students.stanford.edu/~tjw/). We owe them a heartfelt thank you for building the foundation for all of this.
+This library wouldn't be possible without some of the great work of [Stefan Thomas](https://github.com/justmoon), [Tom Wu](http://www-cs-students.stanford.edu/~tjw/), authors of [CryptoJS](https://code.google.com/p/crypto-js/), and authors of [SJCL](https://github.com/bitwiseshiftleft/sjcl/graphs/contributors). We owe them a heartfelt thank you for building the foundation for all of this.
 
 
 [crypto-browserify]: https://github.com/dominictarr/crypto-browserify
