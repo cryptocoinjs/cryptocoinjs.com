@@ -10,6 +10,7 @@ pages:
 - ['team.md', 'About', 'Team']
 
 # Currency Modules (please alphabetize)
+- ['modules/currency/bip38.md', 'Currency Modules', 'bip38 - Password encrypted private keys']
 - ['modules/currency/coininfo.md', 'Currency Modules', 'coininfo - Crypto Currency Specific Information']
 - ['modules/currency/coinkey.md', 'Currency Modules', 'coinkey - Private Keys / Addresses']
 - ['modules/currency/coinstring.md', 'Currency Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']

@@ -33,6 +33,7 @@ Modules
 
 ##### Node.js / Browser
 
+* [bip38](modules/currency/bip38) - Password encrypted private keys
 * [coininfo](modules/currency/coininfo.md) - Fetch currency specific information such as ports and version numbers
 * [coinkey](modules/currency/coinkey.md) - Create private keys, public keys, and addresses. (Inherits from [eckey](modules/currency/eckey.md))
 * [coinstring](modules/currency/coinstring.md) - Create, parse, or validate addresses a wallet import format strings
