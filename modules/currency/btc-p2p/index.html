@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://cryptocoinjs.com/modules/currency/coininfo/">
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/currency/btc-p2p/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <title>coininfo - Crypto Currency Specific Information - CryptoCoinJS</title>
+        <title>btc-p2p - Manage a network of peers in a Bitcoin p2p network - CryptoCoinJS</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -79,12 +79,12 @@
                             <a href="../bip38/">bip38 - Password encrypted private keys</a>
                         </li>
                     
-                        <li >
-                            <a href="../btc-p2p/">btc-p2p - Manage a network of peers in a Bitcoin p2p network</a>
+                        <li class="active">
+                            <a href="./">btc-p2p - Manage a network of peers in a Bitcoin p2p network</a>
                         </li>
                     
-                        <li class="active">
-                            <a href="./">coininfo - Crypto Currency Specific Information</a>
+                        <li >
+                            <a href="../coininfo/">coininfo - Crypto Currency Specific Information</a>
                         </li>
                     
                         <li >
@@ -179,12 +179,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li >
-                    <a rel="next" href="../btc-p2p/">
+                    <a rel="next" href="../bip38/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../coinkey/">
+                    <a rel="prev" href="../coininfo/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -207,64 +207,35 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#coininfo">coininfo</a></li>
+        <li class="main active"><a href="#bitcoin-p2p-manager">Bitcoin P2P Manager</a></li>
         
-            <li><a href="#installation">Installation</a></li>
-        
-            <li><a href="#usage">Usage</a></li>
-        
-            <li><a href="#supported">Supported</a></li>
+            <li><a href="#events">Events</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="coininfo">coininfo</h1>
-<p>JavaScript component for crypto currency specific information.</p>
-<h2 id="installation">Installation</h2>
-<pre class="prettyprint well"><code>npm install --save coininfo
+<h1 id="bitcoin-p2p-manager">Bitcoin P2P Manager</h1>
+<p>Manage a network of peers in a Bitcoin peer-to-peer network.</p>
+<h2 id="events">Events</h2>
+<p>The BTCNetwork object translates the raw network messages received from the PeerManager into parsed objects. Here's the differences between the various events (Events are identified like <code>Object::EventName</code>):</p>
+<ul>
+<li><code>Peer::message</code>: <code>{ peer: Peer, command: STRING, data: Buffer }</code> Raw message, fired for every message. Bubbled-up as <code>PeerManager::message</code></li>
+<li><code>BTCNetwork::message</code>: <code>{ peer: Peer, command: STRING, data: { version: INT, services: Buffer, time: INT, ...}</code> Parsed data</li>
+<li><code>Peer::versionMessage</code>: <code>{ peer: Peer, data: Buffer }</code> Raw message. Bubbled-up by PeerManager as <code>PeerManager::versionMessage</code></li>
+<li><code>BTCNetwork::versionMessage</code>: <code>{ peer: Peer, version: INT, services: Buffer, time: INT, ... }</code> Parsed data</li>
+</ul>
+<p>This is accomplished by several message handlers on the BTCNetwork object, named in the format <code>parseCommandMessage</code> (e.g. <code>parseVersionMessage</code>, <code>parseInvMessage</code>, <code>parseGetaddrMessage</code>, etc.). If a handler is not found for a message type, the raw form is bubbled up. To handle additional types of messages, add a parser method named appropriately, and it will be passed <code>data</code> as an argument, which is the message payload in Buffer form. It must return an object; if the result is an array (i.e <code>inv</code> messages), return an object with one property set to the array (i.e. <code>{ items: ARRAY }</code>).</p>
+<p>In addition to a parser method, a <code>handleCommandMessage</code> method can be defined, which will be passed the parsed result, and <code>peer</code> as arguments, where <code>peer</code> is the Peer who sent the message.</p>
+<p>These parsing methods mean, that if you're subscribed to an event stream that presents raw data (i.e. the <code>versionMessage</code> events from an individual Peer), you can parse them like:</p>
+<pre class="prettyprint well"><code class="js">var p = new Peer('example.com');
+var btc = new BTCNetwork();
+
+p.on('versionMessage', function(d) {
+  var parsed = btc.parseVersionMessage(d.data);
+});
 </code></pre>
-<h2 id="usage">Usage</h2>
-<pre class="prettyprint well"><code class="js">var coininfo = require('coininfo');
-console.dir(coininfo('LTC')) // =&gt; { versions: { public: 48, private: 176, scripthash: 5} }
-</code></pre>
-
-<p>Useful to use in conjunction with <a href="https://github.com/cryptocoinjs/coinkey">coinkey</a> and <a href="https://github.com/cryptocoinjs/coinstring">coinstring</a>.</p>
-<h2 id="supported">Supported</h2>
-<table>
-<tr>
-  <th> Crypto Coin </th><th> Public Address </th><th> Private Wallet Import Format </th><th> Script Hash </th>
-</tr>
-
-<tr>
-  <td> BTC </td><td> 0x00 </td><td> 0x80 </td><td> 0x05 </td>
-</tr>
-<tr>
-  <td> BTC-TEST </td><td> 0x6F </td><td> 0xEF </td><td> 0xC4 </td>
-</tr>
-
-<tr>
-  <td> DOGE </td><td> 0x1E </td><td> 0x9E </td><td> 0x16 </td>
-</tr>
-<tr>
-  <td> DOGE-TEST </td><td> 0x71 </td><td> 0xF1 </td><td> 0xC4 </td>
-</tr>
-
-
-<tr>
-  <td> LTC </td><td> 0x30 </td><td> 0xB0 </td><td> 0x05 </td>
-</tr>
-<tr>
-  <td> LTC-TEST </td><td> 0x6F </td><td> 0xEF </td><td> 0xC4 </td>
-</tr>
-
-
-<tr>
-  <td> NMC </td><td> 0x34 </td><td> 0xB4 </td><td> 0x05 </td>
-</tr>
-
-</table>
 
 </div>
         </div>

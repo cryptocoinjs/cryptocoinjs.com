@@ -11,6 +11,7 @@ pages:
 
 # Currency Modules (please alphabetize)
 - ['modules/currency/bip38.md', 'Currency Modules', 'bip38 - Password encrypted private keys']
+- ['modules/currency/btc-p2p.md', 'Currency Modules', 'btc-p2p - Manage a network of peers in a Bitcoin p2p network']
 - ['modules/currency/coininfo.md', 'Currency Modules', 'coininfo - Crypto Currency Specific Information']
 - ['modules/currency/coinkey.md', 'Currency Modules', 'coinkey - Private Keys / Addresses']
 - ['modules/currency/coinstring.md', 'Currency Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
