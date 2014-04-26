@@ -31,6 +31,8 @@ Modules
 
 #### Crypto Currency
 
+##### Node.js / Browser
+
 * [coininfo](modules/currency/coininfo.md) - Fetch currency specific information such as ports and version numbers
 * [coinkey](modules/currency/coinkey.md) - Create private keys, public keys, and addresses. (Inherits from [eckey](modules/currency/eckey.md))
 * [coinstring](modules/currency/coinstring.md) - Create, parse, or validate addresses a wallet import format strings
@@ -48,7 +50,7 @@ Modules
 
 #### Misc
 
-* binstring
+* [binstring](modules/misc/binstring.md) - Convert data types. i.e. convert between `Array`, `Buffer`, `UTF8`, `Hex`, etc.
 * qr-encode 
 
 
