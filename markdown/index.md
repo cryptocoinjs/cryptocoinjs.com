@@ -45,7 +45,7 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 (the following are poorly documented and need some TLC)
 
 * [btc-address](modules/currency/btc-address) - Address handling library for Bitcoin. Possibly irrelevant by [coinkey](modules/currency/coinkey) or [coinstring](modules/currency/coinstring)
-
+* [btc-opcode](modules/currency/btc-opcode) - Bitcoin opcodes
 
 
 #### Cryptography
@@ -72,7 +72,7 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 ### Deprecated
 
 * ecurve-names - Moving curves to ecurve
-* sha256 - Outsourced to [crypto-browserify][crypto-browserify]
+* sha256 - Outsourced to [crypto-browserify][crypto-browserify] through [crypto-hashing](modules/crypto/crypto-hashing)
 
 
 
