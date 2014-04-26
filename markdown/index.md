@@ -46,7 +46,7 @@ Modules
 * [ecurve](modules/crypto/ecurve) - Main module for Elliptic Curve Cryptography
 * [pbkdf2-sha256](modules/crypto/pbkdf2-sha256) - PBKDF2 using SHA256 HMAC
 * [ripemd160](modules/crypto/ripemd160) - RIPEMD160 hash
-* scryptsy
+* [scryptsy](modules/crypto/scrypt) - Scrypt key derivation
 
 
 
