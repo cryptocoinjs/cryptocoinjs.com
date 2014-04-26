@@ -19,6 +19,7 @@ pages:
 - ['modules/crypto/aes.md', 'Crypto Modules', 'aes - Advanced Encryption Standard']
 - ['modules/crypto/ecdsa.md', 'Crypto Modules', 'ecdsa - Elliptic Curve Signing / Verification']
 - ['modules/crypto/ecurve.md', 'Crypto Modules', 'ecurve - Elliptic Curve Cryptography']
+- ['modules/crypto/pbkdf2-sha256.md', 'Crypto Modules', 'pbkdf2-sha256 - PBKDF2 using SHA256 HMAC']
 
 # Misc Modules (please alphabetize)
 - ['modules/misc/binstring.md', 'Misc Modules', 'binstring - convert data types']

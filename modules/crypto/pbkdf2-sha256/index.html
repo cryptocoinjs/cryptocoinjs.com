@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://cryptocoinjs.com/modules/crypto/ecurve/">
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/crypto/pbkdf2-sha256/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <title>ecurve - Elliptic Curve Cryptography - CryptoCoinJS</title>
+        <title>pbkdf2-sha256 - PBKDF2 using SHA256 HMAC - CryptoCoinJS</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,12 +108,12 @@
                             <a href="../ecdsa/">ecdsa - Elliptic Curve Signing / Verification</a>
                         </li>
                     
-                        <li class="active">
-                            <a href="./">ecurve - Elliptic Curve Cryptography</a>
+                        <li >
+                            <a href="../ecurve/">ecurve - Elliptic Curve Cryptography</a>
                         </li>
                     
-                        <li >
-                            <a href="../pbkdf2-sha256/">pbkdf2-sha256 - PBKDF2 using SHA256 HMAC</a>
+                        <li class="active">
+                            <a href="./">pbkdf2-sha256 - PBKDF2 using SHA256 HMAC</a>
                         </li>
                     
                     </ul>
@@ -139,12 +139,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li >
-                    <a rel="next" href="../ecdsa/">
+                    <a rel="next" href="../ecurve/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../pbkdf2-sha256/">
+                    <a rel="prev" href="../../misc/binstring/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -167,24 +167,67 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#ecurve">ecurve</a></li>
+        <li class="main active"><a href="#pbkdf2-sha256">pbkdf2-sha256</a></li>
+        
+            <li><a href="#why">Why?</a></li>
         
             <li><a href="#usage">Usage</a></li>
         
-            <li><a href="#credits">Credits</a></li>
+            <li><a href="#misc">Misc</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="ecurve">ecurve</h1>
-<p>JavaScript component to <a href="http://en.wikipedia.org/wiki/Elliptic_curve_cryptography">Elliptic Curve Cryptography</a>.</p>
-<p>See this article for more details: <a href="http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript">bitcoin address</a>.</p>
+<h1 id="pbkdf2-sha256">pbkdf2-sha256</h1>
+<p><code>pbkdf2-sha256</code> is a JavaScript implementation of <a href="http://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a> using the SHA256 HMAC. It's fully compatible with Node.js and the browser (via Browserify).</p>
+<h2 id="why">Why?</h2>
+<p>This is useful for the <a href="http://en.wikipedia.org/wiki/Scrypt">Scrypt</a> algorithm.</p>
+<p>Why not just use the Node.js <code>pbkdf2</code> function? The Node.js <code>pbkdf2</code> function uses the <code>sha1</code> algorithm and not the <code>sha256</code> algorithm for its pseudorandom function. This will change when Node v0.12 is released. Until then, this is the next best option.</p>
 <h2 id="usage">Usage</h2>
-<p>http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</p>
-<h2 id="credits">Credits</h2>
-<p>It's not clear to me if this is based upon Tom Wu's work or Stefen Thomas. </p>
+<h3 id="installation">Installation</h3>
+<pre class="prettyprint well"><code>npm install --save pbkdf2-sha256
+</code></pre>
+<h3 id="example">Example</h3>
+<pre class="prettyprint well"><code class="js">var pbkdf2 = require('pbkdf2-sha256');
+
+var key = 'passwd';
+var salt = new Buffer('salt');
+var res = pbkdf2(key, salt, 1, 64);
+console.log(res.toString('hex')) // =&gt; 55ac046e56e3089fec1691c22544b605f94185216dde0465e68b9d57c20dacbc49ca9cccf179b645991664b39d77ef317c71b845b1e30bd509112041d3a19783
+</code></pre>
+
+<h3 id="bundling-for-the-browser">Bundling for the Browser</h3>
+<p>To use in the browser, clone the repo and then download <a href="https://github.com/substack/node-browserify">Browserify</a>:</p>
+<pre class="prettyprint well"><code>npm install -g browserify
+</code></pre>
+<p>run:</p>
+<pre class="prettyprint well"><code>browserify --standalone pbdkf2 &lt; lib/pbkdf2.js &gt; pbdkf2.bundle.js
+</code></pre>
+<p>then include <code>pbdkf2.bundle.js</code> in your <code>&lt;script&gt;</code> tag in your html. </p>
+<h3 id="testing">Testing</h3>
+<p>If you want to test the algorithm, clone the git repo. Then run <code>npm install --development</code> to install all of the dependencies.</p>
+<h4 id="nodejs">Node.js</h4>
+<p>run:</p>
+<pre class="prettyprint well"><code>make test-node
+</code></pre>
+<h3 id="browser">Browser</h3>
+<p>run:</p>
+<pre class="prettyprint well"><code>make test-browser
+</code></pre>
+<p>after you're finished, you can kill the test browser server (test-browser.js) by running:</p>
+<pre class="prettyprint well"><code>make kill
+</code></pre>
+<h2 id="misc">Misc</h2>
+<h3 id="alternative-implementations">Alternative Implementations</h3>
+<ul>
+<li>https://github.com/bitwiseshiftleft/sjcl/blob/master/core/pbkdf2.js (Stanford JavaScript Crypto Library)</li>
+<li>https://code.google.com/p/crypto-js/source/browse/tags/3.1.2/src/pbkdf2.js (CryptoJS)</li>
+</ul>
+<p>Why didn't I use either one of these? They're not Node.js optimized. They also don't use native types, so they'll be slower in the browser.</p>
+<h3 id="credits">Credits</h3>
+<p>Based upon the following code https://github.com/cheongwy/node-scrypt-js/blob/master/lib/pbkdf2.js which is based upon https://github.com/wg/scrypt/blob/master/src/main/java/com/lambdaworks/crypto/PBKDF.java</p>
 </div>
         </div>
 
