@@ -84,7 +84,7 @@ Thanks
 
 This library wouldn't be possible without some of the great work of [Stefan Thomas](https://github.com/justmoon), [Tom Wu](http://www-cs-students.stanford.edu/~tjw/), authors of [CryptoJS](https://code.google.com/p/crypto-js/), and authors of [SJCL](https://github.com/bitwiseshiftleft/sjcl/graphs/contributors). We owe them a heartfelt thank you for building the foundation for all of this.
 
-Last, but surely not least, we owe [Satoshi Nakamoto](http://en.wikipedia.org/wiki/Satoshi_Nakamoto) for inventing what will surely be one of the greatest inventions of mankind.
+Last, but surely not least, we owe [Satoshi Nakamoto](http://en.wikipedia.org/wiki/Satoshi_Nakamoto) a heartfelt thank you for inventing what will surely be one of the greatest inventions of mankind.
 
 
 [crypto-browserify]: https://github.com/dominictarr/crypto-browserify
