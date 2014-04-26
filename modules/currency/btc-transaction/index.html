@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://cryptocoinjs.com/modules/currency/bip38/">
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/currency/btc-transaction/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <title>bip38 - Password encrypted private keys - CryptoCoinJS</title>
+        <title>btc-transaction - Bitcon Transaction Creation / Parsing - CryptoCoinJS</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -75,8 +75,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Currency Modules <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
-                        <li class="active">
-                            <a href="./">bip38 - Password encrypted private keys</a>
+                        <li >
+                            <a href="../bip38/">bip38 - Password encrypted private keys</a>
                         </li>
                     
                         <li >
@@ -119,8 +119,8 @@
                             <a href="../btc-script/">btc-script - Bitcoin Script</a>
                         </li>
                     
-                        <li >
-                            <a href="../btc-transaction/">btc-transaction - Bitcon Transaction Creation / Parsing</a>
+                        <li class="active">
+                            <a href="./">btc-transaction - Bitcon Transaction Creation / Parsing</a>
                         </li>
                     
                     </ul>
@@ -195,12 +195,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li >
-                    <a rel="next" href="../../../team/">
+                    <a rel="next" href="../btc-script/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../btc-p2p/">
+                    <a rel="prev" href="../../crypto/aes/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -223,84 +223,27 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#bip38">bip38</a></li>
+        <li class="main active"><a href="#btc-transaction">btc-transaction</a></li>
         
-            <li><a href="#why">Why?</a></li>
+            <li><a href="#install">Install</a></li>
         
             <li><a href="#usage">Usage</a></li>
-        
-            <li><a href="#api">API</a></li>
-        
-            <li><a href="#references">References</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="bip38">bip38</h1>
-<p>A JavaScript component that adheres to the <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">BIP38</a> standard to secure your crypto currency private keys. Fully compliant with Node.js and the browser (via Browserify).</p>
-<h2 id="why">Why?</h2>
-<p>BIP38 is a standard process to encrypt Bitcoin and crypto currency private keys that is imprevious to brute force attacks thus protecting the user.</p>
+<h1 id="btc-transaction">btc-transaction</h1>
+<p>Create, parse, serialize Bitcoin transactions.</p>
+<h2 id="install">Install</h2>
+<h3 id="nodejsbrowserify">Node.js/Browserify</h3>
+<pre class="prettyprint well"><code>npm install --save btc-transaction
+</code></pre>
+<h3 id="script">Script</h3>
+<p>(TODO)</p>
 <h2 id="usage">Usage</h2>
-<h3 id="installation">Installation</h3>
-<pre class="prettyprint well"><code>npm install --save bip38
-</code></pre>
-<h2 id="api">API</h2>
-<h3 id="bip38_1">Bip38()</h3>
-<p>Constructor that creates a new <code>Bip38</code> instance.</p>
-<h3 id="addressversion">addressVersion</h3>
-<p>A field that accepts an object for the address version. This easily allows you to support altcoins. Defaults to Bitcoin values.</p>
-<p><strong>example:</strong></p>
-<pre class="prettyprint well"><code class="js">var Bip38 = require('bip38');
-
-var privateKeyWif = '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR';
-
-var bip38 = new Bip38();
-bip38.addressVersion = {private: 0x80, public: 0x0};
-bip38.encrypt(privateKeyWif, &quot;super-secret&quot;, &quot;1Jq6MksXQVWzrznvZzxkV6oY57oWXD9TXB&quot;});
-</code></pre>
-
-<h3 id="scryptparams">scryptParams</h3>
-<p>A field that accepts an object with the follow properties: <code>N</code>, <code>r</code>, and <code>p</code> to control the <a href="https://github.com/cryptocoinjs/scryptsy">scrypt</a>. The
-BIP38 standard suggests <code>N = 16384</code>, <code>r = 8</code>, and <code>p = 8</code>. However, this may yield unacceptable performance on a mobile phone. If you alter these parameters, it wouldn't be wise to suggest to your users that your import/export encrypted keys are BIP38 compatible. If you do, you may want to alert them of your parameter changes.</p>
-<p><strong>example:</strong></p>
-<pre class="prettyprint well"><code class="js">bip38.scryptParams = {N: 8192, r: 8, p: 8};
-</code></pre>
-
-<h3 id="encryptwif-passphrase-address">encrypt(wif, passphrase, address)</h3>
-<p>A method that encrypts the private key. <code>wif</code> is the string value of the wallet import format key. <code>passphrase</code> the passphrase to encrypt the key with. <code>address</code> is the public address.</p>
-<p>Returns the encrypted string.</p>
-<p><strong>example</strong>:</p>
-<pre class="prettyprint well"><code class="js">var Bip38 = require('bip38');
-
-var privateKeyWif = '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR';
-
-var bip38 = new Bip38();
-var encrypted = bip38.encrypt(privateKeyWif, 'TestingOneTwoThree', &quot;1Jq6MksXQVWzrznvZzxkV6oY57oWXD9TXB&quot;);
-console.log(encrypted); // =&gt; 6PRVWUbkzzsbcVac2qwfssoUJAN1Xhrg6bNk8J7Nzm5H7kxEbn2Nh2ZoGg
-</code></pre>
-
-<h3 id="decryptencryptedkey-passhprase">decrypt(encryptedKey, passhprase)</h3>
-<p>A method that decrypts the encrypted string. <code>encryptedKey</code> is the string value of the encrypted key. <code>passphrase</code> is the passphrase to decrypt the key with.</p>
-<pre class="prettyprint well"><code class="js">var Bip38 = require('bip38');
-
-var encryptedKey = '6PRVWUbkzzsbcVac2qwfssoUJAN1Xhrg6bNk8J7Nzm5H7kxEbn2Nh2ZoGg';
-
-var bip38 = new Bip38();
-var privateKeyWif = bip38.decrypt(encryptedKey, 'TestingOneTwoThree');
-console.log(privateKeyWif); // =&gt;  '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR'
-</code></pre>
-
-<p><strong>note:</strong> To check for an invalid password, you'll want to generate the public address from the output of the <code>decrypt()</code> function. If it doesn't equal the expected address or the address checksum, then chances are, it's an invalid password. The reason that this logic was not included is because it would have required a lot of dependencies: <code>ECKey</code> and <code>Address</code>. Currently, <code>ECKey</code> is pretty heavy on dependencies.</p>
-<h2 id="references">References</h2>
-<ul>
-<li>https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki</li>
-<li>https://github.com/pointbiz/bitaddress.org/issues/56 (Safari 6.05 issue)</li>
-<li>https://github.com/casascius/Bitcoin-Address-Utility/tree/master/Model</li>
-<li>https://github.com/nomorecoin/python-bip38-testing/blob/master/bip38.py</li>
-<li>https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.key.js </li>
-</ul>
+<p>(TODO)</p>
 </div>
         </div>
 
