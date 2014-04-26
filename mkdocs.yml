@@ -23,6 +23,7 @@ pages:
 - ['modules/currency/btc-address.md', 'Currency Modules', 'btc-address - Bitcoin Address Handling']
 - ['modules/currency/btc-opcode.md', 'Currency Modules', 'btc-opcode - Bitcoin Opcodes']
 - ['modules/currency/btc-script.md', 'Currency Modules', 'btc-script - Bitcoin Script']
+- ['modules/currency/btc-scriptinterpreter', 'Currency Modules', 'btc-scriptinterpreter - Bitcoin Script Interpreter']
 - ['modules/currency/btc-transaction.md', 'Currency Modules', 'btc-transaction - Bitcon Transaction Creation / Parsing']
 
 
