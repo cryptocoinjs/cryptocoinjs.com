@@ -240,11 +240,105 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#getting-started">Getting Started</a></li>
+        
+            <li><a href="#text-editor">Text Editor</a></li>
+        
+            <li><a href="#install-nodejs">Install Node.js</a></li>
+        
+            <li><a href="#generate-a-bitcoin-address-and-private-key">Generate a Bitcoin Address and Private Key</a></li>
+        
+            <li><a href="#creating-a-coinkey-from-a-private-wif">Creating a CoinKey from a Private WIF:</a></li>
+        
+            <li><a href="#creating-a-coinkey-from-a-private-key">Creating a CoinKey from a Private Key:</a></li>
+        
+    
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<p>TODO</p>
+<h1 id="getting-started">Getting Started</h1>
+<p>CryptoCoinJS is written in pure JavaScript and can be used on the server (Node.js) and the client (modern browser &gt; 2010).</p>
+<h2 id="text-editor">Text Editor</h2>
+<p>The first and probably most obvious is that you'll need a text editor. <a href="http://www.sublimetext.com/">Sublime Text</a> or <a href="https://atom.io/">Github Atom</a> will make a fine choice.</p>
+<h2 id="install-nodejs">Install Node.js</h2>
+<p>Node.js runs on Windows, Mac OS X, or Linux. It's very easy to install, just visit <a href="http://nodejs.org/download/">http://nodejs.org/download/</a> and run the installer for your platform of choice. Node.js bundles <a href="https://www.npmjs.org/">npm</a> which <a href="https://www.npmjs.org/doc/faq.html">oddly enough does not stand for Node.js Package Manager</a> despite being its sole purpose.</p>
+<h3 id="note-on-nodejs-packages">Note on Node.js Packages</h3>
+<p>The Node.js ecosystem contains many software modules or packages and its growing exponentially. The common wisdom of the Node.js ecosystem is that it's best to write packages that do one thing well akin to the UNIX philosophy. Hence the CryptoCoinJS roots. You can view a list of packages here: <a href="https://www.npmjs.org/">https://www.npmjs.org/</a></p>
+<p>Each Node.js package has a <code>package.json</code> file. To create your own, simply run:</p>
+<pre class="prettyprint well"><code>npm init
+</code></pre>
+<p>npm will ask you a series of questions and populate the <code>package.json</code> file accordingly.</p>
+<p>Node.js packages typically have two types of dependencies characterized in <code>package.json</code>: these are <code>dependencies</code> and <code>devDependencies</code>. There's a third called <code>peerDependencies</code>, but that's out of scope for this article. <code>devDependencies</code> are dependencies that are used in devlopment only such as testing tools and build tools. <code>dependencies</code> are dependencies that your package depends upon in production.</p>
+<p>To install a production dependency and have it update your package.json file:</p>
+<pre class="prettyprint well"><code>npm install --save coinkey
+</code></pre>
+<p>To intall a specific version:</p>
+<pre class="prettyprint well"><code>npm install --save coinkey@0.1.0
+</code></pre>
+<p>To install the latest:</p>
+<pre class="prettyprint well"><code>npm install --save coinkey@latest
+</code></pre>
+<p>To install a development dependency and have it update your package.json file:</p>
+<pre class="prettyprint well"><code>npm install --save-dev mocha
+</code></pre>
+<h2 id="generate-a-bitcoin-address-and-private-key">Generate a Bitcoin Address and Private Key</h2>
+<p>To read detailed description of private keys, public keys, and addresses checkout <a href="http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript">http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</a> by one of our contributors JP Richardson. It uses an old version of BitcoinJS, but you can open up your browser console and follow along with the tutorial.</p>
+<p>First create your new app (if you already have an app, skip this step):</p>
+<pre class="prettyprint well"><code>npm init
+touch app.js #on windows, create the file in your text editor
+</code></pre>
+<p>install <a href="modules/coinkey">coinkey</a> (at the time of this writing, version 0.1.0):</p>
+<pre class="prettyprint well"><code>npm install --save coinkey
+</code></pre>
+<p>edit app.js:</p>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey'); //0.1.0
+
+var ck = new CoinKey(); 
+
+console.log(&quot;Private Key (Wallet Import Format): &quot; + ck.privateWif);
+console.log(&quot;Private Key (Hex): &quot; + ck.privateKey.toString('hex'));
+console.log(&quot;Address: &quot; + ck.publicAddress);
+</code></pre>
+
+<p>run it:</p>
+<pre class="prettyprint well"><code>node app.js
+</code></pre>
+<p>expected output will resemble:</p>
+<pre class="prettyprint well"><code>Private Key (Wallet Import Format): 5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M
+Private Key (Hex): ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75
+Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
+</code></pre>
+<p>it the address and private key (WIF) won't be the same since they are randomly generated. You can run it again and get an entirely different result.</p>
+<h2 id="creating-a-coinkey-from-a-private-wif">Creating a CoinKey from a Private WIF:</h2>
+<p>Assuming same setup as the previous section, edit app.js:</p>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey'); //0.1.0
+
+var ck = CoinKey.fromWif('5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M');
+console.log(&quot;Address: &quot; + ck.publicAddress);
+</code></pre>
+
+<p>expected output:</p>
+<pre class="prettyprint well"><code>Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
+</code></pre>
+<p>This will be the same everytime, since the public address is derived from the private key.</p>
+<h2 id="creating-a-coinkey-from-a-private-key">Creating a CoinKey from a Private Key:</h2>
+<p>Assuming same setup as previous, edit app.js:</p>
+<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey'); //0.1.0
+
+var buffer = new Buffer('ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75', 'hex');
+var ck = new CoinKey(buffer);
+
+console.log(&quot;Private Key (Wallet Import Format): &quot; + ck.privateWif);
+console.log(&quot;Private Key (Hex): &quot; + ck.privateKey.toString('hex'));
+console.log(&quot;Address: &quot; + ck.publicAddress);
+</code></pre>
+
+<p>expected output:</p>
+<pre class="prettyprint well"><code>Private Key (Wallet Import Format): 5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M
+Private Key (Hex): ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75
+Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
+</code></pre>
 </div>
         </div>
 

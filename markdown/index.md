@@ -24,6 +24,11 @@ CryptoCoinJS is focused on Node.js and the browser using [Browserify](https://gi
 
 
 
+Guide
+-----
+* [Getting Started](guide/getting-started)
+
+
 Modules
 -------
 
