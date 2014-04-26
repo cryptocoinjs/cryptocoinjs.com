@@ -6,6 +6,7 @@ repo_url: https://github.com/cryptocoinjs/
 
 pages:
 - ['index.md', 'Home']
+- ['modules/coininfo.md', 'Modules', 'coininfo - Crypto Currency Specific Information']
 - ['modules/coinkey.md', 'Modules', 'CoinKey - Private Keys / Addresses']
 - ['modules/eckey.md', 'Modules', 'ECKey - Private Keys / Elliptic Curve']
 - ['faq.md', 'FAQ']
