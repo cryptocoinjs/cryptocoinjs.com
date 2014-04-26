@@ -8,6 +8,7 @@ pages:
 - ['index.md', 'Home']
 - ['modules/coininfo.md', 'Modules', 'coininfo - Crypto Currency Specific Information']
 - ['modules/coinkey.md', 'Modules', 'CoinKey - Private Keys / Addresses']
+- ['modules/coinstring.md', 'Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
 - ['modules/eckey.md', 'Modules', 'ECKey - Private Keys / Elliptic Curve']
 - ['faq.md', 'FAQ']
 - ['team.md', 'Team']
