@@ -138,9 +138,9 @@ Assuming same setup as previous, install [coininfo](modules/coinfo) (0.1.0 at th
 
 ```js
 var CoinKey = require('coinkey');   //0.1.0
-var coinInfo = require('coininfo')  //0.1.0
+var coinInfo = require('coininfo');  //0.1.0
 
-var dogeInfo = coinInfo('DOGE').versions
+var dogeInfo = coinInfo('DOGE').versions;
 
 var ck = new CoinKey(dogeInfo); 
 
