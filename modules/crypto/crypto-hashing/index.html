@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://cryptocoinjs.com/modules/crypto/ripemd160/">
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/crypto/crypto-hashing/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <title>ripemd160 - RIPEMD160 hash - CryptoCoinJS</title>
+        <title>crypto-hashing - Normalized interface to hash functions - CryptoCoinJS</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
                             <a href="../aes/">aes - Advanced Encryption Standard</a>
                         </li>
                     
-                        <li >
-                            <a href="../crypto-hashing/">crypto-hashing - Normalized interface to hash functions</a>
+                        <li class="active">
+                            <a href="./">crypto-hashing - Normalized interface to hash functions</a>
                         </li>
                     
                         <li >
@@ -124,8 +124,8 @@
                             <a href="../pbkdf2-sha256/">pbkdf2-sha256 - PBKDF2 using SHA256 HMAC</a>
                         </li>
                     
-                        <li class="active">
-                            <a href="./">ripemd160 - RIPEMD160 hash</a>
+                        <li >
+                            <a href="../ripemd160/">ripemd160 - RIPEMD160 hash</a>
                         </li>
                     
                         <li >
@@ -163,12 +163,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li >
-                    <a rel="next" href="../pbkdf2-sha256/">
+                    <a rel="next" href="../aes/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../scryptsy/">
+                    <a rel="prev" href="../ecdsa/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -191,33 +191,36 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#ripemd160">ripemd160</a></li>
-        
-            <li><a href="#install">Install</a></li>
+        <li class="main active"><a href="#crypto-hashing">Crypto Hashing</a></li>
         
             <li><a href="#usage">Usage</a></li>
         
-            <li><a href="#credits">Credits</a></li>
+            <li><a href="#test">Test</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="ripemd160">ripemd160</h1>
-<p>JavaScript component to compute the RIPEMD160 hash of strings or bytes.</p>
-<h2 id="install">Install</h2>
-<h3 id="nodejsbrowserify">Node.js/Browserify</h3>
-<pre class="prettyprint well"><code>npm install --save ripemd160
-</code></pre>
+<h1 id="crypto-hashing">Crypto Hashing</h1>
+<p>Provides a common interface for cryptographic hash functions commonly used in cryptocoin protocols.</p>
 <h2 id="usage">Usage</h2>
-<h3 id="ripemd160input">ripemd160(input)</h3>
-<p>Input either a string, <code>Buffer</code> or byte array. Output is a <code>Buffer</code>.</p>
-<pre class="prettyprint well"><code class="js">console.log(ripemd160(&quot;hello&quot;).toString('hex')) // =&gt; 108f07b8382412612c048d07d13f814118445acd&quot;
+<p>If only interested in sub-set of hashes, reference just that function of the exported module:</p>
+<pre class="prettyprint well"><code class="js">var sha256 = require('crypto-hashing').sha256;
+
+console.log(sha256('hello'));
+console.log(sha256.x2('hello'));
 </code></pre>
 
-<h2 id="credits">Credits</h2>
-<p>Most of the code from CryptoJS https://code.google.com/p/crypto-js/</p>
+<p>Or reference the whole module for all the functions:</p>
+<pre class="prettyprint well"><code class="js">var hash = require('crypto-hashing');
+
+console.log(hash.sha256('hello'));
+console.log(hash.ripemd160('hello'));
+</code></pre>
+
+<h2 id="test">Test</h2>
+<p>Unit tests are written in <a href="http://visionmedia.github.io/mocha/">Mocha</a>. To run the test suite, install mocha either by installing it globally or installing the development dependencies with NPM. Then, from within the project's folder run <code>mocha</code>.</p>
 </div>
         </div>
 

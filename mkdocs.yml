@@ -18,6 +18,7 @@ pages:
 
 # Crypto Modules (please alphabetize)
 - ['modules/crypto/aes.md', 'Crypto Modules', 'aes - Advanced Encryption Standard']
+- ['modules/crypto/crypto-hashing.md', 'Crypto Modules', 'crypto-hashing - Normalized interface to hash functions']
 - ['modules/crypto/ecdsa.md', 'Crypto Modules', 'ecdsa - Elliptic Curve Signing / Verification']
 - ['modules/crypto/ecurve.md', 'Crypto Modules', 'ecurve - Elliptic Curve Cryptography']
 - ['modules/crypto/pbkdf2-sha256.md', 'Crypto Modules', 'pbkdf2-sha256 - PBKDF2 using SHA256 HMAC']

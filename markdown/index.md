@@ -43,6 +43,7 @@ Modules
 #### Cryptography
 
 * [aes](modules/crypto/aes.md) - Implementation of the Advanced Encryption Standard
+* [crypto-hashing](modules/crypto/crypto-hashing) - Normalize interfaces to crypto hashing routines such as SHA256 / RIPEMD160
 * [ecdsa](modules/crypto/ecdsa.md) - Signing & verfication for Elliptic Curve Cryptography
 * [ecurve](modules/crypto/ecurve) - Main module for Elliptic Curve Cryptography
 * [pbkdf2-sha256](modules/crypto/pbkdf2-sha256) - PBKDF2 using SHA256 HMAC
