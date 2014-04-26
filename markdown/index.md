@@ -42,6 +42,8 @@ Modules
 #### Cryptography
 
 * [aes](modules/crypto/aes.md) - Implementation of the Advanced Encryption Standard
+* [ecdsa](modules/crypto/ecdsa.md) - Signing & verfication for Elliptic Curve Cryptography
+* [ecurve](modules/crypto/ecurve) - Main module for Elliptic Curve Cryptography
 * pbkdf2-sha256
 * ripemd160
 * scryptsy
