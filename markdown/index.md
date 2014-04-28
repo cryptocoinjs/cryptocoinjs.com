@@ -69,7 +69,7 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 
 #### Misc
 
-* [bigi](modjules/misc/bigi) - BigInteger library (port of Tom Wu's library)
+* [bigi](modules/misc/bigi) - BigInteger library (port of Tom Wu's library)
 * [binstring](modules/misc/binstring) - Convert data types. i.e. convert between `Array`, `Buffer`, `UTF8`, `Hex`, etc
 * [bs58](modules/misc/bs58) - BASE58 encoding / decoding
 * [qr-encode](modules/misc/qr-encode) - Encode data into QR codes 

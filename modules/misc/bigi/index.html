@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://cryptocoinjs.com/modules/currency/bip38/">
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/misc/bigi/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <title>bip38 - Password encrypted private keys - CryptoCoinJS</title>
+        <title>bigi - Big Integers - CryptoCoinJS</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -84,60 +84,60 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Currency Modules <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
-                        <li class="active">
-                            <a href="./">bip38 - Password encrypted private keys</a>
+                        <li >
+                            <a href="../../currency/bip38/">bip38 - Password encrypted private keys</a>
                         </li>
                     
                         <li >
-                            <a href="../btc-p2p/">btc-p2p - Manage a network of peers in a Bitcoin p2p network</a>
+                            <a href="../../currency/btc-p2p/">btc-p2p - Manage a network of peers in a Bitcoin p2p network</a>
                         </li>
                     
                         <li >
-                            <a href="../coininfo/">coininfo - Crypto Currency Specific Information</a>
+                            <a href="../../currency/coininfo/">coininfo - Crypto Currency Specific Information</a>
                         </li>
                     
                         <li >
-                            <a href="../coinkey/">coinkey - Private Keys / Addresses</a>
+                            <a href="../../currency/coinkey/">coinkey - Private Keys / Addresses</a>
                         </li>
                     
                         <li >
-                            <a href="../coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
+                            <a href="../../currency/coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
                         </li>
                     
                         <li >
-                            <a href="../eckey/">eckey - Private Keys / Elliptic Curve</a>
+                            <a href="../../currency/eckey/">eckey - Private Keys / Elliptic Curve</a>
                         </li>
                     
                         <li >
-                            <a href="../p2p-manager/">p2p-manager - Manage a network of peers in a p2p network</a>
+                            <a href="../../currency/p2p-manager/">p2p-manager - Manage a network of peers in a p2p network</a>
                         </li>
                     
                         <li >
-                            <a href="../p2p-node/">p2p-node - Handle p2p traffic on crypto currency networks</a>
+                            <a href="../../currency/p2p-node/">p2p-node - Handle p2p traffic on crypto currency networks</a>
                         </li>
                     
                         <li >
-                            <a href="../btc-address/">btc-address - Bitcoin Address Handling</a>
+                            <a href="../../currency/btc-address/">btc-address - Bitcoin Address Handling</a>
                         </li>
                     
                         <li >
-                            <a href="../btc-opcode/">btc-opcode - Bitcoin Opcodes</a>
+                            <a href="../../currency/btc-opcode/">btc-opcode - Bitcoin Opcodes</a>
                         </li>
                     
                         <li >
-                            <a href="../btc-script/">btc-script - Bitcoin Script</a>
+                            <a href="../../currency/btc-script/">btc-script - Bitcoin Script</a>
                         </li>
                     
                         <li >
-                            <a href="../btc-scriptinterpreter/">btc-scriptinterpreter - Bitcoin Script Interpreter</a>
+                            <a href="../../currency/btc-scriptinterpreter/">btc-scriptinterpreter - Bitcoin Script Interpreter</a>
                         </li>
                     
                         <li >
-                            <a href="../btc-transaction/">btc-transaction - Bitcon Transaction Creation / Parsing</a>
+                            <a href="../../currency/btc-transaction/">btc-transaction - Bitcon Transaction Creation / Parsing</a>
                         </li>
                     
                     </ul>
@@ -182,24 +182,24 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc Modules <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
-                        <li >
-                            <a href="../../misc/bigi/">bigi - Big Integers</a>
+                        <li class="active">
+                            <a href="./">bigi - Big Integers</a>
                         </li>
                     
                         <li >
-                            <a href="../../misc/binstring/">binstring - Convert data types</a>
+                            <a href="../binstring/">binstring - Convert data types</a>
                         </li>
                     
                         <li >
-                            <a href="../../misc/bs58/">bs58 - BASE58 encoding / decoding</a>
+                            <a href="../bs58/">bs58 - BASE58 encoding / decoding</a>
                         </li>
                     
                         <li >
-                            <a href="../../misc/qr-encode/">qr-encode - Encode data into QR</a>
+                            <a href="../qr-encode/">qr-encode - Encode data into QR</a>
                         </li>
                     
                     </ul>
@@ -212,12 +212,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li >
-                    <a rel="next" href="../../../guide/getting-started/">
+                    <a rel="next" href="../../crypto/scryptsy/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../btc-p2p/">
+                    <a rel="prev" href="../binstring/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -240,13 +240,21 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#bip38">bip38</a></li>
+        <li class="main active"><a href="#bigi">bigi</a></li>
         
             <li><a href="#why">Why?</a></li>
         
-            <li><a href="#usage">Usage</a></li>
+            <li><a href="#install">Install</a></li>
         
-            <li><a href="#api">API</a></li>
+            <li><a href="#example">Example</a></li>
+        
+            <li><a href="#methods">Methods</a></li>
+        
+            <li><a href="#properties">Properties</a></li>
+        
+            <li><a href="#package">Package</a></li>
+        
+            <li><a href="#tests">Tests</a></li>
         
             <li><a href="#references">References</a></li>
         
@@ -255,68 +263,86 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="bip38">bip38</h1>
-<p>A JavaScript component that adheres to the <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">BIP38</a> standard to secure your crypto currency private keys. Fully compliant with Node.js and the browser (via Browserify).</p>
+<h1 id="bigi">bigi</h1>
+<p>JavaScript library to manipulate big integers. Based on <code>jsbn</code> by <a href="http://www-cs-students.stanford.edu/~tjw/jsbn/">Tom Wu</a></p>
+<p>Pronounced either like "big I" or "biggie".</p>
 <h2 id="why">Why?</h2>
-<p>BIP38 is a standard process to encrypt Bitcoin and crypto currency private keys that is imprevious to brute force attacks thus protecting the user.</p>
-<h2 id="usage">Usage</h2>
-<h3 id="installation">Installation</h3>
-<pre class="prettyprint well"><code>npm install --save bip38
+<p>Crypto currencies such as Bitcoin require performing mathematical operations on very large integers (256 bit). JavaScript only supports integers up to 53 bits.</p>
+<h2 id="install">Install</h2>
+<pre class="prettyprint well"><code>npm install --save bigi
 </code></pre>
-<h2 id="api">API</h2>
-<h3 id="bip38_1">Bip38()</h3>
-<p>Constructor that creates a new <code>Bip38</code> instance.</p>
-<h3 id="addressversion">addressVersion</h3>
-<p>A field that accepts an object for the address version. This easily allows you to support altcoins. Defaults to Bitcoin values.</p>
-<p><strong>example:</strong></p>
-<pre class="prettyprint well"><code class="js">var Bip38 = require('bip38');
+<h2 id="example">Example</h2>
+<pre class="prettyprint well"><code class="js">var BigInteger = require('bigi')
 
-var privateKeyWif = '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR';
+var b1 = BigInteger.fromHex(&quot;188DA80EB03090F67CBF20EB43A18800F4FF0AFD82FF1012&quot;)
+var b2 = BigInteger.fromHex(&quot;07192B95FFC8DA78631011ED6B24CDD573F977A11E794811&quot;)
 
-var bip38 = new Bip38();
-bip38.addressVersion = {private: 0x80, public: 0x0};
-bip38.encrypt(privateKeyWif, &quot;super-secret&quot;, &quot;1Jq6MksXQVWzrznvZzxkV6oY57oWXD9TXB&quot;});
+var b3 = b1.multiply(b2)
+
+console.log(b3.toHex())
+// =&gt; ae499bfe762edfb416d0ce71447af67ff33d1760cbebd70874be1d7a5564b0439a59808cb1856a91974f7023f72132
 </code></pre>
 
-<h3 id="scryptparams">scryptParams</h3>
-<p>A field that accepts an object with the follow properties: <code>N</code>, <code>r</code>, and <code>p</code> to control the <a href="https://github.com/cryptocoinjs/scryptsy">scrypt</a>. The
-BIP38 standard suggests <code>N = 16384</code>, <code>r = 8</code>, and <code>p = 8</code>. However, this may yield unacceptable performance on a mobile phone. If you alter these parameters, it wouldn't be wise to suggest to your users that your import/export encrypted keys are BIP38 compatible. If you do, you may want to alert them of your parameter changes.</p>
-<p><strong>example:</strong></p>
-<pre class="prettyprint well"><code class="js">bip38.scryptParams = {N: 8192, r: 8, p: 8};
-</code></pre>
-
-<h3 id="encryptwif-passphrase-address">encrypt(wif, passphrase, address)</h3>
-<p>A method that encrypts the private key. <code>wif</code> is the string value of the wallet import format key. <code>passphrase</code> the passphrase to encrypt the key with. <code>address</code> is the public address.</p>
-<p>Returns the encrypted string.</p>
-<p><strong>example</strong>:</p>
-<pre class="prettyprint well"><code class="js">var Bip38 = require('bip38');
-
-var privateKeyWif = '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR';
-
-var bip38 = new Bip38();
-var encrypted = bip38.encrypt(privateKeyWif, 'TestingOneTwoThree', &quot;1Jq6MksXQVWzrznvZzxkV6oY57oWXD9TXB&quot;);
-console.log(encrypted); // =&gt; 6PRVWUbkzzsbcVac2qwfssoUJAN1Xhrg6bNk8J7Nzm5H7kxEbn2Nh2ZoGg
-</code></pre>
-
-<h3 id="decryptencryptedkey-passhprase">decrypt(encryptedKey, passhprase)</h3>
-<p>A method that decrypts the encrypted string. <code>encryptedKey</code> is the string value of the encrypted key. <code>passphrase</code> is the passphrase to decrypt the key with.</p>
-<pre class="prettyprint well"><code class="js">var Bip38 = require('bip38');
-
-var encryptedKey = '6PRVWUbkzzsbcVac2qwfssoUJAN1Xhrg6bNk8J7Nzm5H7kxEbn2Nh2ZoGg';
-
-var bip38 = new Bip38();
-var privateKeyWif = bip38.decrypt(encryptedKey, 'TestingOneTwoThree');
-console.log(privateKeyWif); // =&gt;  '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR'
-</code></pre>
-
-<p><strong>note:</strong> To check for an invalid password, you'll want to generate the public address from the output of the <code>decrypt()</code> function. If it doesn't equal the expected address or the address checksum, then chances are, it's an invalid password. The reason that this logic was not included is because it would have required a lot of dependencies: <code>ECKey</code> and <code>Address</code>. Currently, <code>ECKey</code> is pretty heavy on dependencies.</p>
+<h2 id="methods">Methods</h2>
+<h3 id="instance">Instance</h3>
+<h4 id="add">add</h4>
+<h4 id="and">and</h4>
+<h4 id="andnot">andNot</h4>
+<h4 id="bitcount">bitCount</h4>
+<h4 id="bytevalue">byteValue</h4>
+<h4 id="clearbit">clearBit</h4>
+<h4 id="clone">clone</h4>
+<h4 id="divide">divide</h4>
+<h4 id="divideandremainder">divideAndRemainder</h4>
+<h4 id="equals">equals</h4>
+<h4 id="flipbit">flipBit</h4>
+<h4 id="gcd">gcd</h4>
+<h4 id="getlowestsetbit">getLowestSetBit</h4>
+<h4 id="intvalue">intValue</h4>
+<h4 id="max">max</h4>
+<h4 id="min">min</h4>
+<h4 id="modinverse">modInverse</h4>
+<h4 id="modpow">modPow</h4>
+<h4 id="multiply">multiply</h4>
+<h4 id="not">not</h4>
+<h4 id="or">or</h4>
+<h4 id="pow">pow</h4>
+<h4 id="remainder">remainder</h4>
+<h4 id="setbit">setBit</h4>
+<h4 id="shiftleft">shiftLeft</h4>
+<h4 id="shiftright">shiftRight</h4>
+<h4 id="shortvalue">shortValue</h4>
+<h4 id="signum">signum</h4>
+<h4 id="subtract">subtract</h4>
+<h4 id="testbit">testBit</h4>
+<h4 id="tobytearray">toByteArray</h4>
+<h4 id="tobuffer">toBuffer</h4>
+<h4 id="tohex">toHex</h4>
+<h4 id="xor">xor</h4>
+<h3 id="class">Class</h3>
+<h4 id="frombuffer">fromBuffer()</h4>
+<h4 id="fromhex">fromHex()</h4>
+<h2 id="properties">Properties</h2>
+<h3 id="class_1">Class</h3>
+<h4 id="one">ONE</h4>
+<h4 id="zero">ZERO</h4>
+<h2 id="package">Package</h2>
+<ul>
+<li>issues: <a href="https://github.com/cryptocoinjs/bigi/issues">https://github.com/cryptocoinjs/bigi/issues</a></li>
+<li>license: <strong>BSD</strong></li>
+<li>versioning: addheres to <a href="http://semver-ftw.org">http://semver-ftw.org</a></li>
+</ul>
+<h2 id="tests">Tests</h2>
+<ul>
+<li><a href="https://github.com/cryptocoinjs/bigi/blob/master/test/bigi-convert.test.js">https://github.com/cryptocoinjs/bigi/blob/master/test/bigi-convert.test.js</a></li>
+</ul>
 <h2 id="references">References</h2>
 <ul>
-<li>https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki</li>
-<li>https://github.com/pointbiz/bitaddress.org/issues/56 (Safari 6.05 issue)</li>
-<li>https://github.com/casascius/Bitcoin-Address-Utility/tree/master/Model</li>
-<li>https://github.com/nomorecoin/python-bip38-testing/blob/master/bip38.py</li>
-<li>https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.key.js </li>
+<li>This library looks promising: https://github.com/MikeMcl/bignumber.js</li>
+<li>This follows the official <code>jsbn</code>: https://github.com/jasondavies/jsbn</li>
+<li>http://www.joseprio.com/blog/2013/04/27/biginteger-libraries-for-js/</li>
+<li>https://groups.google.com/forum/#!topic/bitcoinhackers/5IlDcTq51Y8</li>
+<li>https://github.com/dominictarr/math-buffer</li>
 </ul>
 </div>
         </div>
