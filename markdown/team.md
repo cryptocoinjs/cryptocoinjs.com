@@ -6,7 +6,7 @@ Team
 JP Richardson
 -------------
 
-[Twitter](https://twitter.com/jprichardson) / [Github](https://github.com/jprichardson) / [Homepage](http://procbits.com/pages/about)
+[Twitter](https://twitter.com/jprichardson) / [Github](https://github.com/jprichardson) / [Homepage](http://procbits.com/pages/about) / [Email](mailto:jprichardson@gmail.com?subject=CryptoCoinJS)
 
 
 Vitalik Buterin
