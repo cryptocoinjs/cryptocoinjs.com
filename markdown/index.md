@@ -89,7 +89,7 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 
 The library that bundles everything is located here: [https://github.com/cryptocoinjs/cryptocoin](https://github.com/cryptocoinjs/cryptocoin). The NPM module is [cryptocoin](https://www.npmjs.org/package/cryptocoin).
 
-The state of the entire bundle is unknown. Development moves quickly with each individual module and packaging up a release in the larger module is tedious and error prone. The state of the large bundle is unknown. 
+Development moves quickly with each individual module and packaging up a release in the larger module is tedious and error prone. So, the state of the large bundle is unknown. 
 
 
 
