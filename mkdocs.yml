@@ -38,6 +38,7 @@ pages:
 - ['modules/crypto/pbkdf2-sha256.md', 'Crypto Modules', 'pbkdf2-sha256 - PBKDF2 using SHA256 HMAC']
 - ['modules/crypto/ripemd160.md', 'Crypto Modules', 'ripemd160 - RIPEMD160 hash']
 - ['modules/crypto/scryptsy.md', 'Crypto Modules', 'scryptsy - Scrypt Key Derivation']
+- ['modules/crypto/sha512.md', 'Crypto Modules', 'sha512 - SHA 512 Secure Hashing Algorithm']
 
 # Misc Modules (please alphabetize)
 - ['modules/misc/bigi.md', 'Misc Modules', 'bigi - Big Integers']
