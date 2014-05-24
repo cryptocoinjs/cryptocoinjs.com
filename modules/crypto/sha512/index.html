@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://cryptocoinjs.com/modules/crypto/scryptsy/">
+        <link rel="canonical" href="http://cryptocoinjs.com/modules/crypto/sha512/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <title>scryptsy - Scrypt Key Derivation - CryptoCoinJS</title>
+        <title>sha512 - SHA 512 Secure Hashing Algorithm - CryptoCoinJS</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -173,12 +173,12 @@
                             <a href="../ripemd160/">ripemd160 - RIPEMD160 hash</a>
                         </li>
                     
-                        <li class="active">
-                            <a href="./">scryptsy - Scrypt Key Derivation</a>
+                        <li >
+                            <a href="../scryptsy/">scryptsy - Scrypt Key Derivation</a>
                         </li>
                     
-                        <li >
-                            <a href="../sha512/">sha512 - SHA 512 Secure Hashing Algorithm</a>
+                        <li class="active">
+                            <a href="./">sha512 - SHA 512 Secure Hashing Algorithm</a>
                         </li>
                     
                     </ul>
@@ -216,12 +216,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li >
-                    <a rel="next" href="../ripemd160/">
+                    <a rel="next" href="../scryptsy/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../sha512/">
+                    <a rel="prev" href="../../misc/bigi/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -244,13 +244,11 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#scryptsy">scryptsy</a></li>
+        <li class="main active"><a href="#sha512">sha512</a></li>
         
-            <li><a href="#why">Why?</a></li>
+            <li><a href="#install">Install</a></li>
         
             <li><a href="#usage">Usage</a></li>
-        
-            <li><a href="#resources">Resources</a></li>
         
             <li><a href="#credits">Credits</a></li>
         
@@ -259,52 +257,38 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="scryptsy">scryptsy</h1>
-<p><code>scryptsy</code> is a pure Javascript implementation of the <a href="http://en.wikipedia.org/wiki/Scrypt">scrypt</a> key derivation function that is fully compatible with Node.js and the browser (via Browserify). </p>
-<h2 id="why">Why?</h2>
-<p><code>Scrypt</code> is an integral part of many crypto currencies. It's a part of the <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">BIP38</a> standard for encrypting private Bitcoin keys. It also serves as the <a href="http://en.wikipedia.org/wiki/Proof-of-work_system">proof-of-work system</a> for many crypto currencies, most notably: Litecoin and Dogecoin.</p>
-<p>Why didn't I just the predominant pure JavaScript imlementation found <a href="https://github.com/cheongwy/node-scrypt-js">here</a>? Because it's riddled with bugs, contains no tests, and is a transliteration of the Java version. i.e. it's neither Node.js optimized nor browser optimized. Required optimizations: <a href="http://nodejs.org/api/buffer.html">Buffer</a> in Node.js and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">type arrays</a> in the browser.</p>
+<h1 id="sha512">sha512</h1>
+<p>JavaScript component to compute the SHA512 of bytes or string. Can also compute <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code">HMAC</a> as well.</p>
+<h2 id="install">Install</h2>
+<pre class="prettyprint well"><code>npm install --save sha512
+</code></pre>
 <h2 id="usage">Usage</h2>
-<h3 id="installation">Installation</h3>
-<pre class="prettyprint well"><code>npm install --save scryptsy
-</code></pre>
-<h3 id="example">Example</h3>
-<pre class="prettyprint well"><code class="js">var scrypt = require('scryptsy').scrypt;
+<h3 id="sha512input">sha512(input)</h3>
+<p>Input either a string or <code>Buffer</code>. Output is a <code>Buffer</code>.</p>
+<pre class="prettyprint well"><code class="js">var sha512 = require('sha512')
 
-var key = &quot;pleaseletmein&quot;;
-var salt = &quot;SodiumChloride&quot;;
-var data = scrypt(key, salt, 16384, 8, 1, 64);
-console.log(data.toString('hex')) 
-// =&gt; 7023bdcb3afd7348461c06cd81fd38ebfda8fbba904f8e3ea9b543f6545da1f2d5432955613f0fcf62d49705242a9af9e61e85dc0d651e40dfcf017b45575887
+var hash = sha512(&quot;hello&quot;)
+console.log(hash.toString('hex')) 
+// =&gt; 9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043
 </code></pre>
 
-<h3 id="bundling-for-the-browser">Bundling for the Browser</h3>
-<p>To use in the browser, clone the repo and then download <a href="https://github.com/substack/node-browserify">Browserify</a>:</p>
-<pre class="prettyprint well"><code>npm install -g browserify
+<h3 id="hmackey">hmac(key)</h3>
+<p>Returns <code>hmac</code> object with methods <code>reset()</code>, <code>update(message)</code>, <code>finalize([message])</code>.</p>
+<p><code>finalize([message])</code> returns <code>Buffer</code>.</p>
+<pre class="prettyprint well"><code class="js">var sha512 = require('sha512')
+
+var key = &quot;super secret&quot;
+var hasher = sha512.hmac(key)
+
+//can also call 'update(message)' and then 'finalize()'
+var hash = hasher.finalize('hello man')
+
+console.log(hash.toString('hex'))
+// =&gt; 292f154b455f464131e8af89478e0a2af37fecf5de2e9cf998df1d9447f5856d146a1660708564bb7fd76d2fe80ab92a31af70e1d69a34f6b5b4839bdb26cbab
 </code></pre>
-<p>run:</p>
-<pre class="prettyprint well"><code>browserify --standalone scryptsy &lt; lib/scrypt.js &gt; scryptsy.bundle.js
-</code></pre>
-<p>then include <code>scryptsy.bundle.js</code> in your <code>&lt;script&gt;</code> tag in your html. </p>
-<h3 id="testing">Testing</h3>
-<p>If you want to test the algorithm, clone the git repo. Then run <code>npm install --development</code> to install all of the dependencies.</p>
-<h4 id="nodejs">Node.js</h4>
-<p>run:</p>
-<pre class="prettyprint well"><code>make test-node
-</code></pre>
-<h3 id="browser">Browser</h3>
-<p>run:</p>
-<pre class="prettyprint well"><code>make test-browser
-</code></pre>
-<h2 id="resources">Resources</h2>
-<ul>
-<li><a href="http://www.tarsnap.com/scrypt.html">Tarsnap Blurb on Scrypt</a></li>
-<li><a href="https://github.com/barrysteyn/node-scrypt">node-scrypt</a> A Node.js wrapper for the C++ scrypt utility</li>
-<li><a href="http://www.tarsnap.com/scrypt/scrypt.pdf">Scrypt Whitepaper</a></li>
-<li><a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00">IETF Scrypt</a> (Test vector params are <a href="https://twitter.com/dchest/status/247734446881640448">incorrect</a>.)</li>
-</ul>
+
 <h2 id="credits">Credits</h2>
-<p>This code was modified from the code found here https://github.com/cheongwy/node-scrypt-js which was based on https://github.com/wg/scrypt.</p>
+<p>Most of the code from CryptoJS https://code.google.com/p/crypto-js/</p>
 </div>
         </div>
 
