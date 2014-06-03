@@ -3,11 +3,20 @@ ecurve
 
 [![build status](https://secure.travis-ci.org/cryptocoinjs/ecurve.png)](http://travis-ci.org/cryptocoinjs/ecurve)
 [![Coverage Status](https://img.shields.io/coveralls/cryptocoinjs/ecurve.svg)](https://coveralls.io/r/cryptocoinjs/ecurve)
+[![Version](http://img.shields.io/npm/v/ecurve.svg)](https://www.npmjs.org/package/ecurve)
 
 [![browser support](https://ci.testling.com/cryptocoinjs/ecurve.png)](https://ci.testling.com/cryptocoinjs/ecurve)
 
 
-JavaScript component to [Elliptic Curve Cryptography](http://en.wikipedia.org/wiki/Elliptic_curve_cryptography). Works in Node.js and the browser.
+JavaScript component for [Elliptic Curve Cryptography](http://en.wikipedia.org/wiki/Elliptic_curve_cryptography). Works in Node.js and the browser.
+
+
+Package Info
+------------
+- github: [https://github.com/cryptocoinjs/ecurve](https://github.com/cryptocoinjs/ecurve)
+- tests: [https://github.com/cryptocoinjs/ecurve/tree/master/test](https://github.com/cryptocoinjs/ecurve/tree/master/test)
+- issues: [https://github.com/cryptocoinjs/ecurve/issues](https://github.com/cryptocoinjs/ecurve/issues)
+- license: **MIT**
 
 
 Usage
@@ -104,15 +113,6 @@ Use this to get the Bitcoin (all crypto currencies as well) curve parameters: `s
 
 (TODO)
 
-
-
-Package Info
-------------
-- npm: [https://www.npmjs.org/package/ecurve](https://www.npmjs.org/package/ecurve)
-- github: [https://github.com/cryptocoinjs/ecurve](https://github.com/cryptocoinjs/ecurve)
-- tests: [https://github.com/cryptocoinjs/ecurve/tree/master/test](https://github.com/cryptocoinjs/ecurve/tree/master/test)
-- issues: [https://github.com/cryptocoinjs/ecurve/issues](https://github.com/cryptocoinjs/ecurve/issues)
-- license: **MIT**
 
 
 References
