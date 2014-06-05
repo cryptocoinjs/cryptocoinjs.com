@@ -1,11 +1,11 @@
 Contents
 --------
-1. [Purpose](http://cryptocoinjs.com/contributing/#purpose)
-2. [Principles](http://cryptocoinjs.com/contributing/#principles)
-3. [Repository Management](http://cryptocoinjs.com/contributing/#repository-management)
-4. [Effective JavaScript](http://cryptocoinjs.com/contributing/#effective-javascript)
-5. [Licensing](http://cryptocoinjs.com/contributing/#licensing)
-6. [Living Document](http://cryptocoinjs.com/contributing/#living-document)
+1. [Purpose](http://cryptocoinjs.com/about/contributing/#purpose)
+2. [Principles](http://cryptocoinjs.com/about/contributing/#principles)
+3. [Repository Management](http://cryptocoinjs.com/about/contributing/#repository-management)
+4. [Effective JavaScript](http://cryptocoinjs.com/about/contributing/#effective-javascript)
+5. [Licensing](http://cryptocoinjs.com/about/contributing/#licensing)
+6. [Living Document](http://cryptocoinjs.com/about/contributing/#living-document)
 
 
 
