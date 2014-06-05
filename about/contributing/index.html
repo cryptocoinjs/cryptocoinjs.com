@@ -261,11 +261,17 @@
         
             <li><a href="#creating">Creating</a></li>
         
+            <li><a href="#license">License</a></li>
+        
             <li><a href="#versioning">Versioning</a></li>
         
             <li><a href="#git">Git</a></li>
         
             <li><a href="#changelog-management">CHANGELOG management</a></li>
+        
+            <li><a href="#travis-ci">Travis CI</a></li>
+        
+            <li><a href="#coveralls">Coveralls</a></li>
         
     
         <li class="main "><a href="#effective-javascript">Effective JavaScript</a></li>
@@ -313,16 +319,16 @@
 <li><a href="http://cryptocoinjs.com/about/contributing/#living-document">Living Document</a></li>
 </ol>
 <h2 id="purpose">Purpose</h2>
-<p>This guide is a brief reference to how code should be written for CryptoCoinJS. This applies to members and contributors.</p>
+<p>This guide is a brief reference to how code should be written for CryptoCoinJS. This applies to organiztion members and contributors.</p>
 <h2 id="principles">Principles</h2>
 <ol>
 <li>People matter more than code. Optimize for people.</li>
-<li>Write code for humans to read. It's easier to write code than to read code. Avoid verbosity,  but don't be overly terse.</li>
+<li>Write code for humans to read. It's easier to write code than to read code. Avoid verbosity, but don't be overly terse.</li>
 <li>Code is the enemy. Lines of code should be reduced as much as possible. <a href="http://www.codinghorror.com/blog/2007/05/the-best-code-is-no-code-at-all.html">The best code is no code at all</a> and <a href="http://www.codinghorror.com/blog/2007/12/size-is-the-enemy.html">Size is the enemy</a>. This is probably the most important principle.</li>
 <li>Organize according to the UNIX philosophy: small and simple modules that do one thing well. Take into consideration the <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a></li>
 <li>All code in this project should look like one person wrote it. We have a lot of work in this area.</li>
 <li>Code should be documented (not auto-generated). But it should not be "documented" in the actual code. Documentation should emphasize usage examples and not so much API interface signatures. It's not that API docs are bad, they should just be made lower priority when compared to usage examples.</li>
-<li>Tests should be implemented. <strong>Working code and tests are far more important than documentation.</strong> </li>
+<li>Tests should be implemented. </li>
 </ol>
 <h2 id="repository-management">Repository Management</h2>
 <h3 id="creating">Creating</h3>
@@ -336,18 +342,15 @@
 1 directory, 3 files
 </code></pre>
 
+<h3 id="license">License</h3>
+<p>Please license a new project or module under MIT if possible. If the code is largely based from another project, then it may be 
+prudent to use that license. Only other acceptable licenses are BSD 2, BSD 3, and Apache v2. </p>
 <h3 id="versioning">Versioning</h3>
-<p>Each package should loosely comply with the <a href="http://semver.org/">semver</a> guidelines. Here's the slightly modified summary:</p>
-<blockquote>
-<p>Given a version number MAJOR.MINOR.PATCH, increment the:</p>
-<p>MAJOR version when you make MAJOR incompatible API changes,
-MINOR version when you make minor incompatible changes, and
-PATCH version when you make backwards-compatible bug fixes.</p>
-</blockquote>
-<p>This is how most Node.js package developers operate. If my interpretation is off, please alert me.</p>
+<p>Adhere to <a href="http://semver-ftw.org/">semver-ftw.org</a> if possible. Fallback to <a href="http://semver.org/">semver</a> if necessary. Each package should comply with the  guidelines. Here's the slightly modified summary:</p>
+<p>npm has unexpected behavior for those who are unfamiliar. Essentialy, versions less than <code>1.0.0</code> are treated differently. So, it may be best to start the module with <code>1.0.0</code> and just adhere to semver-ftw.org.</p>
 <h3 id="git">Git</h3>
-<p>When preparing a release, make sure everything is committed but the <code>CHANGELOG.md</code>, <code>package.json</code>, <code>bower.json</code>, and <code>component.json</code> files are committed. The only changes should be the <code>version</code> number in the package files. Then commit like:</p>
-<pre class="prettyprint well"><code class="sh">git add CHANGELOG.md package.json bower.json component.json
+<p>When preparing a release, make sure everything is committed but the <code>CHANGELOG.md</code>, <code>package.json</code> files are committed on version commits. The only changes should be the <code>version</code> number in the package files. Then commit like:</p>
+<pre class="prettyprint well"><code class="sh">git add CHANGELOG.md package.json
 git commit -m  x.y.z #whatever the version number is (no v prefix!!)
 </code></pre>
 
@@ -377,20 +380,17 @@ npm publish
 - fixed a bug that prevented method `bar()` from outputting. Closes #23  //&lt;-- Github automatically links to the issue in the release page
 </code></pre>
 
-<p>also acceptable:</p>
-<pre class="prettyprint well"><code class="markdown">## 0.0.1 / 2013-11-05
-
-- implemented method `foo()`.
-- fixed a bug that prevented method `bar()` from outputting. Closes #23  //&lt;-- Github automatically links to the issue in the release page
-</code></pre>
-
 <p>Make sure the headings contain the version number and date. Date should be in the form of <code>YYYY-MM-dd</code>.</p>
+<h3 id="travis-ci">Travis CI</h3>
+<p>Use it. Add the badge to the README.</p>
+<h3 id="coveralls">Coveralls</h3>
+<p>Use it. Add the badge to the README.</p>
 <h2 id="effective-javascript">Effective JavaScript</h2>
 <h3 id="compatibility">Compatibility</h3>
-<p>We are not interested in supporting legacy browsers. <a href="http://en.wikipedia.org/wiki/ECMAScript">ES5</a> target should be satisfactory. This pretty much includes all modern browsers and &gt; IE9.</p>
+<p>We are not interested in supporting legacy browsers. <a href="http://en.wikipedia.org/wiki/ECMAScript">ES5</a> target should be satisfactory. This pretty much includes all modern browsers and &gt; IE9. If you want legacy browser support, resort to polyfills.</p>
 <p>CommonJS and <code>script</code> tag support only. AMD is not welcome at this time. Package manager priority should be given to Node.js and <code>package.json</code>. <a href="https://github.com/component/component">Component</a> and <a href="https://github.com/bower/bower">Bower</a> should be considered, but not prioritized. <a href="https://github.com/jprichardson/tin">Tin</a> makes managing these package files a little less painful.</p>
 <h3 id="testing">Testing</h3>
-<p>Tests are critical to building and maintaining working software. Tests should be seen as a contract between the software and expectations. Tests yield dividends in the long run. Currently <a href="http://visionmedia.github.io/mocha/">Mocha</a> is the preferred test runner with the <a href="http://visionmedia.github.io/mocha/#interfaces">BDD interface</a>. Most of the tests are using the <a href="https://github.com/jprichardson/terst">Terst</a> testing library. I prefer this because it's extremely terse and is still very readable without being overly verbose. However, <a href="http://chaijs.com/">chai</a> would be an acceptable alternative.</p>
+<p>Tests are critical to building and maintaining working software. Tests should be seen as a contract between the software and expectations. Tests yield dividends in the long run. Currently <a href="http://visionmedia.github.io/mocha/">Mocha</a> is the preferred test runner with the <a href="http://visionmedia.github.io/mocha/#interfaces">BDD interface</a>. Most of the tests were written using the <a href="https://github.com/jprichardson/terst">Terst</a> testing library. I prefered this because it's extremely terse and is still very readable without being overly verbose. However, for a project this large, we need to use a "common language" and thus Node.js <a href="http://nodejs.org/api/assert.html"><code>assert</code></a> module should be the standard. </p>
 <h3 id="indentation">Indentation</h3>
 <h4 id="two-spaces">Two Spaces</h4>
 <p>Two spaces. No negotiation on this one.</p>
@@ -423,7 +423,8 @@ if (true) {
 </code></pre>
 
 <h3 id="semicolons">Semicolons</h3>
-<p>Gotta have them. I hate them and think that they're superfluous. If it's good enough for the maintainer of Node.js (Isaac S), Thomas Fuchs, and Jacob Thorton (Fat) creator of Bootstrap to skip them, then so should you. HOWEVER, it's the predominant opinion of the JavaScript community that you should use them and to write code in a team, you should probably use them. So, we'll use them here too unless we can get agreement of everyone not to use them - I don't see that happening.</p>
+<p>No.</p>
+<p>If it's good enough for the old maintainer of Node.js (Isaac S), Thomas Fuchs, and Jacob Thorton (Fat) creator of Bootstrap to skip them, and BitcoinJS, to skip them, then we'll skip them too.</p>
 <p>Further reading:
 - http://wordsbyf.at/2011/10/31/i-dont-write-javascript/
 - http://dailyjs.com/2012/04/19/semicolons/
@@ -434,8 +435,8 @@ if (true) {
 <p>In general, use <code>functionNamesLikeThis</code>, <code>variableNamesLikeThis</code>, <code>ClassNamesLikeThis</code>, <code>EnumNamesLikeThis</code>, <code>methodNamesLikeThis</code>, <code>CONSTANT_VALUES_LIKE_THIS</code>, <code>foo.namespaceNamesLikeThis.bar</code>, and <code>filenameslikethis.js</code>. If you need to break up a long file name, use <code>-</code> and not <code>_</code> or different cases.</p>
 <p>Avoid hungarian notation. It sucks and makes no sense in the JavaScript environment. There may be some rare exceptions here.</p>
 <h3 id="comments">Comments</h3>
-<p>It's more important to comment why something was done than to comment what is done. If you have to comment what the code does, it may not be clear enough. Don't go overboard though with Java style verbosity.</p>
-<p><strong>JSDoc is not acceptable.</strong> It completely violates principle #3 and just adds noise. Generating documentation from code is lazy practice and poor behavior.</p>
+<p>It's more important to comment why something was done than to comment what is done. If you have to comment what the code does, the code may not be clear enough. Don't go overboard though with Java style verbosity.</p>
+<p><strong>JSDoc is not acceptable.</strong> It completely violates principle #3 and just adds noise. <strong>Generating documentation from code is lazy practice and poor behavior.</strong></p>
 <p>As far as the format of comments, there isn't any explicit style as of this moment. Use what works best for you. Style will develop organically.</p>
 <h3 id="parenthesis-commas-and-spaces">Parenthesis, Commas, and Spaces</h3>
 <p>No spacing before or after parenthesis. Spaces after commas in methods.</p>

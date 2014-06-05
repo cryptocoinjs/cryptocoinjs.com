@@ -12,19 +12,19 @@ Contents
 Purpose
 -------
 
-This guide is a brief reference to how code should be written for CryptoCoinJS. This applies to members and contributors.
+This guide is a brief reference to how code should be written for CryptoCoinJS. This applies to organiztion members and contributors.
 
 
 
 Principles
 ----------
 1. People matter more than code. Optimize for people.
-2. Write code for humans to read. It's easier to write code than to read code. Avoid verbosity,  but don't be overly terse.
+2. Write code for humans to read. It's easier to write code than to read code. Avoid verbosity, but don't be overly terse.
 3. Code is the enemy. Lines of code should be reduced as much as possible. [The best code is no code at all](http://www.codinghorror.com/blog/2007/05/the-best-code-is-no-code-at-all.html) and [Size is the enemy](http://www.codinghorror.com/blog/2007/12/size-is-the-enemy.html). This is probably the most important principle.
 4. Organize according to the UNIX philosophy: small and simple modules that do one thing well. Take into consideration the [Single Responsibility Principle](http://en.wikipedia.org/wiki/Single_responsibility_principle)
 5. All code in this project should look like one person wrote it. We have a lot of work in this area.
 6. Code should be documented (not auto-generated). But it should not be "documented" in the actual code. Documentation should emphasize usage examples and not so much API interface signatures. It's not that API docs are bad, they should just be made lower priority when compared to usage examples.
-7. Tests should be implemented. **Working code and tests are far more important than documentation.** 
+7. Tests should be implemented. 
 
 
 Repository Management
@@ -45,25 +45,25 @@ Each new repository should contain the following file structure to start:
 ```
 
 
+### License
+
+Please license a new project or module under MIT if possible. If the code is largely based from another project, then it may be 
+prudent to use that license. Only other acceptable licenses are BSD 2, BSD 3, and Apache v2. 
+
+
 ### Versioning
 
-Each package should loosely comply with the [semver](http://semver.org/) guidelines. Here's the slightly modified summary:
+Adhere to [semver-ftw.org](http://semver-ftw.org/) if possible. Fallback to [semver](http://semver.org/) if necessary. Each package should comply with the  guidelines. Here's the slightly modified summary:
 
-> Given a version number MAJOR.MINOR.PATCH, increment the:
->
-> MAJOR version when you make MAJOR incompatible API changes,
-> MINOR version when you make minor incompatible changes, and
-> PATCH version when you make backwards-compatible bug fixes.
-
-This is how most Node.js package developers operate. If my interpretation is off, please alert me.
+npm has unexpected behavior for those who are unfamiliar. Essentialy, versions less than `1.0.0` are treated differently. So, it may be best to start the module with `1.0.0` and just adhere to semver-ftw.org.
 
 
 ### Git
 
-When preparing a release, make sure everything is committed but the `CHANGELOG.md`, `package.json`, `bower.json`, and `component.json` files are committed. The only changes should be the `version` number in the package files. Then commit like:
+When preparing a release, make sure everything is committed but the `CHANGELOG.md`, `package.json` files are committed on version commits. The only changes should be the `version` number in the package files. Then commit like:
 
 ```sh
-git add CHANGELOG.md package.json bower.json component.json
+git add CHANGELOG.md package.json
 git commit -m  x.y.z #whatever the version number is (no v prefix!!)
 ```
 
@@ -102,16 +102,18 @@ Example of preferable format:
 - fixed a bug that prevented method `bar()` from outputting. Closes #23  //<-- Github automatically links to the issue in the release page
 ```
 
-also acceptable:
-
-```markdown
-## 0.0.1 / 2013-11-05
-
-- implemented method `foo()`.
-- fixed a bug that prevented method `bar()` from outputting. Closes #23  //<-- Github automatically links to the issue in the release page
-```
-
 Make sure the headings contain the version number and date. Date should be in the form of `YYYY-MM-dd`.
+
+
+### Travis CI
+
+Use it. Add the badge to the README.
+
+
+### Coveralls
+
+Use it. Add the badge to the README.
+
 
 
 
@@ -120,7 +122,7 @@ Effective JavaScript
 
 ### Compatibility
 
-We are not interested in supporting legacy browsers. [ES5](http://en.wikipedia.org/wiki/ECMAScript) target should be satisfactory. This pretty much includes all modern browsers and > IE9.
+We are not interested in supporting legacy browsers. [ES5](http://en.wikipedia.org/wiki/ECMAScript) target should be satisfactory. This pretty much includes all modern browsers and > IE9. If you want legacy browser support, resort to polyfills.
 
 CommonJS and `script` tag support only. AMD is not welcome at this time. Package manager priority should be given to Node.js and `package.json`. [Component](https://github.com/component/component) and [Bower](https://github.com/bower/bower) should be considered, but not prioritized. [Tin](https://github.com/jprichardson/tin) makes managing these package files a little less painful.
 
@@ -128,7 +130,7 @@ CommonJS and `script` tag support only. AMD is not welcome at this time. Package
 
 ### Testing
 
-Tests are critical to building and maintaining working software. Tests should be seen as a contract between the software and expectations. Tests yield dividends in the long run. Currently [Mocha](http://visionmedia.github.io/mocha/) is the preferred test runner with the [BDD interface](http://visionmedia.github.io/mocha/#interfaces). Most of the tests are using the [Terst](https://github.com/jprichardson/terst) testing library. I prefer this because it's extremely terse and is still very readable without being overly verbose. However, [chai](http://chaijs.com/) would be an acceptable alternative.
+Tests are critical to building and maintaining working software. Tests should be seen as a contract between the software and expectations. Tests yield dividends in the long run. Currently [Mocha](http://visionmedia.github.io/mocha/) is the preferred test runner with the [BDD interface](http://visionmedia.github.io/mocha/#interfaces). Most of the tests were written using the [Terst](https://github.com/jprichardson/terst) testing library. I prefered this because it's extremely terse and is still very readable without being overly verbose. However, for a project this large, we need to use a "common language" and thus Node.js [`assert`](http://nodejs.org/api/assert.html) module should be the standard. 
 
  
 ### Indentation
@@ -176,7 +178,9 @@ fs.readFile('/no/way/jose.txt', function(err, file) {
 
 ### Semicolons
 
-Gotta have them. I hate them and think that they're superfluous. If it's good enough for the maintainer of Node.js (Isaac S), Thomas Fuchs, and Jacob Thorton (Fat) creator of Bootstrap to skip them, then so should you. HOWEVER, it's the predominant opinion of the JavaScript community that you should use them and to write code in a team, you should probably use them. So, we'll use them here too unless we can get agreement of everyone not to use them - I don't see that happening.
+No.
+
+If it's good enough for the old maintainer of Node.js (Isaac S), Thomas Fuchs, and Jacob Thorton (Fat) creator of Bootstrap to skip them, and BitcoinJS, to skip them, then we'll skip them too.
 
 Further reading:
 - http://wordsbyf.at/2011/10/31/i-dont-write-javascript/
@@ -198,9 +202,9 @@ Avoid hungarian notation. It sucks and makes no sense in the JavaScript environm
 
 ### Comments
 
-It's more important to comment why something was done than to comment what is done. If you have to comment what the code does, it may not be clear enough. Don't go overboard though with Java style verbosity.
+It's more important to comment why something was done than to comment what is done. If you have to comment what the code does, the code may not be clear enough. Don't go overboard though with Java style verbosity.
 
-**JSDoc is not acceptable.** It completely violates principle #3 and just adds noise. Generating documentation from code is lazy practice and poor behavior.
+**JSDoc is not acceptable.** It completely violates principle #3 and just adds noise. **Generating documentation from code is lazy practice and poor behavior.**
 
 As far as the format of comments, there isn't any explicit style as of this moment. Use what works best for you. Style will develop organically.
 
