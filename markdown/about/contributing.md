@@ -130,7 +130,7 @@ CommonJS and `script` tag support only. AMD is not welcome at this time. Package
 
 ### Testing
 
-Tests are critical to building and maintaining working software. Tests should be seen as a contract between the software and expectations. Tests yield dividends in the long run. Currently [Mocha](http://visionmedia.github.io/mocha/) is the preferred test runner with the [BDD interface](http://visionmedia.github.io/mocha/#interfaces). Most of the tests were written using the [Terst](https://github.com/jprichardson/terst) testing library. I prefered this because it's extremely terse and is still very readable without being overly verbose. However, for a project this large, we need to use a "common language" and thus Node.js [`assert`](http://nodejs.org/api/assert.html) module should be the standard. 
+Tests are critical to building and maintaining working software. Tests should be seen as a contract between the software and expectations. Tests yield dividends in the long run. Currently [Mocha](http://visionmedia.github.io/mocha/) is the preferred test runner with the [BDD interface](http://visionmedia.github.io/mocha/#interfaces). Most of the tests were written using the [Terst](https://github.com/jprichardson/terst) testing library. I prefered this because it's extremely terse and is still very readable without being overly verbose. However, for a project this large, we need to use a "common language" and thus Node.js [assert](http://nodejs.org/api/assert.html) module should be the standard. 
 
  
 ### Indentation
