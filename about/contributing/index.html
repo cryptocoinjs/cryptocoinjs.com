@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://cryptocoinjs.com/about/contributing/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <title>Contributing - CryptoCoinJS</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">CryptoCoinJS</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../..">Main</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Contributing</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../faq/">FAQ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../team/">Team</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guide <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../guide/getting-started/">Getting Started</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Currency Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../modules/currency/bip38/">bip38 - Password encrypted private keys</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/btc-p2p/">btc-p2p - Manage a network of peers in a Bitcoin p2p network</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/coininfo/">coininfo - Crypto Currency Specific Information</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/coinkey/">coinkey - Private Keys / Addresses</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/coinstring/">coinstring - Create & Parse Addresses / WIF / Base58</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/eckey/">eckey - Private Keys / Elliptic Curve</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/p2p-manager/">p2p-manager - Manage a network of peers in a p2p network</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/p2p-node/">p2p-node - Handle p2p traffic on crypto currency networks</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/btc-address/">btc-address - Bitcoin Address Handling</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/btc-opcode/">btc-opcode - Bitcoin Opcodes</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/btc-script/">btc-script - Bitcoin Script</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/btc-scriptinterpreter/">btc-scriptinterpreter - Bitcoin Script Interpreter</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/currency/btc-transaction/">btc-transaction - Bitcon Transaction Creation / Parsing</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crypto Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../modules/crypto/aes/">aes - Advanced Encryption Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/crypto/crypto-hashing/">crypto-hashing - Normalized interface to hash functions</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/crypto/ecdsa/">ecdsa - Elliptic Curve Signing / Verification</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/crypto/ecurve/">ecurve - Elliptic Curve Cryptography</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/crypto/pbkdf2-sha256/">pbkdf2-sha256 - PBKDF2 using SHA256 HMAC</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/crypto/ripemd160/">ripemd160 - RIPEMD160 hash</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/crypto/scryptsy/">scryptsy - Scrypt Key Derivation</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/crypto/sha512/">sha512 - SHA 512 Secure Hashing Algorithm</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc Modules <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../modules/misc/bigi/">bigi - Big Integers</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/misc/binstring/">binstring - Convert data types</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/misc/bs58/">bs58 - BASE58 encoding / decoding</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../modules/misc/qr-encode/">qr-encode - Encode data into QR</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../faq/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/cryptocoinjs/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#contents">Contents</a></li>
+        
+    
+        <li class="main "><a href="#purpose">Purpose</a></li>
+        
+    
+        <li class="main "><a href="#principles">Principles</a></li>
+        
+    
+        <li class="main "><a href="#repository-management">Repository Management</a></li>
+        
+            <li><a href="#creating">Creating</a></li>
+        
+            <li><a href="#versioning">Versioning</a></li>
+        
+            <li><a href="#git">Git</a></li>
+        
+            <li><a href="#changelog-management">CHANGELOG management</a></li>
+        
+    
+        <li class="main "><a href="#effective-javascript">Effective JavaScript</a></li>
+        
+            <li><a href="#compatibility">Compatibility</a></li>
+        
+            <li><a href="#testing">Testing</a></li>
+        
+            <li><a href="#indentation">Indentation</a></li>
+        
+            <li><a href="#semicolons">Semicolons</a></li>
+        
+            <li><a href="#naming">Naming</a></li>
+        
+            <li><a href="#comments">Comments</a></li>
+        
+            <li><a href="#parenthesis-commas-and-spaces">Parenthesis, Commas, and Spaces</a></li>
+        
+            <li><a href="#type-coercion">Type Coercion</a></li>
+        
+            <li><a href="#quotes">Quotes</a></li>
+        
+            <li><a href="#properties">Properties</a></li>
+        
+            <li><a href="#other-javascript-style-guides">Other JavaScript Style Guides</a></li>
+        
+    
+        <li class="main "><a href="#licensing">Licensing</a></li>
+        
+    
+        <li class="main "><a href="#living-document">Living Document</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="http://cryptocoinjs.com/contributing/#purpose">Purpose</a></li>
+<li><a href="http://cryptocoinjs.com/contributing/#principles">Principles</a></li>
+<li><a href="http://cryptocoinjs.com/contributing/#repository-management">Repository Management</a></li>
+<li><a href="http://cryptocoinjs.com/contributing/#effective-javascript">Effective JavaScript</a></li>
+<li><a href="http://cryptocoinjs.com/contributing/#licensing">Licensing</a></li>
+<li><a href="http://cryptocoinjs.com/contributing/#living-document">Living Document</a></li>
+</ol>
+<h2 id="purpose">Purpose</h2>
+<p>This guide is a brief reference to how code should be written for CryptoCoinJS. This applies to members and contributors.</p>
+<h2 id="principles">Principles</h2>
+<ol>
+<li>People matter more than code. Optimize for people.</li>
+<li>Write code for humans to read. It's easier to write code than to read code. Avoid verbosity,  but don't be overly terse.</li>
+<li>Code is the enemy. Lines of code should be reduced as much as possible. <a href="http://www.codinghorror.com/blog/2007/05/the-best-code-is-no-code-at-all.html">The best code is no code at all</a> and <a href="http://www.codinghorror.com/blog/2007/12/size-is-the-enemy.html">Size is the enemy</a>. This is probably the most important principle.</li>
+<li>Organize according to the UNIX philosophy: small and simple modules that do one thing well. Take into consideration the <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a></li>
+<li>All code in this project should look like one person wrote it. We have a lot of work in this area.</li>
+<li>Code should be documented (not auto-generated). But it should not be "documented" in the actual code. Documentation should emphasize usage examples and not so much API interface signatures. It's not that API docs are bad, they should just be made lower priority when compared to usage examples.</li>
+<li>Tests should be implemented. <strong>Working code and tests are far more important than documentation.</strong> </li>
+</ol>
+<h2 id="repository-management">Repository Management</h2>
+<h3 id="creating">Creating</h3>
+<p>Each new repository should contain the following file structure to start:</p>
+<pre class="prettyprint well"><code>.
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+└── test/
+
+1 directory, 3 files
+</code></pre>
+
+<h3 id="versioning">Versioning</h3>
+<p>Each package should loosely comply with the <a href="http://semver.org/">semver</a> guidelines. Here's the slightly modified summary:</p>
+<blockquote>
+<p>Given a version number MAJOR.MINOR.PATCH, increment the:</p>
+<p>MAJOR version when you make MAJOR incompatible API changes,
+MINOR version when you make minor incompatible changes, and
+PATCH version when you make backwards-compatible bug fixes.</p>
+</blockquote>
+<p>This is how most Node.js package developers operate. If my interpretation is off, please alert me.</p>
+<h3 id="git">Git</h3>
+<p>When preparing a release, make sure everything is committed but the <code>CHANGELOG.md</code>, <code>package.json</code>, <code>bower.json</code>, and <code>component.json</code> files are committed. The only changes should be the <code>version</code> number in the package files. Then commit like:</p>
+<pre class="prettyprint well"><code class="sh">git add CHANGELOG.md package.json bower.json component.json
+git commit -m  x.y.z #whatever the version number is (no v prefix!!)
+</code></pre>
+
+<p>It's very important to tag!</p>
+<pre class="prettyprint well"><code class="sh">git tag -a x.y.z #no v prefix!
+</code></pre>
+
+<p>Your default editor will open, make sure to paste in the latest CHANGELOG information including the version and date.</p>
+<p>Don't forget to push to Github and publish to NPM:</p>
+<pre class="prettyprint well"><code class="sh">git push &amp;&amp; git push --tags
+npm publish
+</code></pre>
+
+<h3 id="changelog-management">CHANGELOG management</h3>
+<p>The changelog should contain anything significant about the update. This includes any references to issues, issues closed, bugs fixed, new features, etc. </p>
+<p>Please follow these guidelines:</p>
+<ol>
+<li>It should not just be a copy and paste of all of the commit output. The changelog is for consumers of our software and not developers of the software.</li>
+<li>It should not be vague. "A few tweaks and bug fixes is not acceptable." If all software packages had changelogs, the software world would have less bugs, so let's do a our part.</li>
+<li>It doesn't have to be overly detailed, a brief sentence is fine for each change. References to issues are very helpful.</li>
+<li>If your commit is helpful for a changelog, by all means include it. </li>
+</ol>
+<p>Example of preferable format:</p>
+<pre class="prettyprint well"><code class="markdown">0.0.1 / 2013-11-05
+------------------
+- implemented method `foo()`.
+- fixed a bug that prevented method `bar()` from outputting. Closes #23  //&lt;-- Github automatically links to the issue in the release page
+</code></pre>
+
+<p>also acceptable:</p>
+<pre class="prettyprint well"><code class="markdown">## 0.0.1 / 2013-11-05
+
+- implemented method `foo()`.
+- fixed a bug that prevented method `bar()` from outputting. Closes #23  //&lt;-- Github automatically links to the issue in the release page
+</code></pre>
+
+<p>Make sure the headings contain the version number and date. Date should be in the form of <code>YYYY-MM-dd</code>.</p>
+<h2 id="effective-javascript">Effective JavaScript</h2>
+<h3 id="compatibility">Compatibility</h3>
+<p>We are not interested in supporting legacy browsers. <a href="http://en.wikipedia.org/wiki/ECMAScript">ES5</a> target should be satisfactory. This pretty much includes all modern browsers and &gt; IE9.</p>
+<p>CommonJS and <code>script</code> tag support only. AMD is not welcome at this time. Package manager priority should be given to Node.js and <code>package.json</code>. <a href="https://github.com/component/component">Component</a> and <a href="https://github.com/bower/bower">Bower</a> should be considered, but not prioritized. <a href="https://github.com/jprichardson/tin">Tin</a> makes managing these package files a little less painful.</p>
+<h3 id="testing">Testing</h3>
+<p>Tests are critical to building and maintaining working software. Tests should be seen as a contract between the software and expectations. Tests yield dividends in the long run. Currently <a href="http://visionmedia.github.io/mocha/">Mocha</a> is the preferred test runner with the <a href="http://visionmedia.github.io/mocha/#interfaces">BDD interface</a>. Most of the tests are using the <a href="https://github.com/jprichardson/terst">Terst</a> testing library. I prefer this because it's extremely terse and is still very readable without being overly verbose. However, <a href="http://chaijs.com/">chai</a> would be an acceptable alternative.</p>
+<h3 id="indentation">Indentation</h3>
+<h4 id="two-spaces">Two Spaces</h4>
+<p>Two spaces. No negotiation on this one.</p>
+<pre class="prettyprint well"><code class="js">console.log('indent demo');
+if (true) {
+  console.log('indent 1');
+  if (true) {
+    console.log('indent two');
+  } 
+}
+</code></pre>
+
+<h4 id="minimize-indentation-levels-early-returns-encouraged">Minimize Indentation Levels / Early Returns Encouraged</h4>
+<p>Early returns can increase readability. Remember principle #3? </p>
+<p>Don't do this:</p>
+<pre class="prettyprint well"><code class="js">fs.readFile('/no/way/jose.txt', function(err, file) {
+  if (err) {
+    console.error(err); 
+  } else {
+    //do something else 
+  }
+});
+</code></pre>
+
+<p>Do this instead (if possible):</p>
+<pre class="prettyprint well"><code class="js">fs.readFile('/no/way/jose.txt', function(err, file) {
+  if (err) return console.error(err);
+  //do something else   
+});
+</code></pre>
+
+<h3 id="semicolons">Semicolons</h3>
+<p>Gotta have them. I hate them and think that they're superfluous. If it's good enough for the maintainer of Node.js (Isaac S), Thomas Fuchs, and Jacob Thorton (Fat) creator of Bootstrap to skip them, then so should you. HOWEVER, it's the predominant opinion of the JavaScript community that you should use them and to write code in a team, you should probably use them. So, we'll use them here too unless we can get agreement of everyone not to use them - I don't see that happening.</p>
+<p>Further reading:
+- http://wordsbyf.at/2011/10/31/i-dont-write-javascript/
+- http://dailyjs.com/2012/04/19/semicolons/
+- http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
+- http://inimino.org/~inimino/blog/javascript_semicolons</p>
+<h3 id="naming">Naming</h3>
+<p>(straight from Google's reference, except for the caveat on file names)</p>
+<p>In general, use <code>functionNamesLikeThis</code>, <code>variableNamesLikeThis</code>, <code>ClassNamesLikeThis</code>, <code>EnumNamesLikeThis</code>, <code>methodNamesLikeThis</code>, <code>CONSTANT_VALUES_LIKE_THIS</code>, <code>foo.namespaceNamesLikeThis.bar</code>, and <code>filenameslikethis.js</code>. If you need to break up a long file name, use <code>-</code> and not <code>_</code> or different cases.</p>
+<p>Avoid hungarian notation. It sucks and makes no sense in the JavaScript environment. There may be some rare exceptions here.</p>
+<h3 id="comments">Comments</h3>
+<p>It's more important to comment why something was done than to comment what is done. If you have to comment what the code does, it may not be clear enough. Don't go overboard though with Java style verbosity.</p>
+<p><strong>JSDoc is not acceptable.</strong> It completely violates principle #3 and just adds noise. Generating documentation from code is lazy practice and poor behavior.</p>
+<p>As far as the format of comments, there isn't any explicit style as of this moment. Use what works best for you. Style will develop organically.</p>
+<h3 id="parenthesis-commas-and-spaces">Parenthesis, Commas, and Spaces</h3>
+<p>No spacing before or after parenthesis. Spaces after commas in methods.</p>
+<p>Don't do this:</p>
+<pre class="prettyprint well"><code class="js">//NO
+someFunc( 10, 20 );
+
+//NO
+function someFunc ( n, m ) {
+  console.log( 'too many spaces' );
+}
+</code></pre>
+
+<p>Do this:</p>
+<pre class="prettyprint well"><code class="js">//YES
+someFunc(10, 20);
+
+//YES
+function someFunc(n, m) {
+  console.log('too many spaces');
+}
+</code></pre>
+
+<h3 id="type-coercion">Type Coercion</h3>
+<p>Terse code is encouraged IF its behavior is well defined. For example:</p>
+<p>Prefer <code>===</code> and <code>!==</code>. Only use <code>==</code> and <code>!=</code> where it makes sense.</p>
+<p><strong>null/undefined:</strong></p>
+<pre class="prettyprint well"><code class="js">//this is good
+function something(input) {
+  if (input == null) { //this is acceptable terse way to check for `null` and `undefined`
+    //do something
+  }
+}
+</code></pre>
+
+<p><strong>typeof:</strong></p>
+<pre class="prettyprint well"><code class="js">//typeof always returns a string, no need for ===
+if (typeof val == 'string') //this is good
+</code></pre>
+
+<p><strong>float:</strong></p>
+<pre class="prettyprint well"><code class="js">var num = +'3433.22'; //this is acceptable as it's well known
+num = parseFloat('3433.22'); //&lt;--- probably preferred
+
+var num2 = +'343.22 hi'; //be careful though, NaN
+num2 = '343.22 hi'; //expected, 343.22
+</code></pre>
+
+<p><strong>integer:</strong></p>
+<pre class="prettyprint well"><code class="js">var num = ~~'3433.22'; //this is acceptable as well
+num = parseInt('3433.22', 10); //&lt;-- preferred
+</code></pre>
+
+<p><strong>bool:</strong></p>
+<pre class="prettyprint well"><code class="js">var b = !!'4'; //true
+var c = !!'0'; //false
+</code></pre>
+
+<h3 id="quotes">Quotes</h3>
+<p>Prefer <code>'</code> instead of <code>"</code>. This makes it easier to embed HTML. The obvious exception is that if your string needs to actually contain <code>'</code> character.</p>
+<h3 id="properties">Properties</h3>
+<p>Do not use <code>setFoo</code> and <code>getFoo</code> notation. Leverage ES5 properties. </p>
+<p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a>.</p>
+<h3 id="other-javascript-style-guides">Other JavaScript Style Guides</h3>
+<p>These other guides are very popular. They differ slightly.</p>
+<ol>
+<li>https://github.com/airbnb/javascript</li>
+<li>http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml</li>
+<li>https://github.com/rwaldron/idiomatic.js</li>
+</ol>
+<h2 id="licensing">Licensing</h2>
+<p>By contributing, you implicitly agree that all code that you contribute will be licensed under MIT. The only exception to this rule is that if you leverage a 3rd party library that is licensed in some other manner. Examples: code from CryptoJS, Stanford JavaScript Library, etc.</p>
+<h2 id="living-document">Living Document</h2>
+<p>The goal is to try to encourage code that's generally accepted by most JavaScript developers as clean and readable. As such, I will have no doubt made some mistakes and boneheaded decisions here. If it makes sense to change any of these rules, let's discuss. This document may be subject to change.</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>
