@@ -6,8 +6,8 @@ repo_url: https://github.com/cryptocoinjs/
 
 pages:
 - ['index.md', 'About', 'Main']
-- ['faq.md', 'About', 'FAQ']
-- ['team.md', 'About', 'Team']
+- ['about/faq.md', 'About', 'FAQ']
+- ['about/team.md', 'About', 'Team']
 
 # Guide
 - ['guide/getting-started.md', 'Guide', 'Getting Started']

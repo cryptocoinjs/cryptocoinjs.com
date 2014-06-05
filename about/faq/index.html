@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://cryptocoinjs.com/guide/getting-started/">
+        <link rel="canonical" href="http://cryptocoinjs.com/about/faq/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>Getting Started - CryptoCoinJS</title>
+        <title>FAQ - CryptoCoinJS</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -50,7 +50,7 @@
             <ul class="nav navbar-nav">
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
@@ -58,12 +58,12 @@
                             <a href="../..">Main</a>
                         </li>
                     
-                        <li >
-                            <a href="../../about/faq/">FAQ</a>
+                        <li class="active">
+                            <a href="./">FAQ</a>
                         </li>
                     
                         <li >
-                            <a href="../../about/team/">Team</a>
+                            <a href="../team/">Team</a>
                         </li>
                     
                     </ul>
@@ -71,12 +71,12 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guide <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
-                        <li class="active">
-                            <a href="./">Getting Started</a>
+                        <li >
+                            <a href="../../guide/getting-started/">Getting Started</a>
                         </li>
                     
                     </ul>
@@ -216,12 +216,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li >
-                    <a rel="next" href="../../about/team/">
+                    <a rel="next" href="../..">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../../modules/currency/bip38/">
+                    <a rel="prev" href="../team/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -244,129 +244,89 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#getting-started">Getting Started</a></li>
+        <li class="main active"><a href="#faq">FAQ</a></li>
         
-            <li><a href="#text-editor">Text Editor</a></li>
+            <li><a href="#general-questions">General Questions</a></li>
         
-            <li><a href="#install-nodejs">Install Node.js</a></li>
-        
-            <li><a href="#generate-a-bitcoin-address-and-private-key">Generate a Bitcoin Address and Private Key</a></li>
-        
-            <li><a href="#creating-a-coinkey-from-a-private-wif">Creating a CoinKey from a Private WIF:</a></li>
-        
-            <li><a href="#creating-a-coinkey-from-a-private-key">Creating a CoinKey from a Private Key:</a></li>
-        
-            <li><a href="#generating-a-dogecoin-address">Generating a Dogecoin Address:</a></li>
+            <li><a href="#technical-questions">Technical Questions</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="getting-started">Getting Started</h1>
-<p>CryptoCoinJS is written in pure JavaScript and can be used on the server (Node.js) and the client (modern browser &gt; 2010).</p>
-<h2 id="text-editor">Text Editor</h2>
-<p>The first and probably most obvious is that you'll need a text editor. <a href="http://www.sublimetext.com/">Sublime Text</a> or <a href="https://atom.io/">Github Atom</a> will make a fine choice.</p>
-<h2 id="install-nodejs">Install Node.js</h2>
-<p>Node.js runs on Windows, Mac OS X, or Linux. It's very easy to install, just visit <a href="http://nodejs.org/download/">http://nodejs.org/download/</a> and run the installer for your platform of choice. Node.js bundles <a href="https://www.npmjs.org/">npm</a> which <a href="https://www.npmjs.org/doc/faq.html">oddly enough does not stand for Node.js Package Manager</a> despite being its sole purpose.</p>
-<h3 id="note-on-nodejs-packages">Note on Node.js Packages</h3>
-<p>The Node.js ecosystem contains many software modules or packages and its growing exponentially. The common wisdom of the Node.js ecosystem is that it's best to write packages that do one thing well akin to the UNIX philosophy. Hence the CryptoCoinJS roots. You can view a list of packages here: <a href="https://www.npmjs.org/">https://www.npmjs.org/</a></p>
-<p>Each Node.js package has a <code>package.json</code> file. To create your own, simply run:</p>
-<pre class="prettyprint well"><code>npm init
+<h1 id="faq">FAQ</h1>
+<h2 id="general-questions">General Questions</h2>
+<h3 id="1-how-is-this-different-than-bitcoinjs-or-bitcore">1. How is this different than <a href="https://github.com/bitcoinjs">BitcoinJS</a> or <a href="http://bitcore.io">Bitcore</a>?</h3>
+<p>CryptoCoinJS and Bitcore both derive their roots from an older version of BitcoinJS. For a long period of time BitcoinJS went unmaintained and many forks emerged. There was an opportunity to create a library that broke down each piece of functionality into its own module for the sake of making the library easier to use and easier to maintain. Let's face it, understanding Bitcoin is difficult, let alone programming with it - we as developers need to make things as easy as possible to attract faster innovation.</p>
+<p>Since BitcoinJS is now maintained again and Bitpay has developers working full-time on Bitcore, both of these libraries are attractive options to use for your next Bitcoin/JavaScript project.</p>
+<p><strong>Bitcore</strong>: </p>
+<p>Pros:</p>
+<ul>
+<li>Bitpay has a put a lot of resources behind it and thus innovation is moving quickly.</li>
+<li>Feature complete.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>It is owned and operated by Bitpay and thus the direction of the project will be at the whim of Bitpay and according to their business objectives.</li>
+<li>Large monolithic library.</li>
+<li>Poor documentation.</li>
+<li>Bitcoin only.</li>
+</ul>
+<p><strong>BitcoinJS</strong>:</p>
+<p>Pros: </p>
+<ul>
+<li>The one that started it all and will probably resemble most tutorials that have been written on the matter.</li>
+<li>Fast innovation again.</li>
+<li>Test coverage is improving a lot.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Large monolithic library.</li>
+<li>No documentation.</li>
+<li>Bitcoin only. (To be fair, they're open to supporting others)</li>
+</ul>
+<p><strong> CryptoCoinJS</strong>:</p>
+<p>Pros:</p>
+<ul>
+<li>Smaller modules =&gt; makes it easier to understand, use, and maintain.</li>
+<li>Supports other crypto currencies.</li>
+<li>Decent documentation.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Lacks some functionality that the both BitcoinJS and Bitcore have.</li>
+<li>Test coverage could be improved.</li>
+<li>Innovation isn't happening as fast as BitcoinJS and Bitcore.</li>
+</ul>
+<p>When it comes down to it, you should pick a library that helps you achieve your objective quickly while instilling confidence about its long-term viability. i.e. will the library be maintained in one year? While we can't make any concrete promises about the future, businesses rely upon CryptoCoinJS, so it should be actively developed for the foreseeable future.</p>
+<h2 id="technical-questions">Technical Questions</h2>
+<h3 id="1-how-do-i-use-these-modules-in-the-browser">1. How do I use these modules in the browser?</h3>
+<p>Assuming that you've gone through the <a href="guide/getting-started">Getting Started</a>, you'll need to install <a href="https://github.com/substack/node-browserify">Browserify</a>.</p>
+<pre class="prettyprint well"><code>npm install -g browserify
 </code></pre>
-<p>npm will ask you a series of questions and populate the <code>package.json</code> file accordingly.</p>
-<p>Node.js packages typically have two types of dependencies characterized in <code>package.json</code>: these are <code>dependencies</code> and <code>devDependencies</code>. There's a third called <code>peerDependencies</code>, but that's out of scope for this article. <code>devDependencies</code> are dependencies that are used in devlopment only such as testing tools and build tools. <code>dependencies</code> are dependencies that your package depends upon in production.</p>
-<p>To install a production dependency and have it update your package.json file:</p>
-<pre class="prettyprint well"><code>npm install --save coinkey
+<p>As an example, let's say that you want to use <a href="modules/coinkey">coinkey</a> in the browser. Clone the repository:</p>
+<pre class="prettyprint well"><code>git clone https://github.com/cryptocoinjs/coinkey
 </code></pre>
-<p>To intall a specific version:</p>
-<pre class="prettyprint well"><code>npm install --save coinkey@0.1.0
+<p>Navigate into it:</p>
+<pre class="prettyprint well"><code>cd coinkey
 </code></pre>
-<p>To install the latest:</p>
-<pre class="prettyprint well"><code>npm install --save coinkey@latest
+<p>Install dependencies:</p>
+<pre class="prettyprint well"><code>npm install
 </code></pre>
-<p>To install a development dependency and have it update your package.json file:</p>
-<pre class="prettyprint well"><code>npm install --save-dev mocha
+<p>Run browserify:</p>
+<pre class="prettyprint well"><code>browserify --standalone CoinKey &lt; lib/coinkey.js &gt; coinkey.bundle.js
 </code></pre>
-<h2 id="generate-a-bitcoin-address-and-private-key">Generate a Bitcoin Address and Private Key</h2>
-<p>To read detailed description of private keys, public keys, and addresses checkout <a href="http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript">http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</a> by one of our contributors JP Richardson. It uses an old version of BitcoinJS, but you can open up your browser console and follow along with the tutorial.</p>
-<p>First create your new app (if you already have an app, skip this step):</p>
-<pre class="prettyprint well"><code>npm init
-touch app.js #on windows, create the file in your text editor
-</code></pre>
-<p>install <a href="modules/coinkey">coinkey</a> (at the time of this writing, version 0.1.0):</p>
-<pre class="prettyprint well"><code>npm install --save coinkey
-</code></pre>
-<p>edit app.js:</p>
-<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey'); //0.1.0
+<p>Include in a script in your HTML:</p>
+<pre class="prettyprint well"><code class="html">&lt;script src=&quot;coinkey.bundle.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+//since we passesd the --standalone flag to Browserify, &quot;CoinKey&quot; will be global i.e. attached to `window`
 
-var ck = new CoinKey(); 
-
-console.log(&quot;Private Key (Wallet Import Format): &quot; + ck.privateWif);
-console.log(&quot;Private Key (Hex): &quot; + ck.privateKey.toString('hex'));
-console.log(&quot;Address: &quot; + ck.publicAddress);
-</code></pre>
-
-<p>run it:</p>
-<pre class="prettyprint well"><code>node app.js
-</code></pre>
-<p>expected output will resemble:</p>
-<pre class="prettyprint well"><code>Private Key (Wallet Import Format): 5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M
-Private Key (Hex): ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75
-Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
-</code></pre>
-<p>it the address and private key (WIF) won't be the same since they are randomly generated. You can run it again and get an entirely different result.</p>
-<h2 id="creating-a-coinkey-from-a-private-wif">Creating a CoinKey from a Private WIF:</h2>
-<p>Assuming same setup as the previous section, edit app.js:</p>
-<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey'); //0.1.0
-
-var ck = CoinKey.fromWif('5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M');
-console.log(&quot;Address: &quot; + ck.publicAddress);
-</code></pre>
-
-<p>expected output:</p>
-<pre class="prettyprint well"><code>Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
-</code></pre>
-<p>This will be the same everytime, since the public address is derived from the private key.</p>
-<h2 id="creating-a-coinkey-from-a-private-key">Creating a CoinKey from a Private Key:</h2>
-<p>Assuming same setup as previous, edit app.js:</p>
-<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey'); //0.1.0
-
-var buffer = new Buffer('ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75', 'hex');
-var ck = new CoinKey(buffer);
-
-console.log(&quot;Private Key (Wallet Import Format): &quot; + ck.privateWif);
-console.log(&quot;Private Key (Hex): &quot; + ck.privateKey.toString('hex'));
-console.log(&quot;Address: &quot; + ck.publicAddress);
+var ck = new CoinKey();
+&lt;/script&gt;
 </code></pre>
 
-<p>expected output:</p>
-<pre class="prettyprint well"><code>Private Key (Wallet Import Format): 5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M
-Private Key (Hex): ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75
-Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
-</code></pre>
-<h2 id="generating-a-dogecoin-address">Generating a Dogecoin Address:</h2>
-<p>Assuming same setup as previous, install <a href="modules/coinfo">coininfo</a> (0.1.0 at the time of this writing):</p>
-<pre class="prettyprint well"><code>npm install --save coininfo
-</code></pre>
-<pre class="prettyprint well"><code class="js">var CoinKey = require('coinkey');   //0.1.0
-var coinInfo = require('coininfo');  //0.1.0
-
-var dogeInfo = coinInfo('DOGE').versions;
-
-var ck = new CoinKey(dogeInfo); 
-
-console.log(&quot;Private Key (Wallet Import Format): &quot; + ck.privateWif);
-console.log(&quot;Private Key (Hex): &quot; + ck.privateKey.toString('hex'));
-console.log(&quot;Address: &quot; + ck.publicAddress);
-</code></pre>
-
-<p>expected output will resembled:</p>
-<pre class="prettyprint well"><code>Private Key (Wallet Import Format): QQ7moQvomoC2cmR6sjynhjEGbpwMa2RvhqQ2sheXg7MYGhVLWhbh
-Private Key (Hex): 2cd4c766681679ca301485e47c5dfbe69df4a28e5b78d5752c09e1e3fca3a2a4
-Address: DG6g8BnXTEBY3h1dXym7iPEkZPbNi7r4eg
-</code></pre>
-<p>Hopefully this tutorial was helpful in getting you started of programming for your favorite crypto currency and JavaScript!</p>
+<p><strong>Note:</strong> If you use more than one CryptoCoinJS module, you don't need to do this for each one. Assuming that you're using Browserify for your browser app, you'll only need to build with Browserify once with your top level <code>index.js</code> or <code>app.js</code> file.</p>
 </div>
         </div>
 
