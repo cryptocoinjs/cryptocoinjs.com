@@ -250,13 +250,19 @@
     
         <li class="main active"><a href="#coinstring">coinstring</a></li>
         
+            <li><a href="#package-info">Package Info</a></li>
+        
             <li><a href="#installation">Installation</a></li>
         
-            <li><a href="#usage">Usage</a></li>
+            <li><a href="#examples">Examples</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+            <li><a href="#list-of-common-crypto-currency-versions">List of Common Crypto Currency Versions</a></li>
+        
+            <li><a href="#use-in-the-browser">Use in the Browser</a></li>
         
             <li><a href="#references">References</a></li>
-        
-            <li><a href="#license">License</a></li>
         
     
     </ul>
@@ -264,126 +270,170 @@
             <div class="col-md-9" role="main">
 
 <h1 id="coinstring">coinstring</h1>
-<p>coinstring is a JavaScript component that is fully compatible with Node.js and the browser. It's used to generate relevant addresses and wallet import formats used by various crypto currencies.</p>
-<p><strong>Note:</strong> It's an experimental functional replacement for https://github.com/cryptocoinjs/btc-address</p>
+<p><a href="http://travis-ci.org/cryptocoinjs/coinstring"><img alt="build status" src="https://secure.travis-ci.org/cryptocoinjs/coinstring.png" /></a>
+<a href="https://coveralls.io/r/cryptocoinjs/coinstring"><img alt="Coverage Status" src="https://img.shields.io/coveralls/cryptocoinjs/coinstring.svg" /></a>
+<a href="https://www.npmjs.org/package/coinstring"><img alt="Version" src="http://img.shields.io/npm/v/coinstring.svg" /></a></p>
+<p><a href="https://ci.testling.com/cryptocoinjs/coinstring"><img alt="browser support" src="https://ci.testling.com/cryptocoinjs/coinstring.png" /></a></p>
+<p>JavaScript component that's used to generate relevant addresses, wallet import formats, BIP32 encodings, and <a href="https://en.bitcoin.it/wiki/Base58Check_encoding">base 58 check encoding</a>
+used by various crypto currencies. The difference between this and base58 check encoding is not much other than base 58 check encoding
+specifies that the version should only have one byte. This means that base 58 check encoding technically would NOT work for BIP 32
+addresses, but this module does work with BIP 32 addresses.</p>
+<p>Works in Node.js and the browser.</p>
+<h2 id="package-info">Package Info</h2>
+<ul>
+<li>github: <a href="https://github.com/cryptocoinjs/coinstring">https://github.com/cryptocoinjs/coinstring</a></li>
+<li>tests: <a href="https://github.com/cryptocoinjs/coinstring/tree/master/test">https://github.com/cryptocoinjs/coinstring/tree/master/test</a></li>
+<li>issues: <a href="https://github.com/cryptocoinjs/coinstring/issues">https://github.com/cryptocoinjs/coinstring/issues</a></li>
+<li>license: <strong>MIT</strong></li>
+<li>versioning: <a href="http://semver-ftw.org">http://semver-ftw.org</a></li>
+</ul>
 <h2 id="installation">Installation</h2>
 <pre class="prettyprint well"><code>npm install coinstring --save
 </code></pre>
-<h2 id="usage">Usage</h2>
-<p>There are three functions in this module.</p>
-<h3 id="api">API</h3>
-<h4 id="coinstringversion-bytes">coinstring(version, bytes)</h4>
-<p>Used to convert either a hash160 or private key into an address or wallet import format string respectively.</p>
-<ul>
-<li><strong>version</strong>: Is an integer representing the version. See below for more information.</li>
-<li><strong>bytes</strong>: A <code>Buffer</code>, <code>Array</code>, or <code>Uint8Array</code> of bytes, either the hash160 or private key.</li>
-</ul>
-<h4 id="decodeversion-str">decode([version], str)</h4>
-<p>It is the inverse of the <code>coinstring()</code> function i.e. it converts the address or wallet import format into a <code>Buffer</code> of bytes. It
-throws if the address or wallet import format is not valid. Not valid means that the version doesn't match, or the checksum is
-incorrect. Returns an object with the follow properites <code>version</code> and <code>bytes</code>.</p>
-<ul>
-<li><strong>version</strong>: Is an integer representing the version. See below for more information.</li>
-<li><strong>str</strong>: A <code>string</code> that is either the wallet import format or public address.</li>
-</ul>
-<h4 id="validateversion-str">validate(version, str)</h4>
-<p>Validates whether the address string or wallet import format string is valid. Returns a <code>true</code> or <code>false</code>.</p>
-<ul>
-<li><strong>version</strong>: Is an integer representing the version. See below for more information.</li>
-<li><strong>str</strong>: A <code>string</code> that is either the wallet import format or public address.</li>
-</ul>
-<h3 id="common-examples">Common Examples</h3>
-<h4 id="convert-private-key-to-bitcoin-wallet-import-format">Convert Private Key to Bitcoin Wallet Import Format</h4>
-<pre class="prettyprint well"><code class="js">var conv = require('binstring');
-var coinstring = require('coinstring');
+<h2 id="examples">Examples</h2>
+<p><strong>Note:</strong> You'd commonly use this package in conjunction with <a href="http://cryptocoinjs.com/modules/currency/coininfo/">coininfo</a>.</p>
+<h3 id="convert-private-key-to-bitcoin-wallet-import-format">Convert Private Key to Bitcoin Wallet Import Format</h3>
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring')
 
-var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
-var privateKeyHexBuf = conv(privateKeyHex, {in: 'hex', out: 'buffer'});
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;
+var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
 var version = 0x080; //Bitcoin private key
 
-console.log(coinstring(version, privateKeyHexBuf)); // =&gt; 5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD
+console.log(cs.encode(privateKeyHexBuf, version)) 
+// =&gt; 5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD
 </code></pre>
 
-<h4 id="convert-hash160-aka-pubkeyhash-to-bitcoin-address">Convert hash160 (aka pubkeyhash) to Bitcoin Address</h4>
-<pre class="prettyprint well"><code class="js">var conv = require('binstring');
-var coinstring = require('coinstring');
+<h3 id="convert-hash160-aka-pubkeyhash-to-bitcoin-address">Convert hash160 (aka pubKeyHash) to Bitcoin Address</h3>
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring')
 
-var hash160 = &quot;3c176e659bea0f29a3e9bf7880c112b1b31b4dc8&quot;; //hash representing uncompressed
-var hash160Buf = conv(hash160, {in: 'hex', out: 'buffer'});
+var hash160 = &quot;3c176e659bea0f29a3e9bf7880c112b1b31b4dc8&quot; //hash representing uncompressed
+var hash160Buf = new Buffer(hash160, 'hex')
 var version = 0x00; //Bitcoin public address
 
-console.log(coinstring(version, hash160Buf)); // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
+console.log(cs.encode(hash160Buf, version)); 
+// =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
 </code></pre>
 
 <h4 id="convert-private-key-to-compressed-bitcoin-wallet-import-format">Convert Private Key to Compressed Bitcoin Wallet Import Format</h4>
-<pre class="prettyprint well"><code class="js">var conv = require('binstring');
-var coinstring = require('coinstring');
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring')
 
-var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
+var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;
 
 //for compressed, append &quot;01&quot;
-privateKeyHex += '01';
+privateKeyHex += '01'
 
-var privateKeyHexBuf = conv(privateKeyHex, {in: 'hex', out: 'buffer'});
-var version = 0x080; //Bitcoin private key
+var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
+var version = 0x080 //Bitcoin private key
 
-console.log(coinstring(version, privateKeyHexBuf)); // =&gt; KwomKti1X3tYJUUMb1TGSM2mrZk1wb1aHisUNHCQXTZq5auC2qc3
+console.log(cs.encode(privateKeyHexBuf, version))
+// =&gt; KwomKti1X3tYJUUMb1TGSM2mrZk1wb1aHisUNHCQXTZq5auC2qc3
 </code></pre>
 
 <h4 id="convert-hash160-aka-pubkeyhash-to-dogecoin-address">Convert hash160 (aka pubkeyhash) to Dogecoin Address</h4>
-<pre class="prettyprint well"><code class="js">var conv = require('binstring');
-var coinstring = require('coinstring');
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring')
 
-var hash160 = &quot;3c176e659bea0f29a3e9bf7880c112b1b31b4dc8&quot;; //hash representing uncompressed
-var hash160Buf = conv(hash160, {in: 'hex', out: 'buffer'});
-var version = 0x1E; //Dogecoin public address
+var hash160 = &quot;3c176e659bea0f29a3e9bf7880c112b1b31b4dc8&quot; //hash representing uncompressed
+var hash160Buf = new Buffer(hash160, 'hex')
+var version = 0x1E //Dogecoin public address
 
-console.log(coinstring(version, hash160Buf)); // =&gt; DAcq9oJpZZAjr56RmF7Y5zmWboZWQ4HAsW
+console.log(cs.encode(hash160Buf, version)) 
+// =&gt; DAcq9oJpZZAjr56RmF7Y5zmWboZWQ4HAsW
+</code></pre>
+
+<h3 id="encode-bip-32-bitcoin-private-key">Encode BIP 32 Bitcoin Private Key</h3>
+<p>Base 58 check encoding cannot typically enocde these since it requires the version to only be one byte. Read more about
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32 here</a>.</p>
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring')
+
+var data = &quot;000000000000000000873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d50800e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35&quot; 
+var buffer = new Buffer(data, 'hex')
+var version = new Buffer('0488ade4', 'hex') //0488ade4 is a consant listed in the aforementioned bip32 wiki.
+
+console.log(cs.encode(buffer, version)) 
+// =&gt; xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi
+</code></pre>
+
+<h3 id="decode-bitcoin-private-wallet-import-format-wif-to-private-key">Decode Bitcoin Private Wallet Import Format (WIF) to private key</h3>
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring')
+
+var res = cs.decode('5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD')
+console.log(res.version.toString('hex')) // =&gt; 80
+console.log(res.payload.toString('hex')) // =&gt; 1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
 </code></pre>
 
 <h3 id="functional-goodies">Functional Goodies</h3>
-<p><code>coinstring</code> also has some functional goodies. All functions can be partially applied.</p>
+<p><code>coinstring</code> also has some functional goodies. </p>
 <h4 id="function-to-generate-bitcoin-wallet-import-format">Function to Generate Bitcoin Wallet Import Format</h4>
-<pre class="prettyprint well"><code class="js">var conv = require('binstring');
-var coinstring = require('coinstring');
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring')
 
 var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
-var privateKeyHexBuf = conv(privateKeyHex, {in: 'hex', out: 'buffer'});
-var version = 0x080; //Bitcoin private key
+var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
+var version = 0x080 //Bitcoin private key
 
-var toBtcWif = coinstring(version)
+var toBtcWif = cs.createEncoder(version)
 
 //later in your program
-console.log(toBtcWif(privateKeyHexBuf)); // =&gt; 5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD
+console.log(toBtcWif(privateKeyHexBuf)) 
+// =&gt; 5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD
 </code></pre>
 
 <h4 id="function-to-parse-bitcoin-wallet-import-format">Function to Parse Bitcoin Wallet Import Format</h4>
-<pre class="prettyprint well"><code class="js">var conv = require('binstring');
-var coinstring = require('coinstring');
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring');
 
-var wif = &quot;5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD&quot;;
-var version = 0x080; //Bitcoin private key
+var wif = &quot;5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD&quot;
+var version = 0x080 //Bitcoin private key
 
-var fromBtcWif = coinstring.decode(version)
+var fromBtcWif = cs.createDecoder(version)
 
 //later in your program
-console.log(fromBtcWif(wif).bytes.toString('hex')); // =&gt; 51184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
+console.log(fromBtcWif(wif).payload.toString('hex')) 
+// =&gt; 51184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd
 </code></pre>
 
 <h4 id="function-to-validate-bitcoin-testnet-addresses">Function to Validate Bitcoin Testnet Addresses</h4>
-<pre class="prettyprint well"><code class="js">var conv = require('binstring');
-var coinstring = require('coinstring');
+<pre class="prettyprint well"><code class="js">var cs = require('coinstring');
 
-var hash160 = &quot;3c176e659bea0f29a3e9bf7880c112b1b31b4dc8&quot;; //hash representing uncompressed
-var hash160Buf = conv(hash160, {in: 'hex', out: 'buffer'});
-var version = 0x6F; //Bitcoin Testnet Address
+var hash160 = &quot;3c176e659bea0f29a3e9bf7880c112b1b31b4dc8&quot; //hash representing uncompressed
+var hash160Buf = new Buffer(hash160, 'hex')
+var version = 0x6F //Bitcoin Testnet Address
 
-var testnetAddressValidator = coinstring.validate(version);
-
+var testnetAddressValidator = cs.createValidator(version)
 console.log(testnetAddressValidator(&quot;mkzgubTA5Ahi6BPSkE6MN9pEafRutznkMe&quot;)) // =&gt; true
 </code></pre>
 
-<h3 id="list-of-common-crypto-currency-versions">List of Common Crypto Currency Versions</h3>
+<h2 id="api">API</h2>
+<p><code>coinstring</code> exports the following six functions:</p>
+<h3 id="encodepayload-version">encode(payload, version)</h3>
+<p>Used to convert either a hash160 or private key into an address or wallet import format string respectively.</p>
+<ul>
+<li><code>payload</code>: A <code>Buffer</code>, <code>Array</code>, or <code>Uint8Array</code> of bytes, either the hash160 or private key.</li>
+<li><code>version</code>: Is an integer representing the version or a <code>Buffer</code> if version is greater than one byte. The case where it's typically
+greater than one byte is for working with BIP32.</li>
+</ul>
+<p>Returns the base58 encoded value of type <code>string</code>.</p>
+<h3 id="decodebase58str-version">decode(base58str, [version])</h3>
+<p>It is the inverse of the <code>encode()</code> function i.e. it converts the address or wallet import format into a <code>Buffer</code> of bytes. It
+throws if the address or wallet import format is not valid. Not valid means that the version doesn't match, or the checksum is
+incorrect. </p>
+<ul>
+<li><code>base58str</code>: A <code>string</code> that is either the wallet import format or public address.</li>
+<li><code>version</code>: Is an integer representing the version or <code>Buffer</code>. See below for more information.</li>
+</ul>
+<p>Returns an object with the follow fields <code>version</code> of type <code>Buffer</code> and <code>payload</code> of type <code>Buffer</code>.</p>
+<h3 id="isvalidbase58str-version">isValid(base58str, version)</h3>
+<p>Validates whether the address string or wallet import format string is valid. </p>
+<ul>
+<li><code>base58str</code>: A <code>string</code> that is either the wallet import format or public address.</li>
+<li><code>version</code>: Is an integer representing the version or <code>Buffer</code>. See below for more information.</li>
+</ul>
+<p>Returns a <code>true</code> or <code>false</code>.</p>
+<h3 id="createencoderversion">createEncoder(version)</h3>
+<p>Returns a function that takes as input the <code>payload</code> like from <code>encode()</code> above.</p>
+<h3 id="createdecoderversion">createDecoder(version)</h3>
+<p>Returns a function that takes as input the <code>base58str</code> like from <code>decode()</code> above.</p>
+<h3 id="createvalidatorversion">createValidator(version)</h3>
+<p>Returns a function that takes as input the <code>base58str</code> like from <code>isValid()</code> above.</p>
+<h2 id="list-of-common-crypto-currency-versions">List of Common Crypto Currency Versions</h2>
 <p>The following is a table of common crypto currency versions. It may seem a bit user unfriendly to have to input the number instead of something like "BTC"; we agree. Another module will be created to address this. In the meantime, use the table below.</p>
 <table>
 <tr><th>Crypto Coin</th><th>Public Address</th><th>Private Wallet Import Format</th></tr>
@@ -396,7 +446,8 @@ console.log(testnetAddressValidator(&quot;mkzgubTA5Ahi6BPSkE6MN9pEafRutznkMe&quo
 <tr><td>Namecoin</td><td> 0x34</td><td> 0xB4</td></tr>
 </table>
 
-<h3 id="use-in-the-browser">Use in the Browser</h3>
+<p>You may also want to just use the module <a href="http://cryptocoinjs.com/modules/currency/coininfo/">coininfo</a> instead.</p>
+<h2 id="use-in-the-browser">Use in the Browser</h2>
 <p>Clone the repo:</p>
 <pre class="prettyprint well"><code>git clone https://github.com/cryptocoinjs/coinstring
 </code></pre>
@@ -418,8 +469,6 @@ console.log(testnetAddressValidator(&quot;mkzgubTA5Ahi6BPSkE6MN9pEafRutznkMe&quo
 <li>http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</li>
 <li>http://brainwallet.org/</li>
 </ul>
-<h2 id="license">License</h2>
-<p>(MIT License)</p>
 </div>
         </div>
 
