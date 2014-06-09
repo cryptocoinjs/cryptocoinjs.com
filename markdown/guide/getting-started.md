@@ -7,7 +7,7 @@ CryptoCoinJS is written in pure JavaScript and can be used on the server (Node.j
 Text Editor
 -----------
 
-The first and probably most obvious is that you'll need a text editor. [Sublime Text](http://www.sublimetext.com/) or [Github Atom](https://atom.io/) will make a fine choice.
+The first and probably most obvious is that you'll need a text editor. [Sublime Text](http://www.sublimetext.com/), [Github Atom](https://atom.io/), or Vim will make a fine choice.
 
 
 Install Node.js
@@ -18,7 +18,7 @@ Node.js runs on Windows, Mac OS X, or Linux. It's very easy to install, just vis
 
 ### Note on Node.js Packages
 
-The Node.js ecosystem contains many software modules or packages and its growing exponentially. The common wisdom of the Node.js ecosystem is that it's best to write packages that do one thing well akin to the UNIX philosophy. Hence the CryptoCoinJS roots. You can view a list of packages here: [https://www.npmjs.org/](https://www.npmjs.org/)
+The Node.js ecosystem contains many software modules or packages and it's growing exponentially. The common wisdom of the Node.js ecosystem is that it's best to write packages that do one thing well akin to the UNIX philosophy. Hence the CryptoCoinJS roots. You can view a list of packages here: [https://www.npmjs.org/](https://www.npmjs.org/)
 
 Each Node.js package has a `package.json` file. To create your own, simply run:
 
@@ -34,7 +34,7 @@ To install a production dependency and have it update your package.json file:
 
 To intall a specific version:
 
-    npm install --save coinkey@0.1.0
+    npm install --save coinkey@1.0.0
 
 To install the latest:
 
@@ -58,18 +58,18 @@ First create your new app (if you already have an app, skip this step):
 
 install [coinkey](modules/coinkey) (at the time of this writing, version 0.1.0):
 
-    npm install --save coinkey 
+    npm install --save coinkey@1.0.0
 
 edit app.js:
 
 ```js
-var CoinKey = require('coinkey'); //0.1.0
+var CoinKey = require('coinkey') //1.0.0
 
-var ck = new CoinKey(); 
+var ck = new CoinKey.createRandom()
 
-console.log("Private Key (Wallet Import Format): " + ck.privateWif);
-console.log("Private Key (Hex): " + ck.privateKey.toString('hex'));
-console.log("Address: " + ck.publicAddress);
+console.log("Private Key (Wallet Import Format): " + ck.privateWif)
+console.log("Private Key (Hex): " + ck.privateKey.toString('hex'))
+console.log("Address: " + ck.publicAddress)
 ```
 
 run it:
@@ -92,10 +92,10 @@ Creating a CoinKey from a Private WIF:
 Assuming same setup as the previous section, edit app.js:
 
 ```js
-var CoinKey = require('coinkey'); //0.1.0
+var CoinKey = require('coinkey') //1.0.0
 
-var ck = CoinKey.fromWif('5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M');
-console.log("Address: " + ck.publicAddress);
+var ck = CoinKey.fromWif('5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M')
+console.log("Address: " + ck.publicAddress)
 ```
 
 expected output:
@@ -112,21 +112,21 @@ Creating a CoinKey from a Private Key:
 Assuming same setup as previous, edit app.js:
 
 ```js
-var CoinKey = require('coinkey'); //0.1.0
+var CoinKey = require('coinkey') //1.0.0
 
-var buffer = new Buffer('ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75', 'hex');
-var ck = new CoinKey(buffer);
+var buffer = new Buffer('ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75', 'hex')
+var ck = new CoinKey(buffer)
 
-console.log("Private Key (Wallet Import Format): " + ck.privateWif);
-console.log("Private Key (Hex): " + ck.privateKey.toString('hex'));
-console.log("Address: " + ck.publicAddress);
+console.log("Private Key (Wallet Import Format): " + ck.privateWif)
+console.log("Private Key (Hex): " + ck.privateKey.toString('hex'))
+console.log("Address: " + ck.publicAddress)
 ```
 
 expected output:
 
-    Private Key (Wallet Import Format): 5KcejEy2SaZPi5A3Ga3gfPR8c5WTepzw33enYTkVCwMCYnW3k8M
+    Private Key (Wallet Import Format): L5AMXSeHMu7yEHLu1irr4RwWZpu2dxrhW2hn1s4wVgt9xvyB3y2t
     Private Key (Hex): ecf8fdcdc516181757e45dbc91c62294a16150d532ccc9760a0911def1c07b75
-    Address: 1H8kmcBuSuUokrNPszHU9baSvnfmFRNVky
+    Address: 1LGdYYdJuFcxmghsm8dr6B4H27UJTtPcad
 
 
 Generating a Dogecoin Address:
@@ -134,26 +134,26 @@ Generating a Dogecoin Address:
 
 Assuming same setup as previous, install [coininfo](modules/coinfo) (0.1.0 at the time of this writing):
 
-    npm install --save coininfo
+    npm install --save coininfo@0.1.0
 
 ```js
-var CoinKey = require('coinkey');   //0.1.0
-var coinInfo = require('coininfo');  //0.1.0
+var CoinKey = require('coinkey')    //1.0.0
+var coinInfo = require('coininfo')  //0.1.0
 
-var dogeInfo = coinInfo('DOGE').versions;
+var dogeInfo = coinInfo('DOGE').versions
 
-var ck = new CoinKey(dogeInfo); 
+var ck = new CoinKey.createRandom(dogeInfo)
 
-console.log("Private Key (Wallet Import Format): " + ck.privateWif);
-console.log("Private Key (Hex): " + ck.privateKey.toString('hex'));
-console.log("Address: " + ck.publicAddress);
+console.log("Private Key (Wallet Import Format): " + ck.privateWif)
+console.log("Private Key (Hex): " + ck.privateKey.toString('hex'))
+console.log("Address: " + ck.publicAddress)
 ```
 
 expected output will resembled:
 
-    Private Key (Wallet Import Format): QQ7moQvomoC2cmR6sjynhjEGbpwMa2RvhqQ2sheXg7MYGhVLWhbh
-    Private Key (Hex): 2cd4c766681679ca301485e47c5dfbe69df4a28e5b78d5752c09e1e3fca3a2a4
-    Address: DG6g8BnXTEBY3h1dXym7iPEkZPbNi7r4eg
+    Private Key (Wallet Import Format): QRtXV4kKKrocgUsdTk4uRP36vYH4CEQdn5KB7Y2WCqrkinSr6pBo
+    Private Key (Hex): 61b0f83f28fbbcebeb4e3278883a7bdda8ffc7ff568dc5462bd2adb4ad01ca20
+    Address: DFBF6aY3KurBDSf7CEhaPH3Zg8fJHfMToQ
 
 
 Hopefully this tutorial was helpful in getting you started of programming for your favorite crypto currency and JavaScript!
