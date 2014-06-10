@@ -250,6 +250,8 @@
     
         <li class="main active"><a href="#pbkdf2-sha256">pbkdf2-sha256</a></li>
         
+            <li><a href="#package-info">Package Info</a></li>
+        
             <li><a href="#why">Why?</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -262,7 +264,18 @@
             <div class="col-md-9" role="main">
 
 <h1 id="pbkdf2-sha256">pbkdf2-sha256</h1>
-<p><code>pbkdf2-sha256</code> is a JavaScript implementation of <a href="http://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a> using the SHA256 HMAC. It's fully compatible with Node.js and the browser (via Browserify).</p>
+<p><a href="http://travis-ci.org/cryptocoinjs/pbkdf2-sha256"><img alt="build status" src="https://secure.travis-ci.org/cryptocoinjs/pbkdf2-sha256.png" /></a>
+<a href="https://coveralls.io/r/cryptocoinjs/pbkdf2-sha256"><img alt="Coverage Status" src="https://img.shields.io/coveralls/cryptocoinjs/pbkdf2-sha256.svg" /></a>
+<a href="https://www.npmjs.org/package/pbkdf2-sha256"><img alt="Version" src="http://img.shields.io/npm/v/pbkdf2-sha256.svg" /></a></p>
+<p><code>pbkdf2-sha256</code> is a JavaScript implementation of <a href="http://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a> using the SHA256 HMAC. It's useful as the <a href="http://en.wikipedia.org/wiki/Scrypt">Scrypt</a> algorithm uses this.  It's fully compatible with Node.js and the browser (via Browserify).</p>
+<h2 id="package-info">Package Info</h2>
+<ul>
+<li>github: <a href="https://github.com/cryptocoinjs/pbkdf2-sha256">https://github.com/cryptocoinjs/pbkdf2-sha256</a></li>
+<li>tests: <a href="https://github.com/cryptocoinjs/pbkdf2-sha256/tree/master/test">https://github.com/cryptocoinjs/pbkdf2-sha256/tree/master/test</a></li>
+<li>issues: <a href="https://github.com/cryptocoinjs/pbkdf2-sha256/issues">https://github.com/cryptocoinjs/pbkdf2-sha256/issues</a></li>
+<li>license: <strong>BSD</strong></li>
+<li>versioning: <a href="http://semver-ftw.org">http://semver-ftw.org</a></li>
+</ul>
 <h2 id="why">Why?</h2>
 <p>This is useful for the <a href="http://en.wikipedia.org/wiki/Scrypt">Scrypt</a> algorithm.</p>
 <p>Why not just use the Node.js <code>pbkdf2</code> function? The Node.js <code>pbkdf2</code> function uses the <code>sha1</code> algorithm and not the <code>sha256</code> algorithm for its pseudorandom function. This will change when Node v0.12 is released. Until then, this is the next best option.</p>
@@ -271,10 +284,10 @@
 <pre class="prettyprint well"><code>npm install --save pbkdf2-sha256
 </code></pre>
 <h3 id="example">Example</h3>
-<pre class="prettyprint well"><code class="js">var pbkdf2 = require('pbkdf2-sha256');
+<pre class="prettyprint well"><code class="js">var pbkdf2 = require('pbkdf2-sha256')
 
-var key = 'passwd';
-var salt = new Buffer('salt');
+var key = 'passwd'
+var salt = 'salt'
 var res = pbkdf2(key, salt, 1, 64);
 console.log(res.toString('hex')) // =&gt; 55ac046e56e3089fec1691c22544b605f94185216dde0465e68b9d57c20dacbc49ca9cccf179b645991664b39d77ef317c71b845b1e30bd509112041d3a19783
 </code></pre>
@@ -284,11 +297,11 @@ console.log(res.toString('hex')) // =&gt; 55ac046e56e3089fec1691c22544b605f94185
 <pre class="prettyprint well"><code>npm install -g browserify
 </code></pre>
 <p>run:</p>
-<pre class="prettyprint well"><code>browserify --standalone pbdkf2 &lt; lib/pbkdf2.js &gt; pbdkf2.bundle.js
+<pre class="prettyprint well"><code>browserify --standalone pbdkf2 lib/pbkdf2.js &gt; pbdkf2.bundle.js
 </code></pre>
 <p>then include <code>pbdkf2.bundle.js</code> in your <code>&lt;script&gt;</code> tag in your html. </p>
 <h3 id="testing">Testing</h3>
-<p>If you want to test the algorithm, clone the git repo. Then run <code>npm install --development</code> to install all of the dependencies.</p>
+<p>If you want to test the algorithm, clone the git repo. Then run <code>npm install</code> to install all of the dependencies.</p>
 <h4 id="nodejs">Node.js</h4>
 <p>run:</p>
 <pre class="prettyprint well"><code>make test-node
@@ -307,8 +320,6 @@ console.log(res.toString('hex')) // =&gt; 55ac046e56e3089fec1691c22544b605f94185
 <li>https://code.google.com/p/crypto-js/source/browse/tags/3.1.2/src/pbkdf2.js (CryptoJS)</li>
 </ul>
 <p>Why didn't I use either one of these? They're not Node.js optimized. They also don't use native types, so they'll be slower in the browser.</p>
-<h3 id="credits">Credits</h3>
-<p>Based upon the following code https://github.com/cheongwy/node-scrypt-js/blob/master/lib/pbkdf2.js which is based upon https://github.com/wg/scrypt/blob/master/src/main/java/com/lambdaworks/crypto/PBKDF.java</p>
 </div>
         </div>
 

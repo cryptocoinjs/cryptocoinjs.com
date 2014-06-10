@@ -1,7 +1,23 @@
 pbkdf2-sha256
 =============
 
-`pbkdf2-sha256` is a JavaScript implementation of [PBKDF2](http://en.wikipedia.org/wiki/PBKDF2) using the SHA256 HMAC. It's fully compatible with Node.js and the browser (via Browserify).
+[![build status](https://secure.travis-ci.org/cryptocoinjs/pbkdf2-sha256.png)](http://travis-ci.org/cryptocoinjs/pbkdf2-sha256)
+[![Coverage Status](https://img.shields.io/coveralls/cryptocoinjs/pbkdf2-sha256.svg)](https://coveralls.io/r/cryptocoinjs/pbkdf2-sha256)
+[![Version](http://img.shields.io/npm/v/pbkdf2-sha256.svg)](https://www.npmjs.org/package/pbkdf2-sha256)
+
+
+`pbkdf2-sha256` is a JavaScript implementation of [PBKDF2](http://en.wikipedia.org/wiki/PBKDF2) using the SHA256 HMAC. It's useful as the [Scrypt](http://en.wikipedia.org/wiki/Scrypt) algorithm uses this.  It's fully compatible with Node.js and the browser (via Browserify).
+
+
+
+Package Info
+------------
+- github: [https://github.com/cryptocoinjs/pbkdf2-sha256](https://github.com/cryptocoinjs/pbkdf2-sha256)
+- tests: [https://github.com/cryptocoinjs/pbkdf2-sha256/tree/master/test](https://github.com/cryptocoinjs/pbkdf2-sha256/tree/master/test)
+- issues: [https://github.com/cryptocoinjs/pbkdf2-sha256/issues](https://github.com/cryptocoinjs/pbkdf2-sha256/issues)
+- license: **BSD**
+- versioning: [http://semver-ftw.org](http://semver-ftw.org)
+
 
 
 Why?
@@ -23,10 +39,10 @@ Usage
 ### Example
 
 ```js
-var pbkdf2 = require('pbkdf2-sha256');
+var pbkdf2 = require('pbkdf2-sha256')
 
-var key = 'passwd';
-var salt = new Buffer('salt');
+var key = 'passwd'
+var salt = 'salt'
 var res = pbkdf2(key, salt, 1, 64);
 console.log(res.toString('hex')) // => 55ac046e56e3089fec1691c22544b605f94185216dde0465e68b9d57c20dacbc49ca9cccf179b645991664b39d77ef317c71b845b1e30bd509112041d3a19783
 ```
@@ -39,14 +55,14 @@ To use in the browser, clone the repo and then download [Browserify](https://git
 
 run:
 
-    browserify --standalone pbdkf2 < lib/pbkdf2.js > pbdkf2.bundle.js
+    browserify --standalone pbdkf2 lib/pbkdf2.js > pbdkf2.bundle.js
 
 then include `pbdkf2.bundle.js` in your `<script>` tag in your html. 
 
 
 ### Testing
 
-If you want to test the algorithm, clone the git repo. Then run `npm install --development` to install all of the dependencies.
+If you want to test the algorithm, clone the git repo. Then run `npm install` to install all of the dependencies.
 
 #### Node.js
 
@@ -77,7 +93,5 @@ Misc
 Why didn't I use either one of these? They're not Node.js optimized. They also don't use native types, so they'll be slower in the browser.
 
 
-### Credits
 
-Based upon the following code https://github.com/cheongwy/node-scrypt-js/blob/master/lib/pbkdf2.js which is based upon https://github.com/wg/scrypt/blob/master/src/main/java/com/lambdaworks/crypto/PBKDF.java
 
