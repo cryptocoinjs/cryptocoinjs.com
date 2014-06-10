@@ -29,14 +29,14 @@ Why not just use the Node.js `pbkdf2` function? The Node.js `pbkdf2` function us
 
 
 
-Usage
------
-
-### Installation
+Installation
+------------
 
     npm install --save pbkdf2-sha256
 
-### Example
+
+Example
+-------
 
 ```js
 var pbkdf2 = require('pbkdf2-sha256')
@@ -47,7 +47,23 @@ var res = pbkdf2(key, salt, 1, 64);
 console.log(res.toString('hex')) // => 55ac046e56e3089fec1691c22544b605f94185216dde0465e68b9d57c20dacbc49ca9cccf179b645991664b39d77ef317c71b845b1e30bd509112041d3a19783
 ```
 
-### Bundling for the Browser
+
+API
+---
+
+### pbkdf2(key, salt, iterations, keyLenBytes)
+
+- **key**: The key to pass. Either `string` or `Buffer`.
+- **salt**: The salt to pass. Either `string` or `Buffer`.
+- **iterations**: The number of iterations. Should be type `number` (integer).
+- **keyLenBytes**: The size of the result in bytes. Type `number` (integer).
+
+Returns `Buffer`.
+
+
+
+Bundling for the Browser
+------------------------
 
 To use in the browser, clone the repo and then download [Browserify](https://github.com/substack/node-browserify):
 

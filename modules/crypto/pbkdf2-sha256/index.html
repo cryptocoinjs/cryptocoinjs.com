@@ -254,7 +254,13 @@
         
             <li><a href="#why">Why?</a></li>
         
-            <li><a href="#usage">Usage</a></li>
+            <li><a href="#installation">Installation</a></li>
+        
+            <li><a href="#example">Example</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+            <li><a href="#bundling-for-the-browser">Bundling for the Browser</a></li>
         
             <li><a href="#misc">Misc</a></li>
         
@@ -279,11 +285,10 @@
 <h2 id="why">Why?</h2>
 <p>This is useful for the <a href="http://en.wikipedia.org/wiki/Scrypt">Scrypt</a> algorithm.</p>
 <p>Why not just use the Node.js <code>pbkdf2</code> function? The Node.js <code>pbkdf2</code> function uses the <code>sha1</code> algorithm and not the <code>sha256</code> algorithm for its pseudorandom function. This will change when Node v0.12 is released. Until then, this is the next best option.</p>
-<h2 id="usage">Usage</h2>
-<h3 id="installation">Installation</h3>
+<h2 id="installation">Installation</h2>
 <pre class="prettyprint well"><code>npm install --save pbkdf2-sha256
 </code></pre>
-<h3 id="example">Example</h3>
+<h2 id="example">Example</h2>
 <pre class="prettyprint well"><code class="js">var pbkdf2 = require('pbkdf2-sha256')
 
 var key = 'passwd'
@@ -292,7 +297,16 @@ var res = pbkdf2(key, salt, 1, 64);
 console.log(res.toString('hex')) // =&gt; 55ac046e56e3089fec1691c22544b605f94185216dde0465e68b9d57c20dacbc49ca9cccf179b645991664b39d77ef317c71b845b1e30bd509112041d3a19783
 </code></pre>
 
-<h3 id="bundling-for-the-browser">Bundling for the Browser</h3>
+<h2 id="api">API</h2>
+<h3 id="pbkdf2key-salt-iterations-keylenbytes">pbkdf2(key, salt, iterations, keyLenBytes)</h3>
+<ul>
+<li><strong>key</strong>: The key to pass. Either <code>string</code> or <code>Buffer</code>.</li>
+<li><strong>salt</strong>: The salt to pass. Either <code>string</code> or <code>Buffer</code>.</li>
+<li><strong>iterations</strong>: The number of iterations. Should be type <code>number</code> (integer).</li>
+<li><strong>keyLenBytes</strong>: The size of the result in bytes. Type <code>number</code> (integer).</li>
+</ul>
+<p>Returns <code>Buffer</code>.</p>
+<h2 id="bundling-for-the-browser">Bundling for the Browser</h2>
 <p>To use in the browser, clone the repo and then download <a href="https://github.com/substack/node-browserify">Browserify</a>:</p>
 <pre class="prettyprint well"><code>npm install -g browserify
 </code></pre>
