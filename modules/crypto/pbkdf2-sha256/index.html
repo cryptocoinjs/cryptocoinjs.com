@@ -260,8 +260,6 @@
         
             <li><a href="#api">API</a></li>
         
-            <li><a href="#bundling-for-the-browser">Bundling for the Browser</a></li>
-        
             <li><a href="#misc">Misc</a></li>
         
     
@@ -306,27 +304,6 @@ console.log(res.toString('hex')) // =&gt; 55ac046e56e3089fec1691c22544b605f94185
 <li><strong>keyLenBytes</strong>: The size of the result in bytes. Type <code>number</code> (integer).</li>
 </ul>
 <p>Returns <code>Buffer</code>.</p>
-<h2 id="bundling-for-the-browser">Bundling for the Browser</h2>
-<p>To use in the browser, clone the repo and then download <a href="https://github.com/substack/node-browserify">Browserify</a>:</p>
-<pre class="prettyprint well"><code>npm install -g browserify
-</code></pre>
-<p>run:</p>
-<pre class="prettyprint well"><code>browserify --standalone pbdkf2 lib/pbkdf2.js &gt; pbdkf2.bundle.js
-</code></pre>
-<p>then include <code>pbdkf2.bundle.js</code> in your <code>&lt;script&gt;</code> tag in your html. </p>
-<h3 id="testing">Testing</h3>
-<p>If you want to test the algorithm, clone the git repo. Then run <code>npm install</code> to install all of the dependencies.</p>
-<h4 id="nodejs">Node.js</h4>
-<p>run:</p>
-<pre class="prettyprint well"><code>make test-node
-</code></pre>
-<h3 id="browser">Browser</h3>
-<p>run:</p>
-<pre class="prettyprint well"><code>make test-browser
-</code></pre>
-<p>after you're finished, you can kill the test browser server (test-browser.js) by running:</p>
-<pre class="prettyprint well"><code>make kill
-</code></pre>
 <h2 id="misc">Misc</h2>
 <h3 id="alternative-implementations">Alternative Implementations</h3>
 <ul>
