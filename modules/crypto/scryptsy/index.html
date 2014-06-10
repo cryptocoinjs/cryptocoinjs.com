@@ -250,9 +250,15 @@
     
         <li class="main active"><a href="#scryptsy">scryptsy</a></li>
         
+            <li><a href="#package-info">Package Info</a></li>
+        
             <li><a href="#why">Why?</a></li>
         
-            <li><a href="#usage">Usage</a></li>
+            <li><a href="#installation">Installation</a></li>
+        
+            <li><a href="#example">Example</a></li>
+        
+            <li><a href="#api">API</a></li>
         
             <li><a href="#resources">Resources</a></li>
         
@@ -264,42 +270,46 @@
             <div class="col-md-9" role="main">
 
 <h1 id="scryptsy">scryptsy</h1>
+<p><a href="http://travis-ci.org/cryptocoinjs/scryptsy"><img alt="build status" src="https://secure.travis-ci.org/cryptocoinjs/scryptsy.png" /></a>
+<a href="https://coveralls.io/r/cryptocoinjs/scryptsy"><img alt="Coverage Status" src="https://img.shields.io/coveralls/cryptocoinjs/scryptsy.svg" /></a>
+<a href="https://www.npmjs.org/package/scryptsy"><img alt="Version" src="http://img.shields.io/npm/v/scryptsy.svg" /></a></p>
+<p><a href="https://ci.testling.com/cryptocoinjs/scryptsy"><img alt="browser support" src="https://ci.testling.com/cryptocoinjs/scryptsy.png" /></a></p>
 <p><code>scryptsy</code> is a pure Javascript implementation of the <a href="http://en.wikipedia.org/wiki/Scrypt">scrypt</a> key derivation function that is fully compatible with Node.js and the browser (via Browserify). </p>
+<h2 id="package-info">Package Info</h2>
+<ul>
+<li>github: <a href="https://github.com/cryptocoinjs/scryptsy">https://github.com/cryptocoinjs/scryptsy</a></li>
+<li>tests: <a href="https://github.com/cryptocoinjs/scryptsy/tree/master/test">https://github.com/cryptocoinjs/scryptsy/tree/master/test</a></li>
+<li>issues: <a href="https://github.com/cryptocoinjs/scryptsy/issues">https://github.com/cryptocoinjs/scryptsy/issues</a></li>
+<li>license: <strong>MIT</strong></li>
+<li>versioning: <a href="http://semver-ftw.org">http://semver-ftw.org</a></li>
+</ul>
 <h2 id="why">Why?</h2>
 <p><code>Scrypt</code> is an integral part of many crypto currencies. It's a part of the <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">BIP38</a> standard for encrypting private Bitcoin keys. It also serves as the <a href="http://en.wikipedia.org/wiki/Proof-of-work_system">proof-of-work system</a> for many crypto currencies, most notably: Litecoin and Dogecoin.</p>
 <p>Why didn't I just the predominant pure JavaScript imlementation found <a href="https://github.com/cheongwy/node-scrypt-js">here</a>? Because it's riddled with bugs, contains no tests, and is a transliteration of the Java version. i.e. it's neither Node.js optimized nor browser optimized. Required optimizations: <a href="http://nodejs.org/api/buffer.html">Buffer</a> in Node.js and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">type arrays</a> in the browser.</p>
-<h2 id="usage">Usage</h2>
-<h3 id="installation">Installation</h3>
+<h2 id="installation">Installation</h2>
 <pre class="prettyprint well"><code>npm install --save scryptsy
 </code></pre>
-<h3 id="example">Example</h3>
-<pre class="prettyprint well"><code class="js">var scrypt = require('scryptsy').scrypt;
+<h2 id="example">Example</h2>
+<pre class="prettyprint well"><code class="js">var scrypt = require('scryptsy')
 
-var key = &quot;pleaseletmein&quot;;
-var salt = &quot;SodiumChloride&quot;;
-var data = scrypt(key, salt, 16384, 8, 1, 64);
+var key = &quot;pleaseletmein&quot;
+var salt = &quot;SodiumChloride&quot;
+var data = scrypt(key, salt, 16384, 8, 1, 64)
 console.log(data.toString('hex')) 
 // =&gt; 7023bdcb3afd7348461c06cd81fd38ebfda8fbba904f8e3ea9b543f6545da1f2d5432955613f0fcf62d49705242a9af9e61e85dc0d651e40dfcf017b45575887
 </code></pre>
 
-<h3 id="bundling-for-the-browser">Bundling for the Browser</h3>
-<p>To use in the browser, clone the repo and then download <a href="https://github.com/substack/node-browserify">Browserify</a>:</p>
-<pre class="prettyprint well"><code>npm install -g browserify
-</code></pre>
-<p>run:</p>
-<pre class="prettyprint well"><code>browserify --standalone scryptsy &lt; lib/scrypt.js &gt; scryptsy.bundle.js
-</code></pre>
-<p>then include <code>scryptsy.bundle.js</code> in your <code>&lt;script&gt;</code> tag in your html. </p>
-<h3 id="testing">Testing</h3>
-<p>If you want to test the algorithm, clone the git repo. Then run <code>npm install --development</code> to install all of the dependencies.</p>
-<h4 id="nodejs">Node.js</h4>
-<p>run:</p>
-<pre class="prettyprint well"><code>make test-node
-</code></pre>
-<h3 id="browser">Browser</h3>
-<p>run:</p>
-<pre class="prettyprint well"><code>make test-browser
-</code></pre>
+<h2 id="api">API</h2>
+<h3 id="scryptkey-salt-n-r-p-keylenbytes">scrypt(key, salt, N, r, p, keyLenBytes)</h3>
+<ul>
+<li><strong>key</strong>: The key. Either <code>Buffer</code> or <code>string</code>.</li>
+<li><strong>salt</strong>: The salt. Either <code>Buffer</code> or <code>string</code>.</li>
+<li><strong>N</strong>: The number of iterations. <code>number</code> (integer)</li>
+<li><strong>r</strong>: Memory factor. <code>number</code> (integer)</li>
+<li><strong>p</strong>: Parallelization factor. <code>number</code> (integer)</li>
+<li><strong>keyLenBytes</strong>: The number of bytes to return. <code>number</code> (integer)</li>
+</ul>
+<p>Returns <code>Buffer</code>.</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="http://www.tarsnap.com/scrypt.html">Tarsnap Blurb on Scrypt</a></li>

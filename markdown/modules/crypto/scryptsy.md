@@ -1,7 +1,22 @@
 scryptsy
 ========
 
+[![build status](https://secure.travis-ci.org/cryptocoinjs/scryptsy.png)](http://travis-ci.org/cryptocoinjs/scryptsy)
+[![Coverage Status](https://img.shields.io/coveralls/cryptocoinjs/scryptsy.svg)](https://coveralls.io/r/cryptocoinjs/scryptsy)
+[![Version](http://img.shields.io/npm/v/scryptsy.svg)](https://www.npmjs.org/package/scryptsy)
+
+[![browser support](https://ci.testling.com/cryptocoinjs/scryptsy.png)](https://ci.testling.com/cryptocoinjs/scryptsy)
+
 `scryptsy` is a pure Javascript implementation of the [scrypt][wiki] key derivation function that is fully compatible with Node.js and the browser (via Browserify). 
+
+
+Package Info
+------------
+- github: [https://github.com/cryptocoinjs/scryptsy](https://github.com/cryptocoinjs/scryptsy)
+- tests: [https://github.com/cryptocoinjs/scryptsy/tree/master/test](https://github.com/cryptocoinjs/scryptsy/tree/master/test)
+- issues: [https://github.com/cryptocoinjs/scryptsy/issues](https://github.com/cryptocoinjs/scryptsy/issues)
+- license: **MIT**
+- versioning: [http://semver-ftw.org](http://semver-ftw.org)
 
 
 Why?
@@ -13,54 +28,41 @@ Why didn't I just the predominant pure JavaScript imlementation found [here](htt
 
 
 
-Usage
------
-
-### Installation
+Installation
+------------
 
     npm install --save scryptsy
 
 
-### Example
+
+Example
+-------
 
 ```js
-var scrypt = require('scryptsy').scrypt;
+var scrypt = require('scryptsy')
 
-var key = "pleaseletmein";
-var salt = "SodiumChloride";
-var data = scrypt(key, salt, 16384, 8, 1, 64);
+var key = "pleaseletmein"
+var salt = "SodiumChloride"
+var data = scrypt(key, salt, 16384, 8, 1, 64)
 console.log(data.toString('hex')) 
 // => 7023bdcb3afd7348461c06cd81fd38ebfda8fbba904f8e3ea9b543f6545da1f2d5432955613f0fcf62d49705242a9af9e61e85dc0d651e40dfcf017b45575887
 ```
 
-### Bundling for the Browser
 
-To use in the browser, clone the repo and then download [Browserify](https://github.com/substack/node-browserify):
+API
+---
 
-    npm install -g browserify
+### scrypt(key, salt, N, r, p, keyLenBytes)
 
-run:
+- **key**: The key. Either `Buffer` or `string`.
+- **salt**: The salt. Either `Buffer` or `string`.
+- **N**: The number of iterations. `number` (integer)
+- **r**: Memory factor. `number` (integer)
+- **p**: Parallelization factor. `number` (integer)
+- **keyLenBytes**: The number of bytes to return. `number` (integer)
 
-    browserify --standalone scryptsy < lib/scrypt.js > scryptsy.bundle.js
+Returns `Buffer`.
 
-then include `scryptsy.bundle.js` in your `<script>` tag in your html. 
-
-
-### Testing
-
-If you want to test the algorithm, clone the git repo. Then run `npm install --development` to install all of the dependencies.
-
-#### Node.js
-
-run:
-
-    make test-node
-
-### Browser
-
-run:
-
-    make test-browser
 
 
 Resources
