@@ -252,6 +252,8 @@
         
             <li><a href="#why">Why?</a></li>
         
+            <li><a href="#package-info">Package Info</a></li>
+        
             <li><a href="#usage">Usage</a></li>
         
             <li><a href="#api">API</a></li>
@@ -264,17 +266,32 @@
             <div class="col-md-9" role="main">
 
 <h1 id="bip38">bip38</h1>
+<p><a href="http://travis-ci.org/cryptocoinjs/bip38"><img alt="build status" src="https://secure.travis-ci.org/cryptocoinjs/bip38.png" /></a>
+<a href="https://coveralls.io/r/cryptocoinjs/bip38"><img alt="Coverage Status" src="https://img.shields.io/coveralls/cryptocoinjs/bip38.svg" /></a>
+<a href="https://www.npmjs.org/package/bip38"><img alt="Version" src="http://img.shields.io/npm/v/bip38.svg" /></a></p>
+<p><a href="https://ci.testling.com/cryptocoinjs/bip38"><img alt="browser support" src="https://ci.testling.com/cryptocoinjs/bip38.png" /></a></p>
 <p>A JavaScript component that adheres to the <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">BIP38</a> standard to secure your crypto currency private keys. Fully compliant with Node.js and the browser (via Browserify).</p>
 <h2 id="why">Why?</h2>
 <p>BIP38 is a standard process to encrypt Bitcoin and crypto currency private keys that is imprevious to brute force attacks thus protecting the user.</p>
+<h2 id="package-info">Package Info</h2>
+<ul>
+<li>github: <a href="https://github.com/cryptocoinjs/bip38">https://github.com/cryptocoinjs/bip38</a></li>
+<li>tests: <a href="https://github.com/cryptocoinjs/bip38/tree/master/test">https://github.com/cryptocoinjs/bip38/tree/master/test</a></li>
+<li>issues: <a href="https://github.com/cryptocoinjs/bip38/issues">https://github.com/cryptocoinjs/bip38/issues</a></li>
+<li>license: <strong>MIT</strong></li>
+<li>versioning: <a href="http://semver-ftw.org">http://semver-ftw.org</a></li>
+</ul>
 <h2 id="usage">Usage</h2>
 <h3 id="installation">Installation</h3>
 <pre class="prettyprint well"><code>npm install --save bip38
 </code></pre>
 <h2 id="api">API</h2>
-<h3 id="bip38_1">Bip38()</h3>
-<p>Constructor that creates a new <code>Bip38</code> instance.</p>
-<h3 id="addressversion">addressVersion</h3>
+<h3 id="bip38versions">Bip38([versions])</h3>
+<p>Constructor that creates a new <code>Bip38</code> instance. </p>
+<ul>
+<li><strong>versions</strong>: optional parameter to set the versions. Defaults to Bitcoin.</li>
+</ul>
+<h3 id="versions">versions</h3>
 <p>A field that accepts an object for the address version. This easily allows you to support altcoins. Defaults to Bitcoin values.</p>
 <p><strong>example:</strong></p>
 <pre class="prettyprint well"><code class="js">var Bip38 = require('bip38');
@@ -282,7 +299,7 @@
 var privateKeyWif = '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR';
 
 var bip38 = new Bip38();
-bip38.addressVersion = {private: 0x80, public: 0x0};
+bip38.version = {private: 0x80, public: 0x0};
 bip38.encrypt(privateKeyWif, &quot;super-secret&quot;, &quot;1Jq6MksXQVWzrznvZzxkV6oY57oWXD9TXB&quot;});
 </code></pre>
 

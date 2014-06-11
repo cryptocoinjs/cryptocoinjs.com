@@ -1,6 +1,12 @@
 bip38
 =====
 
+[![build status](https://secure.travis-ci.org/cryptocoinjs/bip38.png)](http://travis-ci.org/cryptocoinjs/bip38)
+[![Coverage Status](https://img.shields.io/coveralls/cryptocoinjs/bip38.svg)](https://coveralls.io/r/cryptocoinjs/bip38)
+[![Version](http://img.shields.io/npm/v/bip38.svg)](https://www.npmjs.org/package/bip38)
+
+[![browser support](https://ci.testling.com/cryptocoinjs/bip38.png)](https://ci.testling.com/cryptocoinjs/bip38)
+
 A JavaScript component that adheres to the [BIP38](https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki) standard to secure your crypto currency private keys. Fully compliant with Node.js and the browser (via Browserify).
 
 
@@ -8,6 +14,15 @@ Why?
 ----
 
 BIP38 is a standard process to encrypt Bitcoin and crypto currency private keys that is imprevious to brute force attacks thus protecting the user.
+
+
+Package Info
+------------
+- github: [https://github.com/cryptocoinjs/bip38](https://github.com/cryptocoinjs/bip38)
+- tests: [https://github.com/cryptocoinjs/bip38/tree/master/test](https://github.com/cryptocoinjs/bip38/tree/master/test)
+- issues: [https://github.com/cryptocoinjs/bip38/issues](https://github.com/cryptocoinjs/bip38/issues)
+- license: **MIT**
+- versioning: [http://semver-ftw.org](http://semver-ftw.org)
 
 
 Usage
@@ -21,12 +36,14 @@ Usage
 API
 ---
 
-### Bip38()
+### Bip38([versions])
 
-Constructor that creates a new `Bip38` instance.
+Constructor that creates a new `Bip38` instance. 
+
+- **versions**: optional parameter to set the versions. Defaults to Bitcoin.
 
 
-### addressVersion
+### versions
 
 A field that accepts an object for the address version. This easily allows you to support altcoins. Defaults to Bitcoin values.
 
@@ -39,7 +56,7 @@ var Bip38 = require('bip38');
 var privateKeyWif = '5KN7MzqK5wt2TP1fQCYyHBtDrXdJuXbUzm4A9rKAteGu3Qi5CVR';
 
 var bip38 = new Bip38();
-bip38.addressVersion = {private: 0x80, public: 0x0};
+bip38.version = {private: 0x80, public: 0x0};
 bip38.encrypt(privateKeyWif, "super-secret", "1Jq6MksXQVWzrznvZzxkV6oY57oWXD9TXB"});
 ```
 
