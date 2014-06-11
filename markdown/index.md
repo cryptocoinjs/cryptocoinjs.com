@@ -79,8 +79,6 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 ### Deprecated
 
 * [bs64](https://github.com/cryptocoinjs/bs64) - Outsourced to `Buffer`
-* [convert-hex](https://github.com/cryptocoinjs/convert-hex) - Use `Buffer` or `binstring`
-* [convert-string](https://github.com/cryptocoinjs/convert-string) - Use `Buffer` or `binstring`
 * [ecurve-names](https://github.com/cryptocoinjs/ecurve-names) - Moving curves to ecurve
 * [sha256](https://github.com/cryptocoinjs/sha256) - Outsourced to [crypto-browserify][crypto-browserify] through [crypto-hashing](modules/crypto/crypto-hashing)
 
