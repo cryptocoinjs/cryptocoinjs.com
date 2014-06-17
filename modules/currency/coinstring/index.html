@@ -297,7 +297,7 @@ addresses, but this module does work with BIP 32 addresses.</p>
 
 var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;
 var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
-var version = 0x080; //Bitcoin private key
+var version = 0x80; //Bitcoin private key
 
 console.log(cs.encode(privateKeyHexBuf, version)) 
 // =&gt; 5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD
@@ -323,7 +323,7 @@ var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2
 privateKeyHex += '01'
 
 var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
-var version = 0x080 //Bitcoin private key
+var version = 0x80 //Bitcoin private key
 
 console.log(cs.encode(privateKeyHexBuf, version))
 // =&gt; KwomKti1X3tYJUUMb1TGSM2mrZk1wb1aHisUNHCQXTZq5auC2qc3
@@ -368,7 +368,7 @@ console.log(res.payload.toString('hex')) // =&gt; 1184cd2cdd640ca42cfc3a091c51d5
 
 var privateKeyHex = &quot;1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd&quot;;
 var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
-var version = 0x080 //Bitcoin private key
+var version = 0x80 //Bitcoin private key
 
 var toBtcWif = cs.createEncoder(version)
 
@@ -381,7 +381,7 @@ console.log(toBtcWif(privateKeyHexBuf))
 <pre class="prettyprint well"><code class="js">var cs = require('coinstring');
 
 var wif = &quot;5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD&quot;
-var version = 0x080 //Bitcoin private key
+var version = 0x80 //Bitcoin private key
 
 var fromBtcWif = cs.createDecoder(version)
 

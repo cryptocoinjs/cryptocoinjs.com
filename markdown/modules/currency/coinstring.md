@@ -42,7 +42,7 @@ var cs = require('coinstring')
 
 var privateKeyHex = "1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd"
 var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
-var version = 0x080; //Bitcoin private key
+var version = 0x80; //Bitcoin private key
 
 console.log(cs.encode(privateKeyHexBuf, version)) 
 // => 5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD
@@ -74,7 +74,7 @@ var privateKeyHex = "1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08
 privateKeyHex += '01'
 
 var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
-var version = 0x080 //Bitcoin private key
+var version = 0x80 //Bitcoin private key
 
 console.log(cs.encode(privateKeyHexBuf, version))
 // => KwomKti1X3tYJUUMb1TGSM2mrZk1wb1aHisUNHCQXTZq5auC2qc3
@@ -134,7 +134,7 @@ var cs = require('coinstring')
 
 var privateKeyHex = "1184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd";
 var privateKeyHexBuf = new Buffer(privateKeyHex, 'hex')
-var version = 0x080 //Bitcoin private key
+var version = 0x80 //Bitcoin private key
 
 var toBtcWif = cs.createEncoder(version)
 
@@ -150,7 +150,7 @@ console.log(toBtcWif(privateKeyHexBuf))
 var cs = require('coinstring');
 
 var wif = "5Hx15HFGyep2CfPxsJKe2fXJsCVn5DEiyoeGGF6JZjGbTRnqfiD"
-var version = 0x080 //Bitcoin private key
+var version = 0x80 //Bitcoin private key
 
 var fromBtcWif = cs.createDecoder(version)
 
