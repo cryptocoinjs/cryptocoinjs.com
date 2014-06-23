@@ -12,9 +12,9 @@ in both Node.js and the browser.
 
 Package Info
 ------------
-- github: [https://github.com/cryptocoinjs/coinstring](https://github.com/cryptocoinjs/coinstring)
-- tests: [https://github.com/cryptocoinjs/coinstring/tree/master/test](https://github.com/cryptocoinjs/coinstring/tree/master/test)
-- issues: [https://github.com/cryptocoinjs/coinstring/issues](https://github.com/cryptocoinjs/coinstring/issues)
+- github: [https://github.com/cryptocoinjs/coinkey](https://github.com/cryptocoinjs/coinkey)
+- tests: [https://github.com/cryptocoinjs/coinkey/tree/master/test](https://github.com/cryptocoinjs/coinkey/tree/master/test)
+- issues: [https://github.com/cryptocoinjs/coinkey/issues](https://github.com/cryptocoinjs/coinkey/issues)
 - license: **MIT**
 - versioning: [http://semver-ftw.org](http://semver-ftw.org)
 
