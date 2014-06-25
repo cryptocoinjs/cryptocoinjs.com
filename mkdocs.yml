@@ -20,6 +20,7 @@ pages:
 - ['modules/currency/coinkey.md', 'Currency Modules', 'coinkey - Private Keys / Addresses']
 - ['modules/currency/coinstring.md', 'Currency Modules', 'coinstring - Create & Parse Addresses / WIF / Base58']
 - ['modules/currency/eckey.md', 'Currency Modules', 'eckey - Private Keys / Elliptic Curve']
+- ['modules/currency/hdkey.md', 'Currency Modules', 'hdkey - Deterministic Keys / BIP32']
 - ['modules/currency/p2p-manager.md', 'Currency Modules', 'p2p-manager - Manage a network of peers in a p2p network']
 - ['modules/currency/p2p-node.md', 'Currency Modules', 'p2p-node - Handle p2p traffic on crypto currency networks']
 

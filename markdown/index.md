@@ -44,6 +44,7 @@ Note: If a component won't work on the client (browser), then it'll be marked as
 * [coinkey](modules/currency/coinkey) - Create private keys, public keys, and addresses. (Inherits from [eckey](modules/currency/eckey.md))
 * [coinstring](modules/currency/coinstring) - Create, parse, or validate addresses a wallet import format strings
 * [eckey](modules/currency/eckey) - Super class for [coinkey](modules/currency/coinkey) used for private and public elliptic curve keys
+* [hdkey](modules/currency/hdkey) - [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)(hierarchical deterministic keys)
 * [p2p-manager](modules/currency/p2p-node) - Manage a network of peers in a p2p network. **(server only)**
 * [p2p-node](modules/currency/p2p-node) - Low-level library to handle p2p traffic on crypto currency networks. **(server only)**
 
