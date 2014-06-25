@@ -81,7 +81,7 @@ Install dependencies:
 
 Run browserify:
 
-    browserify --standalone CoinKey < lib/coinkey.js > coinkey.bundle.js
+    browserify --standalone CoinKey lib/coinkey.js > coinkey.bundle.js
 
 Include in a script in your HTML:
 
