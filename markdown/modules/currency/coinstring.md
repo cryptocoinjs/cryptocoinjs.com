@@ -180,12 +180,12 @@ API
 `coinstring` exports the following six functions:
 
 
-### encode(payload, version)
+### encode(payload, [version])
 
 Used to convert either a hash160 or private key into an address or wallet import format string respectively.
 
 - `payload`: A `Buffer`, `Array`, or `Uint8Array` of bytes, either the hash160 or private key.
-- `version`: Is an integer representing the version or a `Buffer` if version is greater than one byte. The case where it's typically
+- `version`: Optional. Can be prepended to payload. Is an integer representing the version or a `Buffer` if version is greater than one byte. The case where it's typically
 greater than one byte is for working with BIP32.
 
 Returns the base58 encoded value of type `string`.
@@ -200,7 +200,7 @@ incorrect.
 - `base58str`: A `string` that is either the wallet import format or public address.
 - `version`: Is an integer representing the version or `Buffer`. See below for more information.
 
-Returns an object with the follow fields `version` of type `Buffer` and `payload` of type `Buffer`.
+Returns the decoded base58 payload of type `Buffer`. If `version` was passed to input, it is chopped off on the output.
 
 
 ### isValid(base58str, version)
@@ -247,32 +247,6 @@ The following is a table of common crypto currency versions. It may seem a bit u
 
 You may also want to just use the module [coininfo](http://cryptocoinjs.com/modules/currency/coininfo/) instead.
 
-
-
-Use in the Browser
------------------
-
-Clone the repo:
-
-    git clone https://github.com/cryptocoinjs/coinstring
-
-Install Browserify
-
-    npm install -g browserify
-
-Nav to repo:
-
-    cd coinstring
-
-Install dependencies:
-
-    npm install
-
-Run browserify:
-
-    browserify --standalone coinstring < lib/coinstring.js > lib/coinstring.bundle.js
-
-You can now drop `coinstring.bundle.js` in a `<script>` tag.
 
 
 

@@ -260,8 +260,6 @@
         
             <li><a href="#list-of-common-crypto-currency-versions">List of Common Crypto Currency Versions</a></li>
         
-            <li><a href="#use-in-the-browser">Use in the Browser</a></li>
-        
             <li><a href="#references">References</a></li>
         
     
@@ -403,11 +401,11 @@ console.log(testnetAddressValidator(&quot;mkzgubTA5Ahi6BPSkE6MN9pEafRutznkMe&quo
 
 <h2 id="api">API</h2>
 <p><code>coinstring</code> exports the following six functions:</p>
-<h3 id="encodepayload-version">encode(payload, version)</h3>
+<h3 id="encodepayload-version">encode(payload, [version])</h3>
 <p>Used to convert either a hash160 or private key into an address or wallet import format string respectively.</p>
 <ul>
 <li><code>payload</code>: A <code>Buffer</code>, <code>Array</code>, or <code>Uint8Array</code> of bytes, either the hash160 or private key.</li>
-<li><code>version</code>: Is an integer representing the version or a <code>Buffer</code> if version is greater than one byte. The case where it's typically
+<li><code>version</code>: Optional. Can be prepended to payload. Is an integer representing the version or a <code>Buffer</code> if version is greater than one byte. The case where it's typically
 greater than one byte is for working with BIP32.</li>
 </ul>
 <p>Returns the base58 encoded value of type <code>string</code>.</p>
@@ -419,7 +417,7 @@ incorrect. </p>
 <li><code>base58str</code>: A <code>string</code> that is either the wallet import format or public address.</li>
 <li><code>version</code>: Is an integer representing the version or <code>Buffer</code>. See below for more information.</li>
 </ul>
-<p>Returns an object with the follow fields <code>version</code> of type <code>Buffer</code> and <code>payload</code> of type <code>Buffer</code>.</p>
+<p>Returns the decoded base58 payload of type <code>Buffer</code>. If <code>version</code> was passed to input, it is chopped off on the output.</p>
 <h3 id="isvalidbase58str-version">isValid(base58str, version)</h3>
 <p>Validates whether the address string or wallet import format string is valid. </p>
 <ul>
@@ -447,23 +445,6 @@ incorrect. </p>
 </table>
 
 <p>You may also want to just use the module <a href="http://cryptocoinjs.com/modules/currency/coininfo/">coininfo</a> instead.</p>
-<h2 id="use-in-the-browser">Use in the Browser</h2>
-<p>Clone the repo:</p>
-<pre class="prettyprint well"><code>git clone https://github.com/cryptocoinjs/coinstring
-</code></pre>
-<p>Install Browserify</p>
-<pre class="prettyprint well"><code>npm install -g browserify
-</code></pre>
-<p>Nav to repo:</p>
-<pre class="prettyprint well"><code>cd coinstring
-</code></pre>
-<p>Install dependencies:</p>
-<pre class="prettyprint well"><code>npm install
-</code></pre>
-<p>Run browserify:</p>
-<pre class="prettyprint well"><code>browserify --standalone coinstring &lt; lib/coinstring.js &gt; lib/coinstring.bundle.js
-</code></pre>
-<p>You can now drop <code>coinstring.bundle.js</code> in a <code>&lt;script&gt;</code> tag.</p>
 <h2 id="references">References</h2>
 <ul>
 <li>http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</li>
