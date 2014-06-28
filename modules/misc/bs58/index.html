@@ -298,12 +298,12 @@
 var unencodedData = &quot;003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187&quot;; 
 
 var out = base58.encode(new Buffer(unencodedData, 'hex'));
-console.log(out); // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS&quot;
+console.log(out); // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
 </code></pre>
 
 <h3 id="decodeinput">decode(input)</h3>
-<p><code>input</code> must be a base 58 encoded string. Returns a <code>Buffer</code>.</p>
-<p><strong>exmample</strong>:</p>
+<p><code>input</code> must be a base 58 encoded string. Returns a <a href="http://nodejs.org/api/buffer.html">Buffer</a>.</p>
+<p><strong>example</strong>:</p>
 <pre class="prettyprint well"><code class="js">var base58 = require('base58');
 
 var address = &quot;16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS&quot;;
