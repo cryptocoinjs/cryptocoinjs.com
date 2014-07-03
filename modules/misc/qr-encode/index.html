@@ -254,6 +254,8 @@
     
         <li class="main active"><a href="#qr-encode">qr-encode</a></li>
         
+            <li><a href="#package-info">Package Info</a></li>
+        
             <li><a href="#install">Install</a></li>
         
             <li><a href="#qr-codes">QR Codes</a></li>
@@ -262,17 +264,23 @@
         
             <li><a href="#credits">Credits</a></li>
         
-            <li><a href="#license">License</a></li>
-        
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
 <h1 id="qr-encode">qr-encode</h1>
-<p><strong>NOTE:</strong> A refactoring is coming up for this. Should probably avoid using for the time being. [JP / 2014-04-26]</p>
-<p>JavaScript component to encode strings into QR codes.</p>
-<p>It's a repackage of http://d-project.googlecode.com/svn/trunk/misc/qrcode/js/qrcode.js with minor modifcations by https://github.com/pointbiz/bitaddress.org/blob/master/src/qrcode.js and myself for package support.</p>
+<p><a href="http://travis-ci.org/cryptocoinjs/qr-encode"><img alt="build status" src="https://secure.travis-ci.org/cryptocoinjs/qr-encode.png" /></a>
+<a href="https://coveralls.io/r/cryptocoinjs/qr-encode"><img alt="Coverage Status" src="https://img.shields.io/coveralls/cryptocoinjs/qr-encode.svg" /></a>
+<a href="https://www.npmjs.org/package/qr-encode"><img alt="Version" src="http://img.shields.io/npm/v/qr-encode.svg" /></a></p>
+<p>JavaScript component to encode strings into QR codes. Works in both Node.js and the browser.</p>
+<h2 id="package-info">Package Info</h2>
+<ul>
+<li>github: <a href="https://github.com/cryptocoinjs/qr-encode">https://github.com/cryptocoinjs/qr-encode</a></li>
+<li>tests: <a href="https://github.com/cryptocoinjs/qr-encode/tree/master/test">https://github.com/cryptocoinjs/qr-encode/tree/master/test</a></li>
+<li>issues: <a href="https://github.com/cryptocoinjs/qr-encode/issues">https://github.com/cryptocoinjs/qr-encode/issues</a></li>
+<li>license: <strong>MIT</strong></li>
+</ul>
 <h2 id="install">Install</h2>
 <h3 id="nodejsbrowserify">Node.js/Browserify</h3>
 <pre class="prettyprint well"><code>npm install --save qr-encode
@@ -287,132 +295,17 @@
 <li>Level H (High)  30% of codewords can be restored.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>Assuming that you have the following HTML and JS:</p>
-<pre class="prettyprint well"><code class="js">//from: https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.misc.js
+<pre class="prettyprint well"><code class="js">var qr = require('qr-encode')
 
-function getTypeNumber(text) {
-  var lengthCalculation = text.length * 8 + 12; // length as calculated by the QRCode
-  if (lengthCalculation &lt; 72) { return 1; }
-  else if (lengthCalculation &lt; 128) { return 2; }
-  else if (lengthCalculation &lt; 208) { return 3; }
-  else if (lengthCalculation &lt; 288) { return 4; }
-  else if (lengthCalculation &lt; 368) { return 5; }
-  else if (lengthCalculation &lt; 480) { return 6; }
-  else if (lengthCalculation &lt; 528) { return 7; }
-  else if (lengthCalculation &lt; 688) { return 8; }
-  else if (lengthCalculation &lt; 800) { return 9; }
-  else if (lengthCalculation &lt; 976) { return 10; }
-  return null;
-}
-</code></pre>
+var dataURI = qr(&quot;1F3sAm6ZtwLAUnj7d38pGFxtP3RVEvtsbV&quot;, {type: 6, size: 6, level: 'Q'})
 
-<pre class="prettyprint well"><code class="html">&lt;div id=&quot;qr-element&quot;&gt;
-&lt;!-- QR Code will go here --&gt;
-&lt;/div&gt;
-</code></pre>
-
-<h3 id="img-tag">IMG Tag</h3>
-<p>(http://d-project.googlecode.com/svn/trunk/misc/qrcode/js/sample.html)</p>
-<pre class="prettyprint well"><code class="js">function createQRCode(text, typeNumber, errorCorrectLevel) {
-  typeNumber = typeNumber || getTypeNumber(text)
-  var qr = QRCode(typeNumber || 4, errorCorrectLevel || QRCode.ErrorCorrectLevel.H)
-  qr.addData(text)
-  qr.make()
-
-  return qr.createImgTag()
-}
-</code></pre>
-
-<p>then ...</p>
-<pre class="prettyprint well"><code class="js">var qrEl = document.getElementById('qr-element')
-qrEl.innerHTML = createQRCode('testing qr code!')
-</code></pre>
-
-<h3 id="canvas">Canvas</h3>
-<pre class="prettyprint well"><code class="js">//from: https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.misc.js
-
-function createCanvas(text, sizeMultiplier) {
-  sizeMultiplier = (sizeMultiplier == undefined) ? 2 : sizeMultiplier; // default 2
-  // create the qrcode itself
-  var typeNumber = getTypeNumber(text);
-  var qrcode = new QRCode(typeNumber, QRCode.ErrorCorrectLevel.H);
-  qrcode.addData(text);
-  qrcode.make();
-  var width = qrcode.getModuleCount() * sizeMultiplier;
-  var height = qrcode.getModuleCount() * sizeMultiplier;
-  // create canvas element
-  var canvas = document.createElement('canvas');
-  var scale = 10.0;
-  canvas.width = width * scale;
-  canvas.height = height * scale;
-  canvas.style.width = width + 'px';
-  canvas.style.height = height + 'px';
-  var ctx = canvas.getContext('2d');
-  ctx.scale(scale, scale);
-  // compute tileW/tileH based on width/height
-  var tileW = width / qrcode.getModuleCount();
-  var tileH = height / qrcode.getModuleCount();
-  // draw in the canvas
-  for (var row = 0; row &lt; qrcode.getModuleCount(); row++) {
-    for (var col = 0; col &lt; qrcode.getModuleCount(); col++) {
-      ctx.fillStyle = qrcode.isDark(row, col) ? &quot;#000000&quot; : &quot;#ffffff&quot;;
-      ctx.fillRect(col * tileW, row * tileH, tileW, tileH);
-    }
-  }
-  // return just built canvas
-  return canvas;
-}
-</code></pre>
-
-<p>then..</p>
-<pre class="prettyprint well"><code class="js">var qrEl = document.getElementById('qr-element')
-qrEl.innerHTML = ''
-qrEl.appendChild(createCanvas('testing qr code!'))
-</code></pre>
-
-<h3 id="html-table-tag-legacy-browsers">HTML Table Tag (legacy browsers)</h3>
-<pre class="prettyprint well"><code class="css">/*from: https://github.com/pointbiz/bitaddress.org/blob/master/src/main.css*/
-
-.qrcodetable { border-width: 0px; border-style: none; border-color: #0000ff; border-collapse: collapse; }
-.qrcodetddark { border-width: 0px; border-style: none; border-color: #0000ff; border-collapse: collapse; padding: 0; margin: 0; width: 2px; height: 2px; background-color: #000000; }
-.qrcodetdlight { border-width: 0px; border-style: none; border-color: #0000ff; border-collapse: collapse; padding: 0; margin: 0; width: 2px; height: 2px; background-color: #ffffff; }     
-</code></pre>
-
-<pre class="prettyprint well"><code class="js">//from: https://github.com/pointbiz/bitaddress.org/blob/master/src/ninja.misc.js
-
-function createTableHtml(text) {
-  var typeNumber = getTypeNumber(text)
-  var qr = new QRCode(typeNumber, QRCode.ErrorCorrectLevel.H);
-  qr.addData(text);
-  qr.make();
-  var tableHtml = &quot;&lt;table class='qrcodetable'&gt;&quot;;
-  for (var r = 0; r &lt; qr.getModuleCount(); r++) {
-    tableHtml += &quot;&lt;tr&gt;&quot;;
-    for (var c = 0; c &lt; qr.getModuleCount(); c++) {
-      if (qr.isDark(r, c)) {
-        tableHtml += &quot;&lt;td class='qrcodetddark'/&gt;&quot;;
-      } else {
-        tableHtml += &quot;&lt;td class='qrcodetdlight'/&gt;&quot;;
-      }
-    }
-    tableHtml += &quot;&lt;/tr&gt;&quot;;
-  }
-  tableHtml += &quot;&lt;/table&gt;&quot;;
-  return tableHtml;
-}
-</code></pre>
-
-<p>then...</p>
-<pre class="prettyprint well"><code class="js">var qrEl = document.getElementById('qr-element')
-qrEl.innerHTML = createTableHtml('testing qr code!')
+//If using in browsers:
+var img = new Image()
+img.src = dataURI
+document.body.appendChild(img)
 </code></pre>
 
 <h2 id="credits">Credits</h2>
-<ul>
-<li>Example code is primarily from: https://github.com/pointbiz/bitaddress.org</li>
-<li>QRCode code is primarily from: http://www.d-project.com/ with most modifications from @pointbiz</li>
-</ul>
-<h2 id="license">License</h2>
 <p>Most of the code: </p>
 <p>Copyright (c) 2009 Kazuhiko Arase</p>
 <p>URL: http://www.d-project.com/</p>
@@ -421,6 +314,8 @@ http://www.opensource.org/licenses/mit-license.php</p>
 <p>The word 'QR Code' is registered trademark of
 DENSO WAVE INCORPORATED
 http://www.denso-wave.com/qrcode/faqpatent-e.html</p>
+<p>Some of the code / techniques from:</p>
+<p>https://github.com/MatthewMueller/qr-code</p>
 </div>
         </div>
 
