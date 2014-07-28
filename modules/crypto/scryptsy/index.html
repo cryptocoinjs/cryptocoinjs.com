@@ -304,7 +304,7 @@ console.log(data.toString('hex'))
 </code></pre>
 
 <h2 id="api">API</h2>
-<h3 id="scryptkey-salt-n-r-p-keylenbytes">scrypt(key, salt, N, r, p, keyLenBytes)</h3>
+<h3 id="scryptkey-salt-n-r-p-keylenbytes-progresscallback">scrypt(key, salt, N, r, p, keyLenBytes, [progressCallback])</h3>
 <ul>
 <li><strong>key</strong>: The key. Either <code>Buffer</code> or <code>string</code>.</li>
 <li><strong>salt</strong>: The salt. Either <code>Buffer</code> or <code>string</code>.</li>
@@ -312,6 +312,7 @@ console.log(data.toString('hex'))
 <li><strong>r</strong>: Memory factor. <code>number</code> (integer)</li>
 <li><strong>p</strong>: Parallelization factor. <code>number</code> (integer)</li>
 <li><strong>keyLenBytes</strong>: The number of bytes to return. <code>number</code> (integer)</li>
+<li><strong>progressCallback</strong>: Call callback on every <code>1000</code> ops. Passes in <code>{current, total, percent}</code> as first parameter to <code>progressCallback()</code>.</li>
 </ul>
 <p>Returns <code>Buffer</code>.</p>
 <h2 id="resources">Resources</h2>

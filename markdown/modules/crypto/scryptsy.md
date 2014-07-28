@@ -52,7 +52,7 @@ console.log(data.toString('hex'))
 API
 ---
 
-### scrypt(key, salt, N, r, p, keyLenBytes)
+### scrypt(key, salt, N, r, p, keyLenBytes, [progressCallback])
 
 - **key**: The key. Either `Buffer` or `string`.
 - **salt**: The salt. Either `Buffer` or `string`.
@@ -60,6 +60,7 @@ API
 - **r**: Memory factor. `number` (integer)
 - **p**: Parallelization factor. `number` (integer)
 - **keyLenBytes**: The number of bytes to return. `number` (integer)
+- **progressCallback**: Call callback on every `1000` ops. Passes in `{current, total, percent}` as first parameter to `progressCallback()`.
 
 Returns `Buffer`.
 
