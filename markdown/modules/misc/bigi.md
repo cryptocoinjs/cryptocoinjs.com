@@ -53,6 +53,8 @@ Methods
 
 #### bitCount
 
+#### byteCount
+
 #### byteValue
 
 #### clearBit
