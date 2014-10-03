@@ -291,24 +291,27 @@
 </code></pre>
 <h2 id="api">API</h2>
 <h3 id="encodeinput">encode(input)</h3>
-<p><code>input</code> must be a <a href="http://nodejs.org/api/buffer.html">Buffer</a>. It returns a <code>string</code>.</p>
+<p><code>input</code> must be a <a href="http://nodejs.org/api/buffer.html">Buffer</a> or an <code>Array</code>. It returns a <code>string</code>.</p>
 <p><strong>example</strong>:</p>
-<pre class="prettyprint well"><code class="js">var base58 = require('bs58');
+<pre class="prettyprint well"><code class="js">var bs58 = require('bs58')
 
-var unencodedData = &quot;003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187&quot;; 
+var unencodedData = &quot;003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187&quot;
 
-var out = base58.encode(new Buffer(unencodedData, 'hex'));
-console.log(out); // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
+var out = bs58.encode(new Buffer(unencodedData, 'hex'))
+console.log(out) // =&gt; 16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS
 </code></pre>
 
 <h3 id="decodeinput">decode(input)</h3>
-<p><code>input</code> must be a base 58 encoded string. Returns a <a href="http://nodejs.org/api/buffer.html">Buffer</a>.</p>
+<p><code>input</code> must be a base 58 encoded string. Returns an <code>Array</code>.</p>
 <p><strong>example</strong>:</p>
-<pre class="prettyprint well"><code class="js">var base58 = require('base58');
+<pre class="prettyprint well"><code class="js">var bs58 = require('bs58')
 
-var address = &quot;16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS&quot;;
-var out = base58.decode(address)
-console.log(out.toString('hex')); // =&gt; 003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187
+var address = &quot;16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS&quot;
+var out = bs58.decode(address)
+console.log(out.toString()) // =&gt; 0,60,23,110,101,155,234,15,41,163,233,191,120,128,193,18,177,179,27,77,200,38,38,129,135
+
+//if using Node.js or browserify
+console.log(new Buffer(out).toString('hex')) // =&gt; 003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187
 </code></pre>
 
 </div>
