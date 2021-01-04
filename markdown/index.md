@@ -11,7 +11,7 @@ We believe in the Node.js and UNIX philosophy - the idea of building small compo
 
 We believe that people are more important than code and therefore it's critical to write code that is easy to read, document each module with the API and examples, and that code is the enemy [1](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/) [2](http://blog.codinghorror.com/size-is-the-enemy/).
 
-We believe that writing tests is one of the best ways to communicate expectations between developers. If documentation is a way to commuincate for a consumer of your module, then tests are a way to communicate between devleopers.
+We believe that writing tests is one of the best ways to communicate expectations between developers. If documentation is a way to commuincate for a consumer of your module, then tests are a way to communicate between developers.
 
 We have our work cut out for us.
 
